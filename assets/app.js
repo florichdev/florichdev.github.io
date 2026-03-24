@@ -119,15 +119,15 @@ const texts = {
           price: "Коммерческий проект",
           tags: ["E-commerce", "Admin Panel", "Payments"],
           shots: [
-            "./assets/images/portfolio/secretvapeshop/ГлавноеМенюБота.png",
-            "./assets/images/portfolio/secretvapeshop/МагазинБота.png",
-            "./assets/images/portfolio/secretvapeshop/РазделМагазинаБота.png",
-            "./assets/images/portfolio/secretvapeshop/Авторизация.png",
-            "./assets/images/portfolio/secretvapeshop/Главная.png",
-            "./assets/images/portfolio/secretvapeshop/Товары.png",
-            "./assets/images/portfolio/secretvapeshop/Заказы.png",
-            "./assets/images/portfolio/secretvapeshop/Пользователи.png",
-            "./assets/images/portfolio/secretvapeshop/Мобильная адаптация.png"
+            "./assets/images/portfolio/secretvapeshop/01-bot-main-menu.png",
+            "./assets/images/portfolio/secretvapeshop/02-bot-shop.png",
+            "./assets/images/portfolio/secretvapeshop/03-bot-shop-section.png",
+            "./assets/images/portfolio/secretvapeshop/04-web-auth.png",
+            "./assets/images/portfolio/secretvapeshop/05-web-main.png",
+            "./assets/images/portfolio/secretvapeshop/06-web-products.png",
+            "./assets/images/portfolio/secretvapeshop/07-web-orders.png",
+            "./assets/images/portfolio/secretvapeshop/08-web-users.png",
+            "./assets/images/portfolio/secretvapeshop/09-web-mobile.png"
           ]
         },
         { 
