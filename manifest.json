@@ -1,0 +1,22 @@
+{
+  "name": "FlorichDev - Fullstack Developer",
+  "short_name": "FlorichDev",
+  "description": "Профессиональная разработка веб-приложений, Telegram и MAX ботов",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0808",
+  "theme_color": "#d7263d",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ]
+}
