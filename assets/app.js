@@ -7,11 +7,6 @@ function shots(label) {
   return [shot(label + " · 1"), shot(label + " · 2"), shot(label + " · 3")];
 }
 
-function makeIcon(path) {
-  var p = encodeURIComponent(path);
-  return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='" + p + "'/></svg>";
-}
-
 var icons = {
   bot: "fa-solid fa-robot",
   web: "fa-solid fa-laptop-code",
@@ -21,14 +16,39 @@ var icons = {
   contact_gh: "fa-brands fa-github",
   contact_mail: "fa-solid fa-envelope",
   contact_kwork: "fa-solid fa-briefcase",
+  contact_vk: "fa-brands fa-vk",
   back: "fa-solid fa-arrow-left",
   forward: "fa-solid fa-arrow-right",
   nav_services: "fa-solid fa-briefcase",
-  nav_packages: "fa-solid fa-box",
-  nav_projects: "fa-solid fa-layer-group",
+  nav_portfolio: "fa-solid fa-layer-group",
   nav_contacts: "fa-solid fa-paper-plane",
   translate: "fa-solid fa-language",
   settings: "fa-solid fa-wand-magic-sparkles"
+};
+
+var techIcons = {
+  "HTML5": "fa-brands fa-html5",
+  "CSS3": "fa-brands fa-css3-alt",
+  "Tailwind CSS": "fa-solid fa-wind",
+  "JavaScript": "fa-brands fa-js",
+  "TypeScript": "fa-solid fa-code",
+  "React": "fa-brands fa-react",
+  "Vite": "fa-solid fa-bolt",
+  "Next.js": "fa-solid fa-n",
+  "Python": "fa-brands fa-python",
+  "Node.js": "fa-brands fa-node-js",
+  "PHP": "fa-brands fa-php",
+  "Django": "fa-solid fa-d",
+  "FastAPI": "fa-solid fa-rocket",
+  "Flask": "fa-solid fa-flask",
+  "MySQL": "fa-solid fa-database",
+  "PostgreSQL": "fa-solid fa-database",
+  "SQLite": "fa-solid fa-database",
+  "Redis": "fa-solid fa-database",
+  "Docker": "fa-brands fa-docker",
+  "Git": "fa-brands fa-git-alt",
+  "Nginx": "fa-solid fa-server",
+  "Figma": "fa-brands fa-figma"
 };
 
 var TG_TOKEN = "8314709318:AAF524Ac7LoFOjO0CQ3YduBJOoxMEp2OTsc";
@@ -56,143 +76,285 @@ function generateCaptcha() {
 
 const texts = {
   ru: {
-    nav: { services: "Услуги", packages: "Продукты", projects: "Проекты", contact: "Контакты" },
+    nav: { services: "Услуги", portfolio: "Портфолио", contact: "Контакты" },
     hero: {
       hello: "Привет, я",
-      name: "FlorichDev",
+      name: "Вадим",
       role: "Фуллстек-разработчик",
-      pitch: "Создаю ботов для Telegram и MAX, веб-приложения",
+      pitch: "Создаю ботов для Telegram и MAX, веб-сайты и приложения",
       ctaServices: "Мои услуги",
-      ctaProjects: "Мои проекты",
+      ctaPortfolio: "Портфолио",
       exp: "Опыт 3+ года",
       speed: "Быстро и качественно",
-      full: "Полный цикл: идея → запуск"
+      full: "Полный цикл",
+      fullDesc: "Идея → запуск"
     },
     about: {
       title: "Обо мне",
-      note: "19 лет, Вадим",
+      note: "",
       text: "Разрабатываю решения, которые закрывают бизнес-задачи через Telegram, MAX и веб. Беру на себя архитектуру, разработку, настройку хостинга и поддержку. Люблю понятные интерфейсы и стабильные интеграции.",
-      chips: ["Python", "Flask", "Aiogram", "PHP", "SQL", "React", "HTML/CSS", "JavaScript", "Git", "Figma", "C#"]
+      chips: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "TypeScript", "React", "Vite", "Next.js", "Python", "Node.js", "PHP", "Django", "FastAPI", "Flask", "MySQL", "PostgreSQL", "SQLite", "Redis", "Docker", "Git", "Nginx", "Figma"]
     },
     services: {
-      title: "Чем занимаюсь",
-      hint: "Просто, понятно, под ключ",
+      title: "Услуги",
+      hint: "Что я предлагаю",
       list: [
-        { title: "Чат-боты Telegram под ключ", icon: "bot", desc: "Приём заявок, ответы на вопросы, уведомления менеджеру.", stack: "Заявки · Ответы · Уведомления", tags: ["Telegram", "Leads"], shots: shots("Чат-боты Telegram") },
-        { title: "Боты для MAX", icon: "bot", desc: "Разработка ботов для мессенджера MAX: чат-боты, магазины, интеграции.", stack: "MAX API · Боты · Интеграции", tags: ["MAX", "Bots"], shots: shots("MAX боты") },
-        { title: "Бот-магазин", icon: "bot", desc: "Каталог, корзина, оплата и статусы заказов прямо в Telegram.", stack: "Каталог · Оплата · Статусы", tags: ["Shop", "Payments"], shots: shots("Бот-магазин") },
-        { title: "Сайт / лендинг", icon: "web", desc: "Страница с оффером, формой и аналитикой. Быстрый запуск.", stack: "Лендинг · Форма · Аналитика", tags: ["Site", "Leads"], shots: shots("Сайт") },
-        { title: "Панель для менеджера", icon: "web", desc: "Простая веб-панель: заявки, статусы, уведомления.", stack: "Заявки · Роли · Оповещения", tags: ["Dashboard", "Ops"], shots: shots("Панель") },
-        { title: "Интеграции и автоматизация", icon: "automation", desc: "Связать формы, чат-бота и почту/CRM. Авто-отчёты и выгрузки.", stack: "Формы · CRM · Отчёты", tags: ["Automation", "API"], shots: shots("Интеграции") },
-        { title: "Оплата и деплой", icon: "api", desc: "Подключаю оплату, домен, SSL, размещаю и проверяю работу.", stack: "Домен · SSL · Оплата", tags: ["Deploy", "Payments"], shots: shots("Деплой") }
+        { title: "Чат-боты Telegram", icon: "bot", desc: "Приём заявок, ответы на вопросы, уведомления менеджеру. Быстрая разработка под ключ.", price: "от 5000 ₽" },
+        { title: "Боты для MAX", icon: "bot", desc: "Разработка ботов для мессенджера MAX: чат-боты, магазины, интеграции с API.", price: "от 5000 ₽" },
+        { title: "Бот-магазин", icon: "bot", desc: "Каталог товаров, корзина, оплата и статусы заказов прямо в Telegram/MAX.", price: "от 15000 ₽" },
+        { title: "Сайт / лендинг", icon: "web", desc: "Страница с оффером, формой обратной связи и аналитикой. Быстрый запуск.", price: "от 5000 ₽" },
+        { title: "Админ-панель", icon: "web", desc: "Веб-панель для управления: заявки, контент, роли, статистика.", price: "от 5000 ₽" },
+        { title: "Интеграции и API", icon: "api", desc: "Связка с CRM, платежными системами, вебхуками. Автоматизация процессов.", price: "от 5000 ₽" }
       ]
     },
-    packages: {
-      title: "Пакеты",
-      hint: "Выбирайте и дополняйте",
+    portfolio: {
+      title: "Портфолио",
+      hint: "Реализованные проекты",
       list: [
-        { title: "Быстрый бот Telegram", icon: "bot", desc: "Заявки + уведомления в Telegram за 2-3 дня.", price: "от 12 000 ₽", tags: ["Telegram", "Leads"], shots: shots("Быстрый бот") },
-        { title: "Бот для MAX", icon: "bot", desc: "Разработка бота для мессенджера MAX под ваши задачи.", price: "от 15 000 ₽", tags: ["MAX", "Custom"], shots: shots("MAX бот") },
-        { title: "Бот-магазин", icon: "bot", desc: "Каталог, оплата, статусы заказов, выгрузки.", price: "от 25 000 ₽", tags: ["Payments", "CRM"], shots: shots("Бот-магазин") },
-        { title: "Сайт + домен + SSL", icon: "web", desc: "Лендинг/магазин, домен, SSL, хостинг настройка.", price: "от 18 000 ₽", tags: ["Deploy", "Domain"], shots: shots("Сайт и домен") },
-        { title: "Админ-панель", icon: "web", desc: "Панель контента/ролей с аналитикой.", price: "от 18 000 ₽", tags: ["Dashboard", "Access"], shots: shots("Админ-панель") },
-        { title: "Интеграции и API", icon: "api", desc: "Связка с CRM, платежами, вебхуками, отчётами.", price: "от 15 000 ₽", tags: ["API", "Automation"], shots: shots("Интеграции") }
+        { 
+          name: "Secret Vape Shop", 
+          icon: "bot", 
+          desc: "Полнофункциональный интернет-магазин в Telegram с веб-админ панелью. Включает каталог товаров с категориями, корзину, систему заказов, интеграцию платежей, статистику продаж и управление пользователями.",
+          stack: "Python · Aiogram 3 · SQLAlchemy · Flask · SQLite",
+          price: "Коммерческий проект",
+          tags: ["E-commerce", "Admin Panel", "Payments"],
+          shots: [
+            "./assets/images/portfolio/secretvapeshop/ГлавноеМенюБота.png",
+            "./assets/images/portfolio/secretvapeshop/МагазинБота.png",
+            "./assets/images/portfolio/secretvapeshop/РазделМагазинаБота.png",
+            "./assets/images/portfolio/secretvapeshop/Авторизация.png",
+            "./assets/images/portfolio/secretvapeshop/Главная.png",
+            "./assets/images/portfolio/secretvapeshop/Товары.png",
+            "./assets/images/portfolio/secretvapeshop/Заказы.png",
+            "./assets/images/portfolio/secretvapeshop/Пользователи.png",
+            "./assets/images/portfolio/secretvapeshop/Мобильная адаптация.png"
+          ]
+        },
+        { 
+          name: "CryptoPay", 
+          icon: "web", 
+          desc: "Веб-приложение для приёма криптовалютных платежей с Telegram ботом. Генерация QR-кодов, автоматическая обработка транзакций в Solana, система таймеров и комиссий, админ-панель в Telegram боте.",
+          stack: "Python · Flask · Aiogram · Solana · SQLite",
+          price: "Коммерческий проект",
+          tags: ["Crypto", "Web App", "Payments"],
+          shots: [
+            "./assets/images/portfolio/cryptopay/web1.png",
+            "./assets/images/portfolio/cryptopay/web2.png",
+            "./assets/images/portfolio/cryptopay/tg1.png",
+            "./assets/images/portfolio/cryptopay/tg2.png"
+          ]
+        },
+        { 
+          name: "@happshealthbot", 
+          icon: "bot", 
+          desc: "Wellness-бот для просмотра прогресса роста волос с функцией сравнения результатов до и после.",
+          stack: "Python · Aiogram · SQLite · Flask · PDF",
+          price: "Коммерческий проект",
+          tags: ["Health", "Booking", "Admin"],
+          shots: [
+            "./assets/images/portfolio/@happshealthbot/tg1.png",
+            "./assets/images/portfolio/@happshealthbot/tg2.png",
+            "./assets/images/portfolio/@happshealthbot/tg3.png"
+          ]
+        },
+        { 
+          name: "Рандомайзер & Сэйвер", 
+          icon: "bot", 
+          desc: "Комплексная система из двух ботов для MAX мессенджера с админ-панелью, боты для создания розыгрышей и скачивания видео.",
+          stack: "Python · MAX API · Flask · SQLite",
+          price: "Коммерческий проект",
+          tags: ["MAX", "Admin", "Giveaways"],
+          shots: [
+            "./assets/images/portfolio/botsmax/max1.png",
+            "./assets/images/portfolio/botsmax/max2.png",
+            "./assets/images/portfolio/botsmax/max3.png",
+            "./assets/images/portfolio/botsmax/max4.png",
+            "./assets/images/portfolio/botsmax/max5.png",
+            "./assets/images/portfolio/botsmax/max6.png",
+            "./assets/images/portfolio/botsmax/web1.png",
+            "./assets/images/portfolio/botsmax/web2.png",
+            "./assets/images/portfolio/botsmax/web3.png",
+            "./assets/images/portfolio/botsmax/web4.png",
+            "./assets/images/portfolio/botsmax/web5.png",
+            "./assets/images/portfolio/botsmax/web6.png",
+            "./assets/images/portfolio/botsmax/web7.png"
+          ]
+        },
+        { 
+          name: "Бот Таролог", 
+          icon: "bot", 
+          desc: "Бот для MAX и Telegram с функциями таро-раскладов и консультаций. Веб-админ панель на Flask.",
+          stack: "Python · MAX API · Telegram API · Flask · SQLite",
+          price: "Коммерческий проект",
+          tags: ["MAX", "Telegram", "Integration"],
+          shots: [
+            "./assets/images/portfolio/BotsTaro/max1.png",
+            "./assets/images/portfolio/BotsTaro/max2.png",
+            "./assets/images/portfolio/BotsTaro/max3.png",
+            "./assets/images/portfolio/BotsTaro/max4.png",
+            "./assets/images/portfolio/BotsTaro/max5.png",
+            "./assets/images/portfolio/BotsTaro/tgweb.png",
+            "./assets/images/portfolio/BotsTaro/web1.png",
+            "./assets/images/portfolio/BotsTaro/web2.png",
+            "./assets/images/portfolio/BotsTaro/web3.png",
+            "./assets/images/portfolio/BotsTaro/web4.png",
+            "./assets/images/portfolio/BotsTaro/web5.png",
+            "./assets/images/portfolio/BotsTaro/web6.png"
+          ]
+        },
+
       ]
-    },
-    projects: {
-      title: "Проекты и направления",
-      hint: "Примеры задач",
-      list: [
-        { name: "Саппорт-бот", icon: "bot", task: "Приём заявок, очередь, напоминания менеджеру.", stack: "Заявки · Очередь · Оповещения", role: "Построение сценариев, сборка, развертывание.", tags: ["Support", "Leads"], shots: shots("Саппорт бот") },
-        { name: "Бот-магазин", icon: "bot", task: "Каталог, корзина, оплата, статусы заказов.", stack: "Каталог · Оплата · Статусы", role: "Проектирование, настройка оплат, аналитика.", tags: ["Shop", "Payments"], shots: shots("Бот-магазин проект") },
-        { name: "Веб-панель", icon: "web", task: "Заявки, роли, уведомления в одном месте.", stack: "Роли · Заявки · Уведомления", role: "Структура данных, интерфейс, запуск.", tags: ["Dashboard", "Ops"], shots: shots("Админ панель контента") },
-        { name: "Лендинг + домен", icon: "web", task: "Страница оффера с формой, домен, SSL и мониторинг.", stack: "Лендинг · Домен · SSL", role: "Сборка, подключение домена, проверка форм.", tags: ["Site", "Deploy"], shots: shots("Интернет магазин проект") }
-      ],
-      link: "Код и демо доступны по запросу"
     },
     contacts: {
       title: "Контакты",
+      hint: "Свяжитесь со мной",
       tg: "Telegram",
       gh: "GitHub",
       mail: "Почта",
+      kwork: "Kwork",
       prompt: "Открыт к сотрудничеству"
-    },
-    stack: {
-      title: "Стек",
-      sub: "Backend · Frontend · Tools",
-      chips: ["Python", "Flask", "Aiogram", "PHP", "SQL", "React", "HTML/CSS", "JavaScript", "Git", "Figma", "C#"],
-      focus: ["Боты и API", "Парсинг", "Деплой на Linux", "Платежи", "Админ-панели"]
     },
     footer: "Создано для себя и клиентов",
     langToggle: "EN"
   },
   en: {
-    nav: { services: "Services", packages: "Products", projects: "Projects", contact: "Contacts" },
+    nav: { services: "Services", portfolio: "Portfolio", contact: "Contacts" },
     hero: {
       hello: "Hi, I'm",
-      name: "FlorichDev",
+      name: "Vadim",
       role: "Fullstack Developer",
       pitch: "I build bots for Telegram & MAX, and web apps end-to-end",
       ctaServices: "Services",
-      ctaProjects: "Projects",
+      ctaPortfolio: "Portfolio",
       exp: "3+ years experience",
       speed: "Fast and precise",
-      full: "Full cycle: idea → launch"
+      full: "Full cycle",
+      fullDesc: "Idea → launch"
     },
     about: {
       title: "About me",
-      note: "19 y.o., Vadim",
+      note: "",
       text: "I build solutions that solve business tasks via Telegram, MAX and the web. I own architecture, development, hosting setup, and support. I care about clear UX and stable integrations.",
-      chips: ["Python", "Flask", "Aiogram", "PHP", "SQL", "React", "HTML/CSS", "JavaScript", "Git", "Figma", "C#"]
+      chips: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "TypeScript", "React", "Vite", "Next.js", "Python", "Node.js", "PHP", "Django", "FastAPI", "Flask", "MySQL", "PostgreSQL", "SQLite", "Redis", "Docker", "Git", "Nginx", "Figma"]
     },
     services: {
       title: "Services",
-      hint: "Plain, fast, end-to-end",
+      hint: "What I offer",
       list: [
-        { title: "Telegram bots", icon: "bot", desc: "Leads, FAQ, manager alerts — no extra complexity.", stack: "Leads · FAQ · Alerts", tags: ["Telegram", "Leads"], shots: shots("Telegram bots") },
-        { title: "MAX bots", icon: "bot", desc: "Custom bots for MAX messenger: chat-bots, shops, integrations.", stack: "MAX API · Bots · Integrations", tags: ["MAX", "Bots"], shots: shots("MAX bots") },
-        { title: "Shop bot", icon: "bot", desc: "Catalog, cart, payment and order statuses inside Telegram.", stack: "Catalog · Payment · Statuses", tags: ["Shop", "Payments"], shots: shots("Shop bot") },
-        { title: "Landing / site", icon: "web", desc: "Offer page with form, analytics and quick edits.", stack: "Landing · Form · Analytics", tags: ["Site", "Leads"], shots: shots("Landing") },
-        { title: "Manager dashboard", icon: "web", desc: "Simple web panel for requests, roles and notifications.", stack: "Requests · Roles · Alerts", tags: ["Dashboard", "Ops"], shots: shots("Dashboard") },
-        { title: "Integrations & automation", icon: "automation", desc: "Connect forms, bot and email/CRM. Auto reports and exports.", stack: "Forms · CRM · Reports", tags: ["Automation", "API"], shots: shots("Integrations") },
-        { title: "Payments & deploy", icon: "api", desc: "Payment hookup, domain, SSL, hosting and smoke tests.", stack: "Domain · SSL · Payment", tags: ["Deploy", "Payments"], shots: shots("Deploy") }
+        { title: "Telegram bots", icon: "bot", desc: "Leads intake, FAQ, manager alerts. Fast end-to-end development.", price: "from $100" },
+        { title: "MAX bots", icon: "bot", desc: "Custom bots for MAX messenger: chat-bots, shops, API integrations.", price: "from $200" },
+        { title: "Shop bot", icon: "bot", desc: "Product catalog, cart, payment and order statuses inside Telegram/MAX.", price: "from $100" },
+        { title: "Landing / site", icon: "web", desc: "Offer page with form, analytics and quick launch.", price: "from $100" },
+        { title: "Admin panel", icon: "web", desc: "Web dashboard for management: requests, content, roles, stats.", price: "from $100" },
+        { title: "Integrations & API", icon: "api", desc: "Connect with CRM, payments, webhooks. Process automation.", price: "from $100" }
       ]
     },
-    packages: {
-      title: "Products and bundles",
-      hint: "Add or edit blocks fast",
+    portfolio: {
+      title: "Portfolio",
+      hint: "Completed projects",
       list: [
-        { title: "Telegram starter bot", icon: "bot", desc: "Leads intake, buttons, channel alerts.", price: "from $130", tags: ["Telegram", "Quick"], shots: shots("Starter bot") },
-        { title: "MAX bot", icon: "bot", desc: "Custom bot for MAX messenger tailored to your needs.", price: "from $160", tags: ["MAX", "Custom"], shots: shots("MAX bot") },
-        { title: "Shop bot", icon: "bot", desc: "Catalog, checkout, payment, manager alerts.", price: "from $270", tags: ["Payments", "CRM"], shots: shots("Shop bot") },
-        { title: "Admin panel", icon: "web", desc: "Web dashboard for content, roles, analytics.", price: "from $190", tags: ["Dashboard", "React"], shots: shots("Admin panel") },
-        { title: "Integrations/API", icon: "api", desc: "CRM links, payments, webhooks, reports.", price: "from $160", tags: ["API", "Automation"], shots: shots("Integrations") }
+        { 
+          name: "Secret Vape Shop", 
+          icon: "bot", 
+          desc: "Full-featured e-commerce store in Telegram with web admin panel. Includes product catalog with categories, shopping cart, order system, payment integration, sales statistics and user management.",
+          stack: "Python · Aiogram 3 · SQLAlchemy · Flask · SQLite",
+          price: "Commercial project",
+          tags: ["E-commerce", "Admin Panel", "Payments"],
+          shots: [
+            "./assets/images/portfolio/secretvapeshop/ГлавноеМенюБота.png",
+            "./assets/images/portfolio/secretvapeshop/МагазинБота.png",
+            "./assets/images/portfolio/secretvapeshop/РазделМагазинаБота.png",
+            "./assets/images/portfolio/secretvapeshop/Авторизация.png",
+            "./assets/images/portfolio/secretvapeshop/Главная.png",
+            "./assets/images/portfolio/secretvapeshop/Товары.png",
+            "./assets/images/portfolio/secretvapeshop/Заказы.png",
+            "./assets/images/portfolio/secretvapeshop/Пользователи.png",
+            "./assets/images/portfolio/secretvapeshop/Мобильная адаптация.png"
+          ]
+        },
+        { 
+          name: "CryptoPay", 
+          icon: "web", 
+          desc: "Web application for accepting cryptocurrency payments with Telegram bot. QR code generation, automatic Solana transaction processing, timer and commission system, admin panel in Telegram bot.",
+          stack: "Python · Flask · Aiogram · Solana · SQLite",
+          price: "Commercial project",
+          tags: ["Crypto", "Web App", "Payments"],
+          shots: [
+            "./assets/images/portfolio/cryptopay/web1.png",
+            "./assets/images/portfolio/cryptopay/web2.png",
+            "./assets/images/portfolio/cryptopay/tg1.png",
+            "./assets/images/portfolio/cryptopay/tg2.png"
+          ]
+        },
+        { 
+          name: "@happshealthbot", 
+          icon: "bot", 
+          desc: "Wellness bot for tracking hair growth progress with before and after comparison feature.",
+          stack: "Python · Aiogram · SQLite · Flask · PDF",
+          price: "Commercial project",
+          tags: ["Health", "Booking", "Admin"],
+          shots: [
+            "./assets/images/portfolio/@happshealthbot/tg1.png",
+            "./assets/images/portfolio/@happshealthbot/tg2.png",
+            "./assets/images/portfolio/@happshealthbot/tg3.png"
+          ]
+        },
+        { 
+          name: "Randomizer & Saver", 
+          icon: "bot", 
+          desc: "Complex system of two bots for MAX messenger with admin panel, bots for creating giveaways and downloading videos.",
+          stack: "Python · MAX API · Flask · SQLite",
+          price: "Commercial project",
+          tags: ["MAX", "Admin", "Giveaways"],
+          shots: [
+            "./assets/images/portfolio/botsmax/max1.png",
+            "./assets/images/portfolio/botsmax/max2.png",
+            "./assets/images/portfolio/botsmax/max3.png",
+            "./assets/images/portfolio/botsmax/max4.png",
+            "./assets/images/portfolio/botsmax/max5.png",
+            "./assets/images/portfolio/botsmax/max6.png",
+            "./assets/images/portfolio/botsmax/web1.png",
+            "./assets/images/portfolio/botsmax/web2.png",
+            "./assets/images/portfolio/botsmax/web3.png",
+            "./assets/images/portfolio/botsmax/web4.png",
+            "./assets/images/portfolio/botsmax/web5.png",
+            "./assets/images/portfolio/botsmax/web6.png",
+            "./assets/images/portfolio/botsmax/web7.png"
+          ]
+        },
+        { 
+          name: "Tarot Bot", 
+          icon: "bot", 
+          desc: "Bot for MAX and Telegram with tarot reading features and consultations. Flask web admin panel.",
+          stack: "Python · MAX API · Telegram API · Flask · SQLite",
+          price: "Commercial project",
+          tags: ["MAX", "Telegram", "Integration"],
+          shots: [
+            "./assets/images/portfolio/BotsTaro/max1.png",
+            "./assets/images/portfolio/BotsTaro/max2.png",
+            "./assets/images/portfolio/BotsTaro/max3.png",
+            "./assets/images/portfolio/BotsTaro/max4.png",
+            "./assets/images/portfolio/BotsTaro/max5.png",
+            "./assets/images/portfolio/BotsTaro/tgweb.png",
+            "./assets/images/portfolio/BotsTaro/web1.png",
+            "./assets/images/portfolio/BotsTaro/web2.png",
+            "./assets/images/portfolio/BotsTaro/web3.png",
+            "./assets/images/portfolio/BotsTaro/web4.png",
+            "./assets/images/portfolio/BotsTaro/web5.png",
+            "./assets/images/portfolio/BotsTaro/web6.png"
+          ]
+        },
+
       ]
-    },
-    projects: {
-      title: "Projects and focus",
-      hint: "Sample tasks",
-      list: [
-        { name: "Support bot", icon: "bot", task: "Intake, queue and reminders for managers.", stack: "Intake · Queue · Alerts", role: "Flows, build, deploy.", tags: ["Support", "Leads"], shots: shots("Support chatbot") },
-        { name: "Shop bot", icon: "bot", task: "Catalog, cart, payment, order statuses.", stack: "Catalog · Payment · Statuses", role: "Flow, payments, analytics.", tags: ["E-commerce", "Payments"], shots: shots("Shop bot") },
-        { name: "Web dashboard", icon: "web", task: "Requests, roles and notifications in one place.", stack: "Roles · Requests · Alerts", role: "Data, UI, launch.", tags: ["Dashboard", "Ops"], shots: shots("Admin panel") },
-        { name: "Landing + domain", icon: "web", task: "Offer page with form, domain, SSL and monitoring.", stack: "Landing · Domain · SSL", role: "Build, domain hookup, form checks.", tags: ["Site", "Deploy"], shots: shots("E-commerce site") }
-      ],
-      link: "Code and demos available on request"
     },
     contacts: {
       title: "Contacts",
-      hint: "Choose any channel",
+      hint: "Get in touch",
       tg: "Telegram",
       gh: "GitHub",
       mail: "Email",
+      kwork: "Kwork",
       prompt: "Open to collaborate"
-    },
-    stack: {
-      title: "Stack",
-      sub: "Backend · Frontend · Tools",
-      chips: ["Python", "Flask", "Aiogram", "PHP", "SQL", "React", "HTML/CSS", "JavaScript", "Git", "Figma", "C#"],
-      focus: ["Bots and API", "Parsing", "Linux deploy", "Payments", "Admin panels"]
     },
     footer: "Built for myself and clients",
     langToggle: "RU"
@@ -211,16 +373,13 @@ function Header(props) {
       h("div", { className: navClass }, [
         h("a", { href: "#services", key: "services", onClick: function onClick(e) {
             return props.onNavigate(e, "services");
-          }, title: props.labels.nav.services, "aria-label": props.labels.nav.services }, h("i", { className: icons.nav_services })),
-        h("a", { href: "#packages", key: "packages", onClick: function onClick(e) {
-            return props.onNavigate(e, "packages");
-          }, title: props.labels.nav.packages, "aria-label": props.labels.nav.packages }, h("i", { className: icons.nav_packages })),
-        h("a", { href: "#projects", key: "projects", onClick: function onClick(e) {
-            return props.onNavigate(e, "projects");
-          }, title: props.labels.nav.projects, "aria-label": props.labels.nav.projects }, h("i", { className: icons.nav_projects })),
+          }, title: props.labels.services, "aria-label": props.labels.services }, h("i", { className: icons.nav_services })),
+        h("a", { href: "#portfolio", key: "portfolio", onClick: function onClick(e) {
+            return props.onNavigate(e, "portfolio");
+          }, title: props.labels.portfolio, "aria-label": props.labels.portfolio }, h("i", { className: icons.nav_portfolio })),
         h("a", { href: "#contacts", key: "contacts", onClick: function onClick(e) {
             return props.onNavigate(e, "contacts");
-          }, title: props.labels.nav.contact, "aria-label": props.labels.nav.contact }, h("i", { className: icons.nav_contacts })),
+          }, title: props.labels.contact, "aria-label": props.labels.contact }, h("i", { className: icons.nav_contacts })),
         h("button", { className: "icon-btn", onClick: props.onToggleEffects, title: props.effectsOn ? "Выключить эффекты" : "Включить эффекты", "aria-label": "Эффекты" }, h("i", { className: icons.settings })),
         h("button", { className: "lang", onClick: props.onLang, title: "Language", "aria-label": "Language" }, h("i", { className: icons.translate }))
       ]),
@@ -235,7 +394,7 @@ function Hero(props) {
       h("div", { className: "tagline" }, `${props.data.hero.hello} ${props.data.hero.name}`),
       h("h1", null, [
         props.data.hero.role,
-        " ",
+        h("br"),
         h("span", null, props.data.hero.pitch)
       ]),
       h("p", null, props.data.about.text),
@@ -244,10 +403,10 @@ function Hero(props) {
             e.preventDefault();
             props.onScroll("services");
           } }, props.data.hero.ctaServices),
-        h("a", { className: "btn", href: "#projects", onClick: function onClick(e) {
+        h("a", { className: "btn", href: "#portfolio", onClick: function onClick(e) {
             e.preventDefault();
-            props.onScroll("projects");
-          } }, props.data.hero.ctaProjects)
+            props.onScroll("portfolio");
+          } }, props.data.hero.ctaPortfolio)
       ]),
       h("div", { className: "stats" }, [
         h("div", { className: "stat" }, [
@@ -255,8 +414,8 @@ function Hero(props) {
           h("span", null, props.data.hero.speed)
         ]),
         h("div", { className: "stat" }, [
-          h("strong", null, "FlorichDev"),
-          h("span", null, props.data.hero.full)
+          h("strong", null, props.data.hero.full),
+          h("span", null, props.data.hero.fullDesc)
         ])
       ])
     ]),
@@ -268,7 +427,10 @@ function Hero(props) {
       h("p", { className: "text" }, props.data.about.text),
       h("div", { className: "badge-row" },
         props.data.about.chips.map(function (item) {
-          return h("div", { className: "badge", key: item }, item);
+          return h("div", { className: "badge", key: item }, [
+            techIcons[item] ? h("i", { className: techIcons[item], style: { marginRight: "6px" } }) : null,
+            item
+          ]);
         })
       )
     ])
@@ -283,47 +445,40 @@ function Services(props) {
     ]),
     h("div", { className: "grid two" },
       props.data.services.list.map(function (item) {
-        return h("div", { className: "card", key: item.title, onClick: function onClick() {
-          return props.onOpen(item);
-        } }, [
+        return h("div", { className: "card service-card", key: item.title }, [
           item.icon ? h("div", { className: "card-icon" }, h("i", { className: icons[item.icon] })) : null,
           h("h3", { className: "project-title" }, item.title),
           h("p", { className: "text" }, item.desc),
-          h("div", { className: "chip-list" },
-            item.tags.map(function (tag) {
-              return h("span", { className: "chip", key: tag }, tag);
-            })
-          ),
-          h("div", { className: "badge-row" },
-            item.stack.split(",").map(function (el) {
-              return h("div", { className: "badge", key: el }, el.trim());
-            })
-          )
+          h("div", { className: "badge-row" }, [
+            h("div", { className: "badge price-badge" }, item.price)
+          ])
         ]);
       })
     )
   ]);
 }
 
-function Packages(props) {
-  return h("section", { id: "packages", className: "panel animate-right", "data-animate": "right" }, [
+function Portfolio(props) {
+  return h("section", { id: "portfolio", className: "panel animate-right", "data-animate": "right" }, [
     h("div", { className: "title-line" }, [
-      h("h2", null, props.data.packages.title),
-      h("span", null, props.data.packages.hint)
+      h("h2", null, props.data.portfolio.title),
+      h("span", null, props.data.portfolio.hint)
     ]),
-    h("div", { className: "grid two" },
-      props.data.packages.list.map(function (item) {
-        return h("div", { className: "card", key: item.title, onClick: function onClick() {
+    h("div", { className: "projects-grid" },
+      props.data.portfolio.list.map(function (item) {
+        return h("div", { className: "card portfolio-card", key: item.name, onClick: function onClick() {
           return props.onOpen(item);
         } }, [
           item.icon ? h("div", { className: "card-icon" }, h("i", { className: icons[item.icon] })) : null,
-          h("h3", { className: "project-title" }, item.title),
+          h("h3", { className: "project-title" }, item.name),
           h("p", { className: "text" }, item.desc),
+          h("div", { className: "project-stack" }, item.stack),
           h("div", { className: "chip-list" },
             item.tags.map(function (tag) {
               return h("span", { className: "chip", key: tag }, tag);
             })
           ),
+          h("div", { className: "divider" }),
           h("div", { className: "badge-row" }, [
             h("div", { className: "badge" }, item.price)
           ])
@@ -333,96 +488,22 @@ function Packages(props) {
   ]);
 }
 
-function Projects(props) {
-  return h("section", { id: "projects", className: "panel animate-left", "data-animate": "left" }, [
-    h("div", { className: "title-line" }, [
-      h("h2", null, props.data.projects.title),
-      h("span", null, props.data.projects.hint)
-    ]),
-    h("div", { className: "projects-grid" },
-      props.data.projects.list.map(function (item) {
-        return h("div", { className: "card", key: item.name, onClick: function onClick() {
-          return props.onOpen(item);
-        } }, [
-          item.icon ? h("div", { className: "card-icon" }, h("i", { className: icons[item.icon] })) : null,
-          h("h3", { className: "project-title" }, item.name),
-          h("p", { className: "project-meta" }, item.task),
-          h("div", { className: "project-stack" }, item.stack),
-          h("p", { className: "text" }, item.role),
-          h("div", { className: "chip-list" },
-            item.tags.map(function (tag) {
-              return h("span", { className: "chip", key: tag }, tag);
-            })
-          ),
-          h("div", { className: "divider" }),
-          h("div", { className: "link-btn" }, [
-            h("span", null, "↗"),
-            h("span", null, props.data.projects.link)
-          ])
-        ]);
-      })
-    )
-  ]);
-}
-
 function Contacts(props) {
-  return h("section", { id: "contacts", className: "panel contacts animate-right", "data-animate": "right" }, [
-    h("div", { className: "contact-card" }, [
-      h("div", { className: "title-line" }, [
-        h("h2", null, props.data.contacts.title),
-        h("span", null, props.data.contacts.hint)
-      ]),
-      h("div", { className: "contact-icons" }, [
+  return h("section", { id: "contacts", className: "panel contacts animate-left", "data-animate": "left", style: { display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" } }, [
+    h("div", { style: { textAlign: "center", marginBottom: "32px" } }, [
+      h("h2", null, props.data.contacts.title)
+    ]),
+    h("div", { className: "contact-card", style: { maxWidth: "600px", width: "100%" } }, [
+      h("div", { className: "contact-icons", style: { justifyContent: "center" } }, [
         h("a", { className: "contact-circle", href: "https://t.me/florichdev", target: "_blank", rel: "noreferrer", title: "Telegram", "aria-label": "Telegram" }, h("i", { className: icons.contact_tg })),
         h("a", { className: "contact-circle", href: "https://github.com/florichdev", target: "_blank", rel: "noreferrer", title: "GitHub", "aria-label": "GitHub" }, h("i", { className: icons.contact_gh })),
+        h("a", { className: "contact-circle", href: "https://vk.com/florichdev", target: "_blank", rel: "noreferrer", title: "VK", "aria-label": "VK" }, h("i", { className: icons.contact_vk })),
         h("a", { className: "contact-circle", href: "mailto:florichdev@gmail.com", title: "Email", "aria-label": "Email" }, h("i", { className: icons.contact_mail })),
         h("a", { className: "contact-circle", href: "https://kwork.ru/user/florichdev", target: "_blank", rel: "noreferrer", title: "Kwork", "aria-label": "Kwork" }, h("i", { className: icons.contact_kwork }))
       ]),
-      h("div", { className: "form-actions", style: { marginTop: 12 } }, [
-        h("p", { className: "text" }, props.data.contacts.prompt)
-      ])
-    ]),
-    h("div", { className: "panel floating", style: { minHeight: "100%" } }, [
-      h("form", { className: "form-grid", onSubmit: props.onSubmit }, [
-        h("div", { className: "field" }, [
-          h("label", null, props.lang === "ru" ? "Имя" : "Name"),
-          h("input", { type: "text", value: props.formData.name, onChange: function onChange(e) {
-              return props.onChange("name", e.target.value);
-            }, placeholder: props.lang === "ru" ? "Ваше имя" : "Your name", autoComplete: "name" })
-        ]),
-        h("div", { className: "field" }, [
-          h("label", null, props.lang === "ru" ? "Контакт" : "Contact"),
-          h("input", { type: "text", value: props.formData.contact, onChange: function onChange(e) {
-              return props.onChange("contact", e.target.value);
-            }, placeholder: props.lang === "ru" ? "Телеграм или email" : "Telegram or email", autoComplete: "email" })
-        ]),
-        h("div", { className: "field" }, [
-          h("label", null, props.lang === "ru" ? "Описание проекта" : "Project description"),
-          h("textarea", { rows: 4, value: props.formData.desc, onChange: function onChange(e) {
-              return props.onChange("desc", e.target.value);
-            }, placeholder: props.lang === "ru" ? "Кратко о задаче" : "Describe your project" })
-        ]),
-        h("div", { className: "field" }, [
-          h("label", null, props.lang === "ru" ? "Капча" : "Captcha"),
-          h("div", { className: "captcha-row" }, [
-            h("span", { className: "badge" }, props.captcha.question),
-            h("input", {
-              type: "text",
-              inputMode: "numeric",
-              value: props.captchaInput,
-              onChange: function onChange(e) {
-                return props.onCaptchaInput(e.target.value);
-              },
-              placeholder: props.lang === "ru" ? "Ответ" : "Answer",
-              "aria-label": props.lang === "ru" ? "Ответ на капчу" : "Captcha answer"
-            }),
-            h("button", { className: "btn", type: "button", onClick: props.onRefreshCaptcha }, props.lang === "ru" ? "Обновить" : "Refresh")
-          ])
-        ]),
-        h("div", { className: "form-actions" }, [
-          h("button", { className: "btn primary", type: "submit", disabled: props.sending }, props.sending ? (props.lang === "ru" ? "Отправка..." : "Sending...") : (props.lang === "ru" ? "Отправить" : "Send")),
-          props.formStatus ? h("span", { className: "status" }, props.formStatus) : null
-        ])
+      h("div", { style: { marginTop: "24px", display: "flex", flexDirection: "column", gap: "8px", alignItems: "center" } }, [
+        h("p", { className: "text", style: { textAlign: "center" } }, props.data.contacts.prompt),
+        h("p", { className: "text", style: { textAlign: "center", fontSize: "14px", opacity: 0.8 } }, props.lang === "ru" ? "График работы: 8:00 - 22:00" : "Working hours: 8:00 AM - 10:00 PM")
       ])
     ])
   ]);
@@ -435,6 +516,7 @@ function Footer(props) {
     h("div", { className: "contact-links" }, [
       h("a", { href: "https://t.me/florichdev", target: "_blank", rel: "noreferrer", title: "Telegram", "aria-label": "Telegram" }, h("i", { className: icons.contact_tg })),
       h("a", { href: "https://github.com/florichdev", target: "_blank", rel: "noreferrer", title: "GitHub", "aria-label": "GitHub" }, h("i", { className: icons.contact_gh })),
+      h("a", { href: "https://vk.com/florichdev", target: "_blank", rel: "noreferrer", title: "VK", "aria-label": "VK" }, h("i", { className: icons.contact_vk })),
       h("a", { href: "mailto:florichdev@gmail.com", title: "Email", "aria-label": "Email" }, h("i", { className: icons.contact_mail })),
       h("a", { href: "https://kwork.ru/user/florichdev", target: "_blank", rel: "noreferrer", title: "Kwork", "aria-label": "Kwork" }, h("i", { className: icons.contact_kwork }))
     ])
@@ -454,11 +536,12 @@ function Modal(props) {
     return null;
   }
   var image = props.item.shots[props.index] || props.item.shots[0];
-  var title = props.item.title || props.item.name;
-  var desc = props.item.desc || props.item.task || "";
-  var role = props.item.role || "";
+  var title = props.item.name;
+  var desc = props.item.desc || "";
   var stack = props.item.stack || "";
+  var price = props.item.price || "";
   var closeLabel = props.lang === "ru" ? "Закрыть" : "Close";
+  var contactLabel = props.lang === "ru" ? "Связаться" : "Contact";
   return h("div", { className: "modal-backdrop", onClick: props.onClose },
     h("div", { className: "modal", onClick: function onClick(e) {
       return e.stopPropagation();
@@ -485,23 +568,18 @@ function Modal(props) {
         ]),
         h("div", { className: "modal-meta" }, [
           desc ? h("p", { className: "text" }, desc) : null,
-          role ? h("p", { className: "text" }, role) : null,
-          stack ? h("div", { className: "chip-list" },
-            stack.split(",").map(function (el) {
-              return h("div", { className: "badge", key: el }, el.trim());
-            })
-          ) : null,
+          stack ? h("div", { className: "project-stack" }, stack) : null,
           props.item.tags ? h("div", { className: "chip-list" },
             props.item.tags.map(function (tag) {
               return h("span", { className: "chip", key: tag }, tag);
             })
           ) : null,
-          props.item.price ? h("div", { className: "badge-row" }, [
-            h("div", { className: "badge" }, props.item.price)
+          price ? h("div", { className: "badge-row" }, [
+            h("div", { className: "badge" }, price)
           ]) : null
         ]),
         h("div", { className: "modal-actions" }, [
-          h("a", { className: "btn primary", href: TG_CONTACT_LINK, target: "_blank", rel: "noreferrer" }, props.contactLabel),
+          h("a", { className: "btn primary", href: TG_CONTACT_LINK, target: "_blank", rel: "noreferrer" }, contactLabel),
           h("button", { className: "btn", onClick: props.onClose }, closeLabel)
         ])
       ])
@@ -542,6 +620,7 @@ function App() {
   var _React$useState11 = React.useState(true),
     effectsOn = _React$useState11[0],
     setEffectsOn = _React$useState11[1];
+
   React.useEffect(function () {
     if (!IS_HTTP || !(window && window.location && window.history)) {
       return;
@@ -572,64 +651,37 @@ function App() {
   }, []);
 
   React.useEffect(function () {
+    if (!effectsOn) return undefined;
     var dot = document.querySelector(".cursor-dot");
     var single = document.querySelector(".cursor-trail");
-    if (!single) {
-      single = document.createElement("div");
-      single.className = "cursor-trail";
-      document.body.appendChild(single);
-    }
-    var inactivityTimer = null;
-
-    function scheduleFade() {
-      if (inactivityTimer) {
-        clearTimeout(inactivityTimer);
-      }
-      inactivityTimer = setTimeout(function () {
-        if (single) single.style.opacity = "0";
-      }, TRAIL_SETTINGS.inactivityTimeout);
-    }
-
-    var move = function move(e) {
-      if (e.pointerType && e.pointerType !== "mouse") {
-        if (dot) dot.style.opacity = "0";
-        if (single) single.style.opacity = "0";
-        return;
-      }
-      if (!effectsOn) {
-        if (dot) dot.style.opacity = "0";
-        if (single) single.style.opacity = "0";
-        return;
-      }
-      if (dot) {
-        dot.style.opacity = "1";
-        dot.style.transform = "translate(".concat(e.clientX, "px, ").concat(e.clientY, "px)");
-      }
+    if (!dot) return undefined;
+    var lastX = 0;
+    var lastY = 0;
+    var lastTime = Date.now();
+    var handler = function handler(e) {
+      lastX = e.clientX;
+      lastY = e.clientY;
+      lastTime = Date.now();
+      dot.style.left = e.clientX + "px";
+      dot.style.top = e.clientY + "px";
+      dot.style.opacity = "1";
       if (single) {
-        var size = TRAIL_SETTINGS.size;
-        single.style.opacity = "1";
-        single.style.width = "".concat(size, "px");
-        single.style.height = "".concat(size, "px");
-        single.style.left = "".concat(e.clientX - size / 2, "px");
-        single.style.top = "".concat(e.clientY - size / 2, "px");
+        single.style.left = e.clientX + "px";
+        single.style.top = e.clientY + "px";
+        single.style.opacity = "0.6";
       }
-      scheduleFade();
     };
-
-    window.addEventListener("pointermove", move);
-    window.addEventListener("mousemove", move);
-    if (dot) dot.style.opacity = effectsOn ? "1" : "0";
-    if (single) single.style.opacity = effectsOn ? "1" : "0";
-
+    var checkInactive = function checkInactive() {
+      if (Date.now() - lastTime > TRAIL_SETTINGS.inactivityTimeout) {
+        dot.style.opacity = "0";
+        if (single) single.style.opacity = "0";
+      }
+    };
+    var interval = setInterval(checkInactive, 500);
+    document.addEventListener("mousemove", handler);
     return function () {
-      window.removeEventListener("pointermove", move);
-      window.removeEventListener("mousemove", move);
-      if (inactivityTimer) {
-        clearTimeout(inactivityTimer);
-      }
-      if (single) {
-        single.remove();
-      }
+      document.removeEventListener("mousemove", handler);
+      clearInterval(interval);
     };
   }, [effectsOn]);
 
@@ -644,71 +696,61 @@ function App() {
   React.useEffect(function () {
     var pre = document.getElementById("preloader");
     var timer;
-    var timer2;
     if (pre) {
       timer = setTimeout(function () {
-        pre.classList.add("hidden");
-      }, 700);
-      timer2 = setTimeout(function () {
-        pre.style.display = "none";
-      }, 1300);
+        pre.style.opacity = "0";
+        setTimeout(function () {
+          pre.style.display = "none";
+        }, 300);
+      }, 800);
     }
     return function () {
-      if (timer) clearTimeout(timer);
-      if (timer2) clearTimeout(timer2);
+      clearTimeout(timer);
     };
   }, []);
 
   React.useEffect(function () {
+    if (!effectsOn) return undefined;
     var canvas = document.getElementById("matrix");
     if (!canvas) return undefined;
     var ctx = canvas.getContext("2d");
-    var w = 0;
-    var hgt = 0;
-    var cols = 0;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    var chars = "01";
+    var fontSize = 14;
+    var columns = Math.floor(canvas.width / fontSize);
     var drops = [];
-    var chars = "10100111001";
-    var fontSize = 16;
-    var id;
-    function resize() {
-      w = canvas.width = window.innerWidth;
-      hgt = canvas.height = window.innerHeight;
-      cols = Math.floor(w / fontSize);
-      drops = Array(cols).fill(0).map(function () {
-        return Math.random() * (hgt / fontSize);
-      });
+    for (var i = 0; i < columns; i++) {
+      drops[i] = Math.random() * -100;
     }
     function draw() {
-      if (!effectsOn) {
-        ctx.clearRect(0, 0, w, hgt);
-        return;
-      }
-      ctx.fillStyle = "rgba(9, 8, 13, 0.12)";
-      ctx.fillRect(0, 0, w, hgt);
-      ctx.fillStyle = "rgba(215, 38, 61, 0.6)";
-      ctx.font = fontSize + "px RFDewi, Montserrat, sans-serif";
-      drops.forEach(function (y, i) {
+      ctx.fillStyle = "rgba(10, 10, 15, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(215, 38, 61, 0.5)";
+      ctx.font = fontSize + "px monospace";
+      for (var i = 0; i < drops.length; i++) {
         var text = chars[Math.floor(Math.random() * chars.length)];
-        var x = i * fontSize;
-        ctx.fillText(text, x, y * fontSize);
-        if (y * fontSize > hgt && Math.random() > 0.995) {
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
           drops[i] = 0;
-        } else {
-          drops[i] = y + 0.25;
         }
-      });
+        drops[i]++;
+      }
     }
-    function loop() {
-      draw();
-      id = requestAnimationFrame(loop);
-    }
-    resize();
-    loop();
-    window.addEventListener("resize", resize);
+    var interval = setInterval(draw, 50);
+    var onResize = function onResize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = [];
+      for (var i = 0; i < columns; i++) {
+        drops[i] = Math.random() * -100;
+      }
+    };
+    window.addEventListener("resize", onResize);
     return function () {
-      cancelAnimationFrame(id);
-      window.removeEventListener("resize", resize);
-      ctx.clearRect(0, 0, w, hgt);
+      clearInterval(interval);
+      window.removeEventListener("resize", onResize);
     };
   }, [effectsOn]);
 
@@ -716,11 +758,12 @@ function App() {
     var esc = function esc(e) {
       if (e.key === "Escape") {
         setModalItem(null);
+        setNavOpen(false);
       }
     };
-    window.addEventListener("keydown", esc);
+    document.addEventListener("keydown", esc);
     return function () {
-      window.removeEventListener("keydown", esc);
+      document.removeEventListener("keydown", esc);
     };
   }, []);
 
@@ -748,11 +791,9 @@ function App() {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-        } else {
-          entry.target.classList.remove("visible");
         }
       });
-    }, { threshold: 0.25, rootMargin: "0px 0px -10% 0px" });
+    }, { threshold: 0.1 });
     els.forEach(function (el) {
       observer.observe(el);
     });
@@ -770,192 +811,178 @@ function App() {
   }, [effectsOn]);
 
   var data = texts[lang];
-  var contactLabel = lang === "ru" ? "Связаться" : "Contact";
 
-  function scrollToId(id) {
-    if (!id) return;
-    var el = document.getElementById(id);
+  var handleLang = function handleLang() {
+    setLang(lang === "ru" ? "en" : "ru");
+  };
+
+  var handleBurger = function handleBurger() {
+    setNavOpen(!navOpen);
+  };
+
+  var handleNavigate = function handleNavigate(e, section) {
+    e.preventDefault();
+    setNavOpen(false);
+    var el = document.getElementById(section);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    if (IS_HTTP && window && window.history && window.location) {
-      var cleanUrl = window.location.pathname + window.location.search;
-      window.history.replaceState(null, "", cleanUrl);
-    }
-  }
+  };
 
-  function openItem(item) {
+  var handleScroll = function handleScroll(section) {
+    var el = document.getElementById(section);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  var handleOpenModal = function handleOpenModal(item) {
     setModalItem(item);
     setShotIndex(0);
-    setNavOpen(false);
-  }
+  };
 
-  function nextShot() {
-    if (!modalItem || !modalItem.shots) {
-      return;
-    }
+  var handleCloseModal = function handleCloseModal() {
+    setModalItem(null);
+  };
+
+  var handlePrevShot = function handlePrevShot() {
+    if (!modalItem || !modalItem.shots) return;
     setShotIndex(function (prev) {
-      var len = modalItem.shots.length;
-      return (prev + 1) % len;
+      return prev === 0 ? modalItem.shots.length - 1 : prev - 1;
     });
-  }
+  };
 
-  function prevShot() {
-    if (!modalItem || !modalItem.shots) {
-      return;
-    }
+  var handleNextShot = function handleNextShot() {
+    if (!modalItem || !modalItem.shots) return;
     setShotIndex(function (prev) {
-      var len = modalItem.shots.length;
-      return (prev - 1 + len) % len;
+      return prev === modalItem.shots.length - 1 ? 0 : prev + 1;
     });
-  }
+  };
 
-  function toggleNav() {
-    setNavOpen(function (p) {
-      return !p;
-    });
-  }
-
-  function onNavigate(e, id) {
-    if (e && e.preventDefault) e.preventDefault();
-    setNavOpen(false);
-    var targetId = id || (e && e.currentTarget && e.currentTarget.getAttribute("href") ? e.currentTarget.getAttribute("href").replace("#", "") : "");
-    scrollToId(targetId);
-  }
-
-  function onToggleEffects() {
-    setEffectsOn(function (prev) {
-      return !prev;
-    });
-  }
-
-  function onFormChange(field, value) {
+  var handleFormChange = function handleFormChange(field, value) {
     setFormData(function (prev) {
-      var next = Object.assign({}, prev);
+      var next = {};
+      for (var k in prev) next[k] = prev[k];
       next[field] = value;
       return next;
     });
-  }
+  };
 
-  function refreshCaptcha() {
+  var handleCaptchaInput = function handleCaptchaInput(value) {
+    setCaptchaInput(value);
+  };
+
+  var handleRefreshCaptcha = function handleRefreshCaptcha() {
     setCaptcha(generateCaptcha());
     setCaptchaInput("");
-  }
+  };
 
-  function onFormSubmit(e) {
+  var handleFormSubmit = function handleFormSubmit(e) {
     e.preventDefault();
-    setFormStatus("");
     var name = formData.name.trim();
     var contact = formData.contact.trim();
     var desc = formData.desc.trim();
-
-    if (!name || !contact || !desc) {
-      setFormStatus(lang === "ru" ? "Заполните все поля" : "Fill all fields");
+    var userAnswer = parseInt(captchaInput.trim(), 10);
+    if (!name || name.length > MAX_NAME_LEN) {
+      setFormStatus(lang === "ru" ? "Введите корректное имя" : "Enter valid name");
       return;
     }
-    if (name.length > MAX_NAME_LEN) {
-      setFormStatus(lang === "ru" ? "Имя слишком длинное" : "Name is too long");
+    if (!contact || contact.length > MAX_CONTACT_LEN) {
+      setFormStatus(lang === "ru" ? "Введите контакт" : "Enter contact");
       return;
     }
-    if (contact.length > MAX_CONTACT_LEN) {
-      setFormStatus(lang === "ru" ? "Контакт слишком длинный" : "Contact is too long");
+    if (!CONTACT_REGEX.test(contact) && !EMAIL_REGEX.test(contact)) {
+      setFormStatus(lang === "ru" ? "Неверный формат контакта" : "Invalid contact format");
       return;
     }
-    if (desc.length > MAX_DESC_LEN) {
-      setFormStatus(lang === "ru" ? "Описание слишком длинное" : "Description too long");
+    if (!desc || desc.length > MAX_DESC_LEN) {
+      setFormStatus(lang === "ru" ? "Опишите проект" : "Describe project");
       return;
     }
-    var isTg = CONTACT_REGEX.test(contact);
-    var isEmail = EMAIL_REGEX.test(contact);
-    if (!isTg && !isEmail) {
-      setFormStatus(lang === "ru" ? "Укажите @username или почту" : "Use @username or email");
-      return;
-    }
-    if (parseInt(captchaInput, 10) !== captcha.answer) {
-      setFormStatus(lang === "ru" ? "Неверная капча" : "Captcha is incorrect");
-      refreshCaptcha();
-      return;
-    }
-    if (TG_TOKEN.indexOf("REPLACE") !== -1 || TG_CHAT_ID.indexOf("REPLACE") !== -1) {
-      setFormStatus(lang === "ru" ? "Укажите TG токен и chat_id в app.js" : "Set TG token and chat_id in app.js");
+    if (userAnswer !== captcha.answer) {
+      setFormStatus(lang === "ru" ? "Неверный ответ на капчу" : "Wrong captcha answer");
       return;
     }
     setSending(true);
-    var text = "Имя: " + name + "\nКонтакт: " + contact + "\nОписание: " + desc;
-    fetch("https://api.telegram.org/bot" + TG_TOKEN + "/sendMessage", {
+    setFormStatus("");
+    var text = "🔔 Новая заявка с сайта\n\n👤 Имя: " + name + "\n📞 Контакт: " + contact + "\n📝 Описание:\n" + desc;
+    var url = "https://api.telegram.org/bot" + TG_TOKEN + "/sendMessage";
+    fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chat_id: TG_CHAT_ID, text: text, parse_mode: "HTML" })
     }).then(function (res) {
-      if (!res.ok) {
-        throw new Error("Failed");
+      return res.json();
+    }).then(function (data) {
+      if (data.ok) {
+        setFormStatus(lang === "ru" ? "✓ Отправлено!" : "✓ Sent!");
+        setFormData({ name: "", contact: "", desc: "" });
+        setCaptchaInput("");
+        handleRefreshCaptcha();
+      } else {
+        setFormStatus(lang === "ru" ? "Ошибка отправки" : "Send error");
       }
-      setFormStatus(lang === "ru" ? "Отправлено" : "Sent");
-      setFormData({ name: "", contact: "", desc: "" });
-      refreshCaptcha();
-      setCaptchaInput("");
     }).catch(function () {
-      setFormStatus(lang === "ru" ? "Ошибка отправки" : "Send error");
+      setFormStatus(lang === "ru" ? "Ошибка сети" : "Network error");
     }).finally(function () {
       setSending(false);
     });
-  }
+  };
 
-  return h("div", { className: "page" }, [
-    h("div", { className: "glow" }),
+  var handleToggleEffects = function handleToggleEffects() {
+    setEffectsOn(!effectsOn);
+  };
+
+  var handleBackToTop = function handleBackToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return h("div", { className: "app" }, [
     h(Header, {
-      lang: lang,
-      onLang: function onLang() {
-        return setLang(lang === "ru" ? "en" : "ru");
-      },
-      labels: data,
+      key: "header",
+      labels: data.nav,
       navOpen: navOpen,
-      onBurger: toggleNav,
-      onNavigate: onNavigate,
-      onToggleEffects: onToggleEffects,
-      effectsOn: effectsOn
+      effectsOn: effectsOn,
+      onBurger: handleBurger,
+      onNavigate: handleNavigate,
+      onLang: handleLang,
+      onToggleEffects: handleToggleEffects
     }),
     h("main", { className: "shell" }, [
-      h(Hero, { data: data, onScroll: scrollToId }),
-      h("div", { className: "divider" }),
-      h(Services, { data: data, onOpen: openItem }),
-      h("div", { className: "divider" }),
-      h(Packages, { data: data, onOpen: openItem }),
-      h("div", { className: "divider" }),
-      h(Projects, { data: data, onOpen: openItem }),
-      h("div", { className: "divider" }),
+      h(Hero, { key: "hero", data: data, onScroll: handleScroll }),
+      h(Services, { key: "services", data: data }),
+      h(Portfolio, { key: "portfolio", data: data, onOpen: handleOpenModal }),
       h(Contacts, {
+        key: "contacts",
         data: data,
         lang: lang,
         formData: formData,
-        onChange: onFormChange,
-        onSubmit: onFormSubmit,
-        sending: sending,
         formStatus: formStatus,
+        sending: sending,
         captcha: captcha,
         captchaInput: captchaInput,
-        onCaptchaInput: setCaptchaInput,
-        onRefreshCaptcha: refreshCaptcha
-      })
+      onChange: handleFormChange,
+      onCaptchaInput: handleCaptchaInput,
+      onRefreshCaptcha: handleRefreshCaptcha,
+      onSubmit: handleFormSubmit
+    })
     ]),
-    h(Footer, { data: data }),
-    h(BackToTop, { show: showTop, onClick: function onClick() {
-        return window.scrollTo({ top: 0, behavior: "smooth" });
-      } }),
-    h(Modal, {
+    h(Footer, { key: "footer", data: data }),
+    h(BackToTop, { key: "backtotop", show: showTop, onClick: handleBackToTop }),
+    modalItem ? h(Modal, {
+      key: "modal",
       item: modalItem,
       index: shotIndex,
       lang: lang,
-      onClose: function onClose() {
-        return setModalItem(null);
-      },
-      onNext: nextShot,
-      onPrev: prevShot,
-      contactLabel: contactLabel
-    })
+      contactLabel: lang === "ru" ? "Связаться" : "Contact",
+      onClose: handleCloseModal,
+      onPrev: handlePrevShot,
+      onNext: handleNextShot
+    }) : null
   ]);
 }
 
 var root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(h(App));
-

@@ -52,7 +52,7 @@
 }
 
 body {
-  font-family: "RFDewi", "Montserrat", system-ui, -apple-system, sans-serif;
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
   background: var(--gradient);
   color: var(--text);
   line-height: 1.6;
@@ -61,10 +61,36 @@ body {
   overflow-x: hidden;
 }
 
+/* Шрифты для заголовков */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "RFDewiExpanded", "RFDewi", system-ui, -apple-system, sans-serif;
+}
+
+/* Шрифты для текста */
+p, span, div, a, label {
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
+}
+
 section,
 .panel,
 .hero {
   scroll-margin-top: 120px;
+}
+
+/* Отступы для секций */
+section {
+  padding: 60px 0;
+  margin: 40px 0;
+}
+
+section:first-of-type {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+section:last-of-type {
+  padding-bottom: 80px;
+  margin-bottom: 0;
 }
 
 img {
@@ -153,26 +179,6 @@ header {
   align-items: center;
 }
 
-.icon-btn {
-  padding: 10px 12px;
-  min-width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  color: #fff;
-  transition: all 0.25s ease;
-}
-
-.icon-btn:hover {
-  background: rgba(215, 38, 61, 0.12);
-  border-color: rgba(215, 38, 61, 0.5);
-}
 
 @media (max-width: 720px) {
   .icon-btn {
@@ -252,7 +258,8 @@ header {
   border-color: rgba(215, 38, 61, 0.5);
 }
 
-.lang {
+.lang,
+.icon-btn {
   padding: 10px 14px;
   border-radius: 12px;
   background: linear-gradient(120deg, rgba(215, 38, 61, 0.9), rgba(140, 28, 44, 0.9));
@@ -262,11 +269,22 @@ header {
   font-weight: 500;
   box-shadow: var(--shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.lang:hover {
+.lang:hover,
+.icon-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 20px 40px rgba(215, 38, 61, 0.35);
+}
+
+.lang:active,
+.icon-btn:active {
+  transform: translateY(0);
 }
 
 .hero {
@@ -301,6 +319,7 @@ header {
   padding: 10px 14px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 999px;
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
   font-size: 13px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 16px;
@@ -338,6 +357,7 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.04);
   color: var(--text);
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -481,6 +501,7 @@ header {
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.05);
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
   font-size: 13px;
   color: var(--muted);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -635,6 +656,7 @@ header {
   border-radius: 12px;
   border: 1px solid rgba(215, 38, 61, 0.35);
   color: #fff;
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
   font-weight: 500;
   font-size: 13px;
 }
@@ -801,7 +823,7 @@ body.modal-open {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #fff;
-  font-family: inherit;
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
   resize: vertical;
 }
 
@@ -810,6 +832,7 @@ body.modal-open {
   gap: 10px;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .captcha-row {
