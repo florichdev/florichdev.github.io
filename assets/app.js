@@ -92,7 +92,7 @@ const texts = {
     about: {
       title: "Обо мне",
       note: "",
-      text: "Разрабатываю решения, которые закрывают бизнес-задачи через Telegram, MAX и веб. Беру на себя архитектуру, разработку, настройку хостинга и поддержку. Люблю понятные интерфейсы и стабильные интеграции.",
+      text: "Разрабатываю решения, которые закрывают любые и бизнес-задачи через Telegram, MAX и веб. Беру на себя архитектуру, разработку, настройку хостинга и поддержку. Люблю понятные интерфейсы и стабильные интеграции.",
       chips: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "TypeScript", "React", "Vite", "Next.js", "Python", "Node.js", "PHP", "Django", "FastAPI", "Flask", "MySQL", "PostgreSQL", "SQLite", "Redis", "Docker", "Git", "Nginx", "Figma"]
     },
     services: {
