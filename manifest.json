@@ -2,7 +2,7 @@
   "name": "FlorichDev - Fullstack Developer",
   "short_name": "FlorichDev",
   "description": "Профессиональная разработка веб-приложений, Telegram и MAX ботов",
-  "start_url": "/",
+  "start_url": "https://florichdev.github.io/",
   "display": "standalone",
   "background_color": "#0f0808",
   "theme_color": "#d7263d",
