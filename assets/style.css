@@ -61,6 +61,22 @@ body {
   overflow-x: hidden;
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 12px;
+  z-index: 10000;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 12px;
+}
+
 /* Шрифты для заголовков */
 h1, h2, h3, h4, h5, h6 {
   font-family: "RFDewiExpanded", "RFDewi", system-ui, -apple-system, sans-serif;
@@ -606,10 +622,19 @@ header {
 }
 
 .contacts {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.contacts-head {
+  margin-bottom: 24px;
+}
+
+.contacts-head h2 {
+  margin-bottom: 8px;
 }
 
 .contact-card {
@@ -617,12 +642,28 @@ header {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.06);
+  max-width: 600px;
+  width: 100%;
 }
 
 .contact-icons {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-meta {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.contact-hours {
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 .contact-circle {
@@ -717,6 +758,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   padding: 18px 20px;
   background: rgba(255, 255, 255, 0.02);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -724,6 +766,23 @@ header {
 
 .modal-title {
   font-size: 18px;
+  flex: 1;
+}
+
+.gallery-counter {
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.modal:focus {
+  outline: 2px solid rgba(215, 38, 61, 0.5);
+  outline-offset: 2px;
+}
+
+.portfolio-card:focus-visible {
+  outline: 2px solid rgba(215, 38, 61, 0.6);
+  outline-offset: 3px;
 }
 
 .modal-close {
@@ -958,9 +1017,6 @@ body.modal-open {
   .hero {
     grid-template-columns: 1fr;
   }
-  .contacts {
-    grid-template-columns: 1fr;
-  }
 }
 
 
@@ -1024,6 +1080,16 @@ body.modal-open {
   .nav {
     flex-wrap: wrap;
     gap: 10px;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot {
+    display: none !important;
+  }
+
+  #matrix {
+    opacity: 0.12;
   }
 }
 
