@@ -1,12 +1,3 @@
-function shot(label) {
-  var txt = encodeURIComponent(label);
-  return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='720'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23d7263d'/><stop offset='100%' stop-color='%238c1c2c'/></linearGradient></defs><rect width='1200' height='720' fill='url(%23g)'/><text x='50%' y='50%' font-size='60' fill='white' font-family='RFDewi, Montserrat, Arial' text-anchor='middle' dominant-baseline='middle' opacity='0.9'>" + txt + "</text></svg>";
-}
-
-function shots(label) {
-  return [shot(label + " · 1"), shot(label + " · 2"), shot(label + " · 3")];
-}
-
 var icons = {
   bot: "fa-solid fa-robot",
   web: "fa-solid fa-laptop-code",
@@ -17,6 +8,7 @@ var icons = {
   contact_mail: "fa-solid fa-envelope",
   contact_kwork: "fa-solid fa-briefcase",
   contact_vk: "fa-brands fa-vk",
+  contact_channel: "fa-solid fa-bullhorn",
   back: "fa-solid fa-arrow-left",
   forward: "fa-solid fa-arrow-right",
   nav_services: "fa-solid fa-briefcase",
@@ -51,14 +43,8 @@ var techIcons = {
   "Figma": "fa-brands fa-figma"
 };
 
-var TG_TOKEN = "8314709318:AAF524Ac7LoFOjO0CQ3YduBJOoxMEp2OTsc";
-var TG_CHAT_ID = "-1003484417837";
-var TG_CONTACT_LINK = "https://t.me/vflorich";
-var CONTACT_REGEX = /^@?[a-zA-Z0-9_]{5,32}$/;
-var EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-var MAX_NAME_LEN = 80;
-var MAX_CONTACT_LEN = 64;
-var MAX_DESC_LEN = 800;
+var TG_PERSONAL = "https://t.me/vflorich";
+var TG_CHANNEL = "https://t.me/florichdev";
 var PREFERS_REDUCE_MOTION = typeof window !== "undefined" && window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false;
 var IS_HTTP = typeof window !== "undefined" && window.location && /^https?:$/.test(window.location.protocol);
 var TRAIL_SETTINGS = {
@@ -66,13 +52,6 @@ var TRAIL_SETTINGS = {
   size: 16,
   inactivityTimeout: 4500
 };
-
-function generateCaptcha() {
-  var a = Math.floor(2 + Math.random() * 8);
-  var b = Math.floor(1 + Math.random() * 7);
-  var question = a + " + " + b + " = ?";
-  return { question: question, answer: a + b };
-}
 
 const texts = {
   ru: {
@@ -188,18 +167,18 @@ const texts = {
           price: "Коммерческий проект",
           tags: ["MAX", "Telegram", "Integration"],
           shots: [
-            "./assets/images/portfolio/BotsTaro/max1.png",
-            "./assets/images/portfolio/BotsTaro/max2.png",
-            "./assets/images/portfolio/BotsTaro/max3.png",
-            "./assets/images/portfolio/BotsTaro/max4.png",
-            "./assets/images/portfolio/BotsTaro/max5.png",
-            "./assets/images/portfolio/BotsTaro/tgweb.png",
-            "./assets/images/portfolio/BotsTaro/web1.png",
-            "./assets/images/portfolio/BotsTaro/web2.png",
-            "./assets/images/portfolio/BotsTaro/web3.png",
-            "./assets/images/portfolio/BotsTaro/web4.png",
-            "./assets/images/portfolio/BotsTaro/web5.png",
-            "./assets/images/portfolio/BotsTaro/web6.png"
+            "./assets/images/portfolio/botstaro/max1.png",
+            "./assets/images/portfolio/botstaro/max2.png",
+            "./assets/images/portfolio/botstaro/max3.png",
+            "./assets/images/portfolio/botstaro/max4.png",
+            "./assets/images/portfolio/botstaro/max5.png",
+            "./assets/images/portfolio/botstaro/tgweb.png",
+            "./assets/images/portfolio/botstaro/web1.png",
+            "./assets/images/portfolio/botstaro/web2.png",
+            "./assets/images/portfolio/botstaro/web3.png",
+            "./assets/images/portfolio/botstaro/web4.png",
+            "./assets/images/portfolio/botstaro/web5.png",
+            "./assets/images/portfolio/botstaro/web6.png"
           ]
         },
 
@@ -209,6 +188,7 @@ const texts = {
       title: "Контакты",
       hint: "Свяжитесь со мной",
       tg: "Telegram",
+      tgChannel: "Канал",
       gh: "GitHub",
       mail: "Почта",
       kwork: "Kwork",
@@ -261,19 +241,19 @@ const texts = {
           price: "Commercial project",
           tags: ["E-commerce", "Admin Panel", "Payments"],
           shots: [
-            "./assets/images/portfolio/secretvapeshop/ГлавноеМенюБота.png",
-            "./assets/images/portfolio/secretvapeshop/МагазинБота.png",
-            "./assets/images/portfolio/secretvapeshop/РазделМагазинаБота.png",
-            "./assets/images/portfolio/secretvapeshop/Авторизация.png",
-            "./assets/images/portfolio/secretvapeshop/Главная.png",
-            "./assets/images/portfolio/secretvapeshop/Товары.png",
-            "./assets/images/portfolio/secretvapeshop/Заказы.png",
-            "./assets/images/portfolio/secretvapeshop/Пользователи.png",
-            "./assets/images/portfolio/secretvapeshop/Мобильная адаптация.png"
+            "./assets/images/portfolio/secretvapeshop/01-bot-main-menu.png",
+            "./assets/images/portfolio/secretvapeshop/02-bot-shop.png",
+            "./assets/images/portfolio/secretvapeshop/03-bot-shop-section.png",
+            "./assets/images/portfolio/secretvapeshop/04-web-auth.png",
+            "./assets/images/portfolio/secretvapeshop/05-web-main.png",
+            "./assets/images/portfolio/secretvapeshop/06-web-products.png",
+            "./assets/images/portfolio/secretvapeshop/07-web-orders.png",
+            "./assets/images/portfolio/secretvapeshop/08-web-users.png",
+            "./assets/images/portfolio/secretvapeshop/09-web-mobile.png"
           ]
         },
-        { 
-          name: "CryptoPay", 
+        {
+          name: "CryptoPay",
           icon: "web", 
           desc: "Web application for accepting cryptocurrency payments with Telegram bot. QR code generation, automatic Solana transaction processing, timer and commission system, admin panel in Telegram bot.",
           stack: "Python · Flask · Aiogram · Solana · SQLite",
@@ -330,18 +310,18 @@ const texts = {
           price: "Commercial project",
           tags: ["MAX", "Telegram", "Integration"],
           shots: [
-            "./assets/images/portfolio/BotsTaro/max1.png",
-            "./assets/images/portfolio/BotsTaro/max2.png",
-            "./assets/images/portfolio/BotsTaro/max3.png",
-            "./assets/images/portfolio/BotsTaro/max4.png",
-            "./assets/images/portfolio/BotsTaro/max5.png",
-            "./assets/images/portfolio/BotsTaro/tgweb.png",
-            "./assets/images/portfolio/BotsTaro/web1.png",
-            "./assets/images/portfolio/BotsTaro/web2.png",
-            "./assets/images/portfolio/BotsTaro/web3.png",
-            "./assets/images/portfolio/BotsTaro/web4.png",
-            "./assets/images/portfolio/BotsTaro/web5.png",
-            "./assets/images/portfolio/BotsTaro/web6.png"
+            "./assets/images/portfolio/botstaro/max1.png",
+            "./assets/images/portfolio/botstaro/max2.png",
+            "./assets/images/portfolio/botstaro/max3.png",
+            "./assets/images/portfolio/botstaro/max4.png",
+            "./assets/images/portfolio/botstaro/max5.png",
+            "./assets/images/portfolio/botstaro/tgweb.png",
+            "./assets/images/portfolio/botstaro/web1.png",
+            "./assets/images/portfolio/botstaro/web2.png",
+            "./assets/images/portfolio/botstaro/web3.png",
+            "./assets/images/portfolio/botstaro/web4.png",
+            "./assets/images/portfolio/botstaro/web5.png",
+            "./assets/images/portfolio/botstaro/web6.png"
           ]
         },
 
@@ -351,6 +331,7 @@ const texts = {
       title: "Contacts",
       hint: "Get in touch",
       tg: "Telegram",
+      tgChannel: "Channel",
       gh: "GitHub",
       mail: "Email",
       kwork: "Kwork",
@@ -397,7 +378,6 @@ function Hero(props) {
         h("br"),
         h("span", null, props.data.hero.pitch)
       ]),
-      h("p", null, props.data.about.text),
       h("div", { className: "hero-actions" }, [
         h("a", { className: "btn primary", href: "#services", onClick: function onClick(e) {
             e.preventDefault();
@@ -488,19 +468,24 @@ function Portfolio(props) {
   ]);
 }
 
+function renderContactLinks(data) {
+  return [
+    h("a", { className: "contact-circle", href: TG_PERSONAL, target: "_blank", rel: "noreferrer", title: data.tg, "aria-label": data.tg }, h("i", { className: icons.contact_tg })),
+    h("a", { className: "contact-circle", href: TG_CHANNEL, target: "_blank", rel: "noreferrer", title: data.tgChannel, "aria-label": data.tgChannel }, h("i", { className: icons.contact_channel })),
+    h("a", { className: "contact-circle", href: "https://github.com/florichdev", target: "_blank", rel: "noreferrer", title: data.gh, "aria-label": data.gh }, h("i", { className: icons.contact_gh })),
+    h("a", { className: "contact-circle", href: "https://vk.com/florichdev", target: "_blank", rel: "noreferrer", title: "VK", "aria-label": "VK" }, h("i", { className: icons.contact_vk })),
+    h("a", { className: "contact-circle", href: "mailto:florichdev@gmail.com", title: data.mail, "aria-label": data.mail }, h("i", { className: icons.contact_mail })),
+    h("a", { className: "contact-circle", href: "https://kwork.ru/user/florichdev", target: "_blank", rel: "noreferrer", title: data.kwork, "aria-label": data.kwork }, h("i", { className: icons.contact_kwork }))
+  ];
+}
+
 function Contacts(props) {
   return h("section", { id: "contacts", className: "panel contacts animate-left", "data-animate": "left", style: { display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" } }, [
     h("div", { style: { textAlign: "center", marginBottom: "32px" } }, [
       h("h2", null, props.data.contacts.title)
     ]),
     h("div", { className: "contact-card", style: { maxWidth: "600px", width: "100%" } }, [
-      h("div", { className: "contact-icons", style: { justifyContent: "center" } }, [
-        h("a", { className: "contact-circle", href: "https://t.me/florichdev", target: "_blank", rel: "noreferrer", title: "Telegram", "aria-label": "Telegram" }, h("i", { className: icons.contact_tg })),
-        h("a", { className: "contact-circle", href: "https://github.com/florichdev", target: "_blank", rel: "noreferrer", title: "GitHub", "aria-label": "GitHub" }, h("i", { className: icons.contact_gh })),
-        h("a", { className: "contact-circle", href: "https://vk.com/florichdev", target: "_blank", rel: "noreferrer", title: "VK", "aria-label": "VK" }, h("i", { className: icons.contact_vk })),
-        h("a", { className: "contact-circle", href: "mailto:florichdev@gmail.com", title: "Email", "aria-label": "Email" }, h("i", { className: icons.contact_mail })),
-        h("a", { className: "contact-circle", href: "https://kwork.ru/user/florichdev", target: "_blank", rel: "noreferrer", title: "Kwork", "aria-label": "Kwork" }, h("i", { className: icons.contact_kwork }))
-      ]),
+      h("div", { className: "contact-icons", style: { justifyContent: "center" } }, renderContactLinks(props.data.contacts)),
       h("div", { style: { marginTop: "24px", display: "flex", flexDirection: "column", gap: "8px", alignItems: "center" } }, [
         h("p", { className: "text", style: { textAlign: "center" } }, props.data.contacts.prompt),
         h("p", { className: "text", style: { textAlign: "center", fontSize: "14px", opacity: 0.8 } }, props.lang === "ru" ? "График работы: 8:00 - 22:00" : "Working hours: 8:00 AM - 10:00 PM")
@@ -513,13 +498,7 @@ function Footer(props) {
   return h("footer", { className: "footer" }, [
     h("div", null, "FlorichDev · " + new Date().getFullYear()),
     h("div", { className: "footer-note" }, props.data.footer),
-    h("div", { className: "contact-links" }, [
-      h("a", { href: "https://t.me/florichdev", target: "_blank", rel: "noreferrer", title: "Telegram", "aria-label": "Telegram" }, h("i", { className: icons.contact_tg })),
-      h("a", { href: "https://github.com/florichdev", target: "_blank", rel: "noreferrer", title: "GitHub", "aria-label": "GitHub" }, h("i", { className: icons.contact_gh })),
-      h("a", { href: "https://vk.com/florichdev", target: "_blank", rel: "noreferrer", title: "VK", "aria-label": "VK" }, h("i", { className: icons.contact_vk })),
-      h("a", { href: "mailto:florichdev@gmail.com", title: "Email", "aria-label": "Email" }, h("i", { className: icons.contact_mail })),
-      h("a", { href: "https://kwork.ru/user/florichdev", target: "_blank", rel: "noreferrer", title: "Kwork", "aria-label": "Kwork" }, h("i", { className: icons.contact_kwork }))
-    ])
+    h("div", { className: "contact-links" }, renderContactLinks(props.data.contacts))
   ]);
 }
 
@@ -579,7 +558,7 @@ function Modal(props) {
           ]) : null
         ]),
         h("div", { className: "modal-actions" }, [
-          h("a", { className: "btn primary", href: TG_CONTACT_LINK, target: "_blank", rel: "noreferrer" }, contactLabel),
+          h("a", { className: "btn primary", href: TG_PERSONAL, target: "_blank", rel: "noreferrer" }, contactLabel),
           h("button", { className: "btn", onClick: props.onClose }, closeLabel)
         ])
       ])
@@ -602,24 +581,21 @@ function App() {
   var _React$useState5 = React.useState(false),
     navOpen = _React$useState5[0],
     setNavOpen = _React$useState5[1];
-  var _React$useState6 = React.useState({ name: "", contact: "", desc: "" }),
-    formData = _React$useState6[0],
-    setFormData = _React$useState6[1];
-  var _React$useState7 = React.useState(""),
-    formStatus = _React$useState7[0],
-    setFormStatus = _React$useState7[1];
-  var _React$useState8 = React.useState(false),
-    sending = _React$useState8[0],
-    setSending = _React$useState8[1];
-  var _React$useState9 = React.useState(generateCaptcha()),
-    captcha = _React$useState9[0],
-    setCaptcha = _React$useState9[1];
-  var _React$useState10 = React.useState(""),
-    captchaInput = _React$useState10[0],
-    setCaptchaInput = _React$useState10[1];
-  var _React$useState11 = React.useState(true),
-    effectsOn = _React$useState11[0],
-    setEffectsOn = _React$useState11[1];
+  var _React$useState6 = React.useState(!PREFERS_REDUCE_MOTION),
+    effectsOn = _React$useState6[0],
+    setEffectsOn = _React$useState6[1];
+
+  React.useEffect(function () {
+    if (!window.matchMedia) return undefined;
+    var media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var onChange = function onChange() {
+      if (media.matches) setEffectsOn(false);
+    };
+    media.addEventListener("change", onChange);
+    return function () {
+      media.removeEventListener("change", onChange);
+    };
+  }, []);
 
   React.useEffect(function () {
     if (!IS_HTTP || !(window && window.location && window.history)) {
@@ -825,16 +801,16 @@ function App() {
     setNavOpen(false);
     var el = document.getElementById(section);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      el.scrollIntoView({ behavior: effectsOn ? "smooth" : "auto" });
     } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: effectsOn ? "smooth" : "auto" });
     }
   };
 
   var handleScroll = function handleScroll(section) {
     var el = document.getElementById(section);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      el.scrollIntoView({ behavior: effectsOn ? "smooth" : "auto" });
     }
   };
 
@@ -861,82 +837,12 @@ function App() {
     });
   };
 
-  var handleFormChange = function handleFormChange(field, value) {
-    setFormData(function (prev) {
-      var next = {};
-      for (var k in prev) next[k] = prev[k];
-      next[field] = value;
-      return next;
-    });
-  };
-
-  var handleCaptchaInput = function handleCaptchaInput(value) {
-    setCaptchaInput(value);
-  };
-
-  var handleRefreshCaptcha = function handleRefreshCaptcha() {
-    setCaptcha(generateCaptcha());
-    setCaptchaInput("");
-  };
-
-  var handleFormSubmit = function handleFormSubmit(e) {
-    e.preventDefault();
-    var name = formData.name.trim();
-    var contact = formData.contact.trim();
-    var desc = formData.desc.trim();
-    var userAnswer = parseInt(captchaInput.trim(), 10);
-    if (!name || name.length > MAX_NAME_LEN) {
-      setFormStatus(lang === "ru" ? "Введите корректное имя" : "Enter valid name");
-      return;
-    }
-    if (!contact || contact.length > MAX_CONTACT_LEN) {
-      setFormStatus(lang === "ru" ? "Введите контакт" : "Enter contact");
-      return;
-    }
-    if (!CONTACT_REGEX.test(contact) && !EMAIL_REGEX.test(contact)) {
-      setFormStatus(lang === "ru" ? "Неверный формат контакта" : "Invalid contact format");
-      return;
-    }
-    if (!desc || desc.length > MAX_DESC_LEN) {
-      setFormStatus(lang === "ru" ? "Опишите проект" : "Describe project");
-      return;
-    }
-    if (userAnswer !== captcha.answer) {
-      setFormStatus(lang === "ru" ? "Неверный ответ на капчу" : "Wrong captcha answer");
-      return;
-    }
-    setSending(true);
-    setFormStatus("");
-    var text = "🔔 Новая заявка с сайта\n\n👤 Имя: " + name + "\n📞 Контакт: " + contact + "\n📝 Описание:\n" + desc;
-    var url = "https://api.telegram.org/bot" + TG_TOKEN + "/sendMessage";
-    fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: TG_CHAT_ID, text: text, parse_mode: "HTML" })
-    }).then(function (res) {
-      return res.json();
-    }).then(function (data) {
-      if (data.ok) {
-        setFormStatus(lang === "ru" ? "✓ Отправлено!" : "✓ Sent!");
-        setFormData({ name: "", contact: "", desc: "" });
-        setCaptchaInput("");
-        handleRefreshCaptcha();
-      } else {
-        setFormStatus(lang === "ru" ? "Ошибка отправки" : "Send error");
-      }
-    }).catch(function () {
-      setFormStatus(lang === "ru" ? "Ошибка сети" : "Network error");
-    }).finally(function () {
-      setSending(false);
-    });
-  };
-
   var handleToggleEffects = function handleToggleEffects() {
     setEffectsOn(!effectsOn);
   };
 
   var handleBackToTop = function handleBackToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: effectsOn ? "smooth" : "auto" });
   };
 
   return h("div", { className: "app" }, [
@@ -954,20 +860,7 @@ function App() {
       h(Hero, { key: "hero", data: data, onScroll: handleScroll }),
       h(Services, { key: "services", data: data }),
       h(Portfolio, { key: "portfolio", data: data, onOpen: handleOpenModal }),
-      h(Contacts, {
-        key: "contacts",
-        data: data,
-        lang: lang,
-        formData: formData,
-        formStatus: formStatus,
-        sending: sending,
-        captcha: captcha,
-        captchaInput: captchaInput,
-      onChange: handleFormChange,
-      onCaptchaInput: handleCaptchaInput,
-      onRefreshCaptcha: handleRefreshCaptcha,
-      onSubmit: handleFormSubmit
-    })
+      h(Contacts, { key: "contacts", data: data, lang: lang }),
     ]),
     h(Footer, { key: "footer", data: data }),
     h(BackToTop, { key: "backtotop", show: showTop, onClick: handleBackToTop }),

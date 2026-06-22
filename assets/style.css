@@ -799,64 +799,6 @@ body.modal-open {
   overflow: hidden;
 }
 
-.form-grid {
-  display: grid;
-  gap: 12px;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.field label {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.field input,
-.field textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #fff;
-  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
-  resize: vertical;
-}
-
-.form-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-
-.captcha-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.captcha-row .badge {
-  margin: 0;
-  white-space: nowrap;
-}
-
-.captcha-row input {
-  flex: 1;
-  min-width: 140px;
-}
-
-.status {
-  font-size: 13px;
-  color: var(--muted);
-}
-
 .animate-left {
   opacity: 0;
   transform: translateX(-40px);
@@ -1082,6 +1024,22 @@ body.modal-open {
   .nav {
     flex-wrap: wrap;
     gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-left,
+  .animate-right,
+  .modal,
+  .gallery img {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
