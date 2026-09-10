@@ -59,33 +59,33 @@ var TECH_CHIPS = [
 var serviceItems = [
   {
     id: "tg-bots", icon: "bot",
-    ru: { title: "Чат-боты Telegram", desc: "Сложная бизнес-логика, FSM, базы данных, прием платежей, автоворонки и админ-панели под ключ.", price: "от 5000 ₽" },
-    en: { title: "Telegram bots", desc: "Complex business logic, FSM, databases, payment gateways, auto-funnels and custom admin panels.", price: "from $100" }
+    ru: { title: "Telegram-боты под ключ", desc: "Автоворонки, прием оплат (Crypto, ЮKassa, Stripe), FSM, платные подписки, реферальные системы и админ-панели под ключ.", price: "от 10 000 ₽" },
+    en: { title: "Telegram Bots Turnkey", desc: "Sales funnels, payment gateways (Crypto, Stripe), FSM, subscriptions, referral engines, and custom admin dashboards.", price: "from $150" }
   },
   {
-    id: "max-bots", icon: "bot",
-    ru: { title: "Боты для MAX", desc: "Разработка высоконагруженных ботов для мессенджера MAX: магазины, интеграции с API, вебхуки.", price: "от 5000 ₽" },
-    en: { title: "MAX bots", desc: "High-load bots for MAX messenger: e-commerce, custom API integrations, webhooks.", price: "from $100" }
+    id: "tg-miniapps", icon: "web",
+    ru: { title: "Telegram Mini Apps (Web)", desc: "Интерактивные веб-приложения внутри Telegram на React/TS: каталоги товаров, корзины, личные кабинеты и бронирование.", price: "от 15 000 ₽" },
+    en: { title: "Telegram Mini Apps", desc: "Rich web applications inside Telegram (React/TS): e-commerce catalogs, carts, member portals, and booking systems.", price: "from $200" }
   },
   {
     id: "api", icon: "api",
-    ru: { title: "REST API & Бэкенд", desc: "Проектирование чистых, быстрых и масштабируемых API на FastAPI / Flask. Авторизация (JWT, OAuth), валидация и кэш.", price: "от 7000 ₽" },
-    en: { title: "REST API & Backend", desc: "Clean, fast, and scalable APIs using FastAPI / Flask. Authentication (JWT, OAuth), validation, and caching.", price: "from $120" }
-  },
-  {
-    id: "databases", icon: "api",
-    ru: { title: "Базы данных & Оптимизация", desc: "Проектирование схем БД (PostgreSQL, SQLite), миграции, кэширование Redis, оптимизация медленных запросов.", price: "от 5000 ₽" },
-    en: { title: "Databases & Optimization", desc: "Database schema design (PostgreSQL, SQLite), migrations, Redis caching, and query optimization.", price: "from $100" }
+    ru: { title: "REST API & Бэкенд", desc: "Высокопроизводительные серверные сервисы на FastAPI / Flask. Авторизация (JWT, OAuth2), фоновые задачи, валидация и кэш.", price: "от 15 000 ₽" },
+    en: { title: "REST API & Backend", desc: "Scalable backend services using FastAPI / Flask. Authentication (JWT, OAuth2), background queues, and caching.", price: "from $200" }
   },
   {
     id: "parsing", icon: "web",
-    ru: { title: "Парсинг & Автоматизация", desc: "Отказоустойчивый сбор данных, обход блокировок, фоновые очереди задач, экспорт в БД/Excel/Telegram.", price: "от 5000 ₽" },
-    en: { title: "Scraping & Automation", desc: "Resilient data scraping systems, anti-blocking measures, background task queues, and DB exports.", price: "from $100" }
+    ru: { title: "Парсинг & Автоматизация", desc: "Отказоустойчивый сбор данных с сайтов и маркетплейсов, обход антибот-систем, экспорт в Excel / Google Sheets / БД.", price: "от 8 000 ₽" },
+    en: { title: "Scraping & Automation", desc: "Resilient data scraping systems, anti-blocking measures, background task queues, and DB/Excel exports.", price: "from $120" }
+  },
+  {
+    id: "databases", icon: "api",
+    ru: { title: "Базы данных & Оптимизация", desc: "Проектирование архитектуры БД (PostgreSQL, SQLite, Redis), миграции Alembic, оптимизация запросов и кэширование.", price: "от 10 000 ₽" },
+    en: { title: "Databases & Optimization", desc: "Database schema design (PostgreSQL, SQLite), Alembic migrations, Redis caching, and query optimization.", price: "from $150" }
   },
   {
     id: "integrations", icon: "api",
-    ru: { title: "Интеграции & Платежи", desc: "Связка внешних API, платежных систем (Crypto, ЮKassa, Stripe), CRM и сторонних сервисов с обработкой сбоев.", price: "от 5000 ₽" },
-    en: { title: "Integrations & Payments", desc: "Connecting 3rd-party APIs, payment gateways (Crypto, Stripe), CRMs, and fail-safe webhook pipelines.", price: "from $100" }
+    ru: { title: "Интеграции & Платежи", desc: "Связка внешних API, платежных систем (Crypto, ЮKassa, Stripe), CRM и сторонних сервисов с защитой от сбоев.", price: "от 8 000 ₽" },
+    en: { title: "Integrations & Payments", desc: "Connecting 3rd-party APIs, payment gateways (Crypto, Stripe), CRMs, and fail-safe webhook pipelines.", price: "from $120" }
   }
 ];
 
@@ -94,6 +94,7 @@ var portfolioItems = [
     id: "secret-vape", icon: "bot",
     stack: "Python · Aiogram 3 · SQLAlchemy · Flask · SQLite",
     tags: ["E-commerce", "Admin Panel", "Payments"],
+    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%20Secret%20Vape%20Shop",
     shots: [
       "./assets/images/portfolio/secretvapeshop/01-bot-main-menu.png",
       "./assets/images/portfolio/secretvapeshop/02-bot-shop.png",
@@ -108,18 +109,19 @@ var portfolioItems = [
     ru: {
       name: "Secret Vape Shop",
       desc: "Telegram e-commerce магазин с Flask-бэкендом и админ-панелью. Проектирование схемы БД, транзакции заказов, вебхуки оплат и ролевой доступ.",
-      price: "Коммерческий проект"
+      price: "Коммерческий кейс"
     },
     en: {
       name: "Secret Vape Shop",
       desc: "Telegram e-commerce store with Flask backend & web admin dashboard. Database architecture, order transactions, payment webhooks, and RBAC.",
-      price: "Commercial project"
+      price: "Commercial case"
     }
   },
   {
     id: "cryptopay", icon: "web",
     stack: "Python · Flask · Aiogram · Solana · SQLite",
     tags: ["Crypto", "Web App", "Payments"],
+    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%20CryptoPay",
     shots: [
       "./assets/images/portfolio/cryptopay/web1.png",
       "./assets/images/portfolio/cryptopay/web2.png",
@@ -129,18 +131,19 @@ var portfolioItems = [
     ru: {
       name: "CryptoPay",
       desc: "Шлюз криптовалютных платежей с Telegram-ботом. Архитектура обработки транзакций Solana, расчет комиссий, вебхуки и защита от повторных списаний.",
-      price: "Коммерческий проект"
+      price: "Коммерческий кейс"
     },
     en: {
       name: "CryptoPay",
       desc: "Crypto payment gateway with Telegram bot. Solana transaction processing architecture, fee calculation, webhooks, and idempotency protection.",
-      price: "Commercial project"
+      price: "Commercial case"
     }
   },
   {
     id: "happs", icon: "bot",
     stack: "Python · Aiogram · SQLite · Flask · PDF",
     tags: ["Health", "Booking", "Admin"],
+    demoUrl: "https://t.me/happshealthbot",
     shots: [
       "./assets/images/portfolio/@happshealthbot/tg1.png",
       "./assets/images/portfolio/@happshealthbot/tg2.png",
@@ -149,18 +152,19 @@ var portfolioItems = [
     ru: {
       name: "@happshealthbot",
       desc: "Wellness-бот в Telegram: алгоритм генерации сравнительных отчетов, интеграция фоновой генерации PDF и асинхронное хранение медиаданных.",
-      price: "Коммерческий проект"
+      price: "Коммерческий кейс"
     },
     en: {
       name: "@happshealthbot",
       desc: "Telegram wellness service: progress comparison report engine, asynchronous PDF rendering pipeline, and media file management.",
-      price: "Commercial project"
+      price: "Commercial case"
     }
   },
   {
     id: "botsmax", icon: "bot",
     stack: "Python · MAX API · Flask · SQLite",
     tags: ["MAX", "Admin", "Giveaways"],
+    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B1%D0%BE%D1%82%D1%8B%20%D0%B4%D0%BB%D1%8F%20MAX",
     shots: [
       "./assets/images/portfolio/botsmax/max1.png",
       "./assets/images/portfolio/botsmax/max2.png",
@@ -179,18 +183,19 @@ var portfolioItems = [
     ru: {
       name: "Рандомайзер & Сэйвер",
       desc: "Отказоустойчивая система из двух ботов для MAX с Flask-бэкендом: параллельная обработка запросов, фоновые загрузки видео и админ-панель.",
-      price: "Коммерческий проект"
+      price: "Коммерческий кейс"
     },
     en: {
       name: "Randomizer & Saver",
       desc: "Resilient system of two MAX messenger bots with Flask backend: concurrent request handling, background video processing, and admin dashboard.",
-      price: "Commercial project"
+      price: "Commercial case"
     }
   },
   {
     id: "botstaro", icon: "bot",
     stack: "Python · MAX API · Telegram API · Flask · SQLite",
     tags: ["MAX", "Telegram", "Integration"],
+    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%B1%D0%BE%D1%82",
     shots: [
       "./assets/images/portfolio/botstaro/max1.png",
       "./assets/images/portfolio/botstaro/max2.png",
@@ -208,12 +213,12 @@ var portfolioItems = [
     ru: {
       name: "Бот Таролог",
       desc: "Кросс-платформенный сервис (MAX + Telegram) с централизованным Flask API и единой базой данных. Управление сессиями и контентом.",
-      price: "Коммерческий проект"
+      price: "Коммерческий кейс"
     },
     en: {
       name: "Tarot Bot",
       desc: "Cross-platform service (MAX + Telegram) powered by a centralized Flask API and unified database. Session and content management.",
-      price: "Commercial project"
+      price: "Commercial case"
     }
   }
 ];
@@ -227,6 +232,7 @@ function mapLocalized(items, lang) {
       stack: item.stack,
       tags: item.tags,
       shots: item.shots,
+      demoUrl: item.demoUrl,
       name: loc.name || loc.title,
       title: loc.title,
       desc: loc.desc,
@@ -259,42 +265,44 @@ const texts = {
       backToTop: "Наверх",
       close: "Закрыть",
       contact: "Связаться",
+      openBot: "Запустить бота",
+      discussCase: "Заказать похожий",
       prevShot: "Предыдущее фото",
       nextShot: "Следующее фото",
-      workingHours: "График работы: 8:00 – 22:00",
+      workingHours: "График работы: 8:00 – 22:00 (МСК)",
       skipLink: "К основному содержимому"
     },
     nav: { services: "Услуги", portfolio: "Портфолио", contact: "Контакты" },
     hero: {
       hello: "Привет, я",
       name: "Вадим",
-      role: "Python Backend-разработчик",
-      pitch: "Серверная архитектура, масштабируемые API, Telegram-боты и базы данных",
-      ctaServices: "Мои услуги",
-      ctaPortfolio: "Портфолио",
-      exp: "Опыт 3+ года",
-      speed: "Чистая архитектура",
-      full: "Бэкенд & Инфра",
-      fullDesc: "Архитектура → Деплой"
+      role: "Python Backend & Telegram Bot Developer",
+      pitch: "Telegram-боты, Mini Apps, надежные REST API и парсеры под ключ для бизнеса",
+      ctaTelegram: "Написать в Telegram",
+      ctaPortfolio: "Смотреть кейсы",
+      exp: "15+ проектов",
+      speed: "100% сдача в срок",
+      full: "Под ключ",
+      fullDesc: "Бот + Админка + Деплой"
     },
     about: {
       title: "Обо мне",
       note: "",
-      text: "Специализируюсь на backend-разработке на Python (FastAPI, Asyncio, aiogram). Проектирую надежную серверную логику, оптимизирую базы данных (PostgreSQL, SQLite, Redis) и создаю масштабируемые API. Также понимаю специфику фронтенда (React, TypeScript), благодаря чему проектирую чистое и предсказуемое API."
+      text: "Создаю отказоустойчивые Telegram-боты, Mini Apps и бэкенд-системы на Python (FastAPI, Asyncio, aiogram 3). 15+ коммерческих проектов в продакшене с безупречной статистикой: 100% сдача в срок и рейтинг 5.0. Проектирую чистую архитектуру, подключаю платежи (Crypto, ЮKassa, Stripe), настраиваю базы данных (PostgreSQL, Redis) и деплой на VPS в Docker. Благодаря уверенному владению React и TypeScript создаю комплексные решения с современными веб-админками."
     },
-    services: { title: "Услуги", hint: "Что я предлагаю" },
-    portfolio: { title: "Портфолио", hint: "Реализованные проекты" },
+    services: { title: "Услуги", hint: "Что я предлагаю бизнесу" },
+    portfolio: { title: "Портфолио", hint: "Реализованные кейсы в проде" },
     contacts: {
       title: "Контакты",
-      hint: "Свяжитесь со мной",
+      hint: "Обсудим вашу задачу",
       tg: "Telegram",
       tgChannel: "Канал",
       gh: "GitHub",
       mail: "Почта",
       kwork: "Kwork",
-      prompt: "Открыт к сотрудничеству"
+      prompt: "Открыт к новым проектам и сотрудничеству"
     },
-    footer: "Создано для себя и клиентов"
+    footer: "Создано для клиентов и долгосрочных партнерств"
   },
   en: {
     ui: {
@@ -306,42 +314,44 @@ const texts = {
       backToTop: "Back to top",
       close: "Close",
       contact: "Contact",
+      openBot: "Launch Bot",
+      discussCase: "Order Similar",
       prevShot: "Previous image",
       nextShot: "Next image",
-      workingHours: "Working hours: 8:00 AM – 10:00 PM",
+      workingHours: "Working hours: 8:00 AM – 10:00 PM (UTC+3)",
       skipLink: "Skip to main content"
     },
     nav: { services: "Services", portfolio: "Portfolio", contact: "Contacts" },
     hero: {
       hello: "Hi, I'm",
       name: "Vadim",
-      role: "Python Backend Developer",
-      pitch: "Designing robust server architecture, scalable APIs, Telegram bots & databases",
-      ctaServices: "Services",
-      ctaPortfolio: "Portfolio",
-      exp: "3+ years experience",
-      speed: "Clean architecture",
-      full: "Backend & Infra",
-      fullDesc: "Architecture → Deploy"
+      role: "Python Backend & Telegram Bot Developer",
+      pitch: "High-performance Telegram bots, Mini Apps, scalable REST APIs & automation pipelines",
+      ctaTelegram: "Chat in Telegram",
+      ctaPortfolio: "View Cases",
+      exp: "15+ projects",
+      speed: "100% on-time delivery",
+      full: "Turnkey delivery",
+      fullDesc: "Bot + Admin Panel + Deploy"
     },
     about: {
       title: "About me",
       note: "",
-      text: "I specialize in Python backend engineering (FastAPI, Asyncio, aiogram). I design reliable server architectures, optimize databases (PostgreSQL, SQLite, Redis), and build scalable APIs. A solid understanding of frontend (React, TypeScript) enables me to build clean, predictable API contracts."
+      text: "I build reliable Telegram bots, Mini Apps, and backend systems on Python (FastAPI, Asyncio, aiogram 3). 15+ commercial projects launched in production with a flawless track record: 100% on-time delivery and a 5.0 client rating. I architect clean code, integrate payment gateways (Crypto, Stripe), optimize databases (PostgreSQL, Redis), and deploy containerized apps on Linux VPS via Docker."
     },
     services: { title: "Services", hint: "What I offer" },
-    portfolio: { title: "Portfolio", hint: "Completed projects" },
+    portfolio: { title: "Portfolio", hint: "Production cases" },
     contacts: {
       title: "Contacts",
-      hint: "Get in touch",
+      hint: "Let's build something great",
       tg: "Telegram",
       tgChannel: "Channel",
       gh: "GitHub",
       mail: "Email",
       kwork: "Kwork",
-      prompt: "Open to collaborate"
+      prompt: "Open to new projects and collaboration"
     },
-    footer: "Built for myself and clients"
+    footer: "Built for clients and long-term partnerships"
   }
 };
 
@@ -413,7 +423,10 @@ function Hero(props) {
         h("span", null, props.data.hero.pitch)
       ]),
       h("div", { className: "hero-actions" }, [
-        h("a", { className: "btn primary", href: "#services", onClick: function (e) { e.preventDefault(); props.onScroll("services"); } }, props.data.hero.ctaServices),
+        h("a", { className: "btn primary", href: TG_PERSONAL, target: "_blank", rel: "noreferrer noopener" }, [
+          h("i", { className: "fa-brands fa-telegram", style: { marginRight: "8px" }, "aria-hidden": "true" }),
+          props.data.hero.ctaTelegram
+        ]),
         h("a", { className: "btn", href: "#portfolio", onClick: function (e) { e.preventDefault(); props.onScroll("portfolio"); } }, props.data.hero.ctaPortfolio)
       ]),
       h("div", { className: "stats" }, [
@@ -597,7 +610,11 @@ function Modal(props) {
           ]) : null
         ]),
         h("div", { className: "modal-actions" }, [
-          h("a", { className: "btn primary", href: TG_PERSONAL, target: "_blank", rel: "noreferrer noopener" }, ui.contact),
+          props.item.demoUrl ? h("a", { className: "btn primary", href: props.item.demoUrl, target: "_blank", rel: "noreferrer noopener" }, [
+            h("i", { className: "fa-solid fa-arrow-up-right-from-square", style: { marginRight: "8px" }, "aria-hidden": "true" }),
+            props.item.id === "happs" ? ui.openBot : ui.discussCase
+          ]) : null,
+          h("a", { className: "btn", href: TG_PERSONAL, target: "_blank", rel: "noreferrer noopener" }, ui.contact),
           h("button", { className: "btn", onClick: props.onClose }, ui.close)
         ])
       ])
