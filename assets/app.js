@@ -52,8 +52,8 @@ var IS_TOUCH = typeof window !== "undefined" && window.matchMedia && window.matc
 var TRAIL_SETTINGS = { inactivityTimeout: 4500 };
 
 var TECH_CHIPS = [
-  "Python", "FastAPI", "Asyncio", "aiogram", "PostgreSQL", "SQLite", "Redis",
-  "Docker", "Nginx", "Git", "Flask", "TypeScript", "React", "Node.js", "Tailwind CSS", "HTML5", "CSS3"
+  "Python", "FastAPI", "Asyncio", "aiogram", "SQLAlchemy", "PostgreSQL", "SQLite", "Redis",
+  "Docker", "Pytest", "Nginx", "Git", "Flask", "TypeScript", "React", "Tailwind CSS", "HTML5", "CSS3"
 ];
 
 var serviceItems = [
