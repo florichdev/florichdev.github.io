@@ -102,12 +102,12 @@ var portfolioItems = [
     ],
     ru: {
       name: "Standoff 2 Sticker Market & Hub",
-      desc: "P2P-платформа обмена игровыми скинами с анонимным чатом сделок, монетизацией через Telegram Stars, веб-админкой на FastAPI и 25 тестами Pytest.",
+      desc: "P2P-платформа обмена игровыми скинами с анонимным чатом сделок, монетизацией через Telegram Stars, веб-админкой на FastAPI и 65 тестами Pytest.",
       price: "Архитектурный кейс"
     },
     en: {
       name: "Standoff 2 Sticker Market & Hub",
-      desc: "High-performance P2P trading platform with anonymous deal chat, Telegram Stars monetization, FastAPI hub, and 25 automated Pytest tests.",
+      desc: "High-performance P2P trading platform with anonymous deal chat, Telegram Stars monetization, FastAPI hub, and 65 automated Pytest tests.",
       price: "Architecture case"
     }
   },
