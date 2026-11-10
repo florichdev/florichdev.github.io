@@ -91,10 +91,32 @@ var serviceItems = [
 
 var portfolioItems = [
   {
+    id: "standoff2-market", icon: "bot",
+    stack: "Python · FastAPI · Aiogram 3 · PostgreSQL · SQLAlchemy 2.0 · Docker · Pytest",
+    tags: ["P2P Market", "FastAPI Hub", "Telegram Stars", "Clean Architecture"],
+    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20Standoff%202%20Market%20Hub",
+    githubUrl: "https://github.com/florichdev/standoff2-sticker-market",
+    shots: [
+      "./assets/images/portfolio/secretvapeshop/04-web-auth.png",
+      "./assets/images/portfolio/secretvapeshop/05-web-main.png"
+    ],
+    ru: {
+      name: "Standoff 2 Sticker Market & Hub",
+      desc: "P2P-платформа обмена игровыми скинами с анонимным чатом сделок, монетизацией через Telegram Stars, веб-админкой на FastAPI и 25 тестами Pytest.",
+      price: "Архитектурный кейс"
+    },
+    en: {
+      name: "Standoff 2 Sticker Market & Hub",
+      desc: "High-performance P2P trading platform with anonymous deal chat, Telegram Stars monetization, FastAPI hub, and 25 automated Pytest tests.",
+      price: "Architecture case"
+    }
+  },
+  {
     id: "secret-vape", icon: "bot",
     stack: "Python · Aiogram 3 · SQLAlchemy · Flask · SQLite",
     tags: ["E-commerce", "Admin Panel", "Payments"],
-    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%20Secret%20Vape%20Shop",
+    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%20Ecommerce%20Platform",
+    githubUrl: "https://github.com/florichdev/telegram-ecommerce-flask-admin",
     shots: [
       "./assets/images/portfolio/secretvapeshop/01-bot-main-menu.png",
       "./assets/images/portfolio/secretvapeshop/02-bot-shop.png",
@@ -107,12 +129,12 @@ var portfolioItems = [
       "./assets/images/portfolio/secretvapeshop/09-web-mobile.png"
     ],
     ru: {
-      name: "Secret Vape Shop",
+      name: "Telegram E-Commerce & Admin Platform",
       desc: "Telegram e-commerce магазин с Flask-бэкендом и админ-панелью. Проектирование схемы БД, транзакции заказов, вебхуки оплат и ролевой доступ.",
       price: "Коммерческий кейс"
     },
     en: {
-      name: "Secret Vape Shop",
+      name: "Telegram E-Commerce & Admin Platform",
       desc: "Telegram e-commerce store with Flask backend & web admin dashboard. Database architecture, order transactions, payment webhooks, and RBAC.",
       price: "Commercial case"
     }
@@ -233,6 +255,7 @@ function mapLocalized(items, lang) {
       tags: item.tags,
       shots: item.shots,
       demoUrl: item.demoUrl,
+      githubUrl: item.githubUrl,
       name: loc.name || loc.title,
       title: loc.title,
       desc: loc.desc,
@@ -610,7 +633,11 @@ function Modal(props) {
           ]) : null
         ]),
         h("div", { className: "modal-actions" }, [
-          props.item.demoUrl ? h("a", { className: "btn primary", href: props.item.demoUrl, target: "_blank", rel: "noreferrer noopener" }, [
+          props.item.githubUrl ? h("a", { className: "btn primary", href: props.item.githubUrl, target: "_blank", rel: "noreferrer noopener" }, [
+            h("i", { className: "fa-brands fa-github", style: { marginRight: "8px" }, "aria-hidden": "true" }),
+            "GitHub Code"
+          ]) : null,
+          props.item.demoUrl ? h("a", { className: "btn", href: props.item.demoUrl, target: "_blank", rel: "noreferrer noopener" }, [
             h("i", { className: "fa-solid fa-arrow-up-right-from-square", style: { marginRight: "8px" }, "aria-hidden": "true" }),
             props.item.id === "happs" ? ui.openBot : ui.discussCase
           ]) : null,
