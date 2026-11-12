@@ -59,33 +59,33 @@ var TECH_CHIPS = [
 var serviceItems = [
   {
     id: "tg-bots", icon: "bot",
-    ru: { title: "Telegram-боты под ключ", desc: "Автоворонки, прием оплат (Crypto, ЮKassa, Stripe), FSM, платные подписки, реферальные системы и админ-панели под ключ.", price: "от 10 000 ₽" },
-    en: { title: "Telegram Bots Turnkey", desc: "Sales funnels, payment gateways (Crypto, Stripe), FSM, subscriptions, referral engines, and custom admin dashboards.", price: "from $150" }
+    ru: { title: "Telegram-боты под ключ", desc: "Автоворонки, прием оплат (Crypto, ЮKassa, Stripe), FSM, платные подписки, реферальные системы и админ-панели под ключ.", price: "Под ключ / по ТЗ" },
+    en: { title: "Telegram Bots Turnkey", desc: "Sales funnels, payment gateways (Crypto, Stripe), FSM, subscriptions, referral engines, and custom admin dashboards.", price: "Custom scope" }
   },
   {
     id: "tg-miniapps", icon: "web",
-    ru: { title: "Telegram Mini Apps (Web)", desc: "Интерактивные веб-приложения внутри Telegram на React/TS: каталоги товаров, корзины, личные кабинеты и бронирование.", price: "от 15 000 ₽" },
-    en: { title: "Telegram Mini Apps", desc: "Rich web applications inside Telegram (React/TS): e-commerce catalogs, carts, member portals, and booking systems.", price: "from $200" }
+    ru: { title: "Telegram Mini Apps (Web)", desc: "Интерактивные веб-приложения внутри Telegram на React/TS: каталоги товаров, корзины, личные кабинеты и бронирование.", price: "Под ключ / по ТЗ" },
+    en: { title: "Telegram Mini Apps", desc: "Rich web applications inside Telegram (React/TS): e-commerce catalogs, carts, member portals, and booking systems.", price: "Custom scope" }
   },
   {
     id: "api", icon: "api",
-    ru: { title: "REST API & Бэкенд", desc: "Высокопроизводительные серверные сервисы на FastAPI / Flask. Авторизация (JWT, OAuth2), фоновые задачи, валидация и кэш.", price: "от 15 000 ₽" },
-    en: { title: "REST API & Backend", desc: "Scalable backend services using FastAPI / Flask. Authentication (JWT, OAuth2), background queues, and caching.", price: "from $200" }
+    ru: { title: "REST API & Бэкенд", desc: "Высокопроизводительные серверные сервисы на FastAPI / Flask. Авторизация (JWT, OAuth2), фоновые задачи, валидация и кэш.", price: "Под ключ / по ТЗ" },
+    en: { title: "REST API & Backend", desc: "Scalable backend services using FastAPI / Flask. Authentication (JWT, OAuth2), background queues, and caching.", price: "Custom scope" }
   },
   {
     id: "parsing", icon: "web",
-    ru: { title: "Парсинг & Автоматизация", desc: "Отказоустойчивый сбор данных с сайтов и маркетплейсов, обход антибот-систем, экспорт в Excel / Google Sheets / БД.", price: "от 8 000 ₽" },
-    en: { title: "Scraping & Automation", desc: "Resilient data scraping systems, anti-blocking measures, background task queues, and DB/Excel exports.", price: "from $120" }
+    ru: { title: "Парсинг & Автоматизация", desc: "Отказоустойчивый сбор данных с сайтов и маркетплейсов, обход антибот-систем, экспорт в Excel / Google Sheets / БД.", price: "Под ключ / по ТЗ" },
+    en: { title: "Scraping & Automation", desc: "Resilient data scraping systems, anti-blocking measures, background task queues, and DB/Excel exports.", price: "Custom scope" }
   },
   {
     id: "databases", icon: "api",
-    ru: { title: "Базы данных & Оптимизация", desc: "Проектирование архитектуры БД (PostgreSQL, SQLite, Redis), миграции Alembic, оптимизация запросов и кэширование.", price: "от 10 000 ₽" },
-    en: { title: "Databases & Optimization", desc: "Database schema design (PostgreSQL, SQLite), Alembic migrations, Redis caching, and query optimization.", price: "from $150" }
+    ru: { title: "Базы данных & Оптимизация", desc: "Проектирование архитектуры БД (PostgreSQL, SQLite, Redis), миграции Alembic, оптимизация запросов и кэширование.", price: "Под ключ / по ТЗ" },
+    en: { title: "Databases & Optimization", desc: "Database schema design (PostgreSQL, SQLite), Alembic migrations, Redis caching, and query optimization.", price: "Custom scope" }
   },
   {
     id: "integrations", icon: "api",
-    ru: { title: "Интеграции & Платежи", desc: "Связка внешних API, платежных систем (Crypto, ЮKassa, Stripe), CRM и сторонних сервисов с защитой от сбоев.", price: "от 8 000 ₽" },
-    en: { title: "Integrations & Payments", desc: "Connecting 3rd-party APIs, payment gateways (Crypto, Stripe), CRMs, and fail-safe webhook pipelines.", price: "from $120" }
+    ru: { title: "Интеграции & Платежи", desc: "Связка внешних API, платежных систем (Crypto, ЮKassa, Stripe), CRM и сторонних сервисов с защитой от сбоев.", price: "Под ключ / по ТЗ" },
+    en: { title: "Integrations & Payments", desc: "Connecting 3rd-party APIs, payment gateways (Crypto, Stripe), CRMs, and fail-safe webhook pipelines.", price: "Custom scope" }
   }
 ];
 
