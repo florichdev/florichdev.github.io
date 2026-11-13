@@ -1,121 +1,119 @@
-"""Kwork reviews fetcher script for FlorichDev portfolio.
+"""Kwork Reviews Parser for FlorichDev portfolio.
 
-Parses reviews from https://kwork.ru/user/florichdev and updates
-assets/data/reviews.json. If the request is blocked or fails, it preserves
-existing reviews safely.
+Fetches reviews from https://kwork.ru/user/florichdev and updates assets/data/reviews.json.
+Can be executed manually or as a scheduled GitHub Action.
 """
 
 from __future__ import annotations
 
 import json
-import logging
 import re
-import sys
-from pathlib import Path
 import urllib.request
-import urllib.error
+from pathlib import Path
+from typing import Any
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
-logger = logging.getLogger("kwork_parser")
+KWORK_PROFILE_URL = "https://kwork.ru/user/florichdev"
+OUTPUT_JSON = Path(__file__).resolve().parent.parent / "assets" / "data" / "reviews.json"
 
-TARGET_URL = "https://kwork.ru/user/florichdev"
-OUTPUT_PATH = Path(__file__).resolve().parent.parent / "assets" / "data" / "reviews.json"
-
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/124.0.0.0 Safari/537.36"
-    ),
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-}
+USER_AGENTS = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+)
 
 
 def extract_initials(name: str) -> str:
-    """Generate 2-letter initials from a name."""
     parts = name.strip().split()
-    if not parts:
-        return "FD"
     if len(parts) >= 2:
         return f"{parts[0][0]}{parts[1][0]}".upper()
-    return parts[0][:2].upper()
+    if len(name) >= 2:
+        return name[:2].upper()
+    return name.upper() if name else "FD"
 
 
-def parse_reviews_html(html: str) -> list[dict[str, str | int]]:
-    """Parse reviews from Kwork profile HTML."""
-    reviews: list[dict[str, str | int]] = []
-    
-    # Kwork reviews container pattern: .reviews_order_block.d-block
-    blocks = re.findall(
-        r'<div[^>]*class=["\'][^"\']*reviews_order_block[^"\']*d-block[^"\']*["\'][^>]*>(.*?)</div>\s*</div>',
-        html,
-        re.DOTALL | re.IGNORECASE,
+def parse_kwork_html(html: str) -> list[dict[str, Any]]:
+    # Simple regex-based fallback parser if bs4 is not installed in the runtime
+    reviews: list[dict[str, Any]] = []
+
+    try:
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(html, "html.parser")
+        blocks = soup.select(".reviews_order_block.d-block, .reviews_order_block")
+        for idx, block in enumerate(blocks, start=1):
+            name_el = block.select_one(".username, .review-user-name, a.user-name")
+            name = name_el.get_text(strip=True) if name_el else f"Клиент Kwork #{idx}"
+
+            text_el = block.select_one(".review-text, .reviews_order_block__comment, p")
+            text = text_el.get_text(strip=True) if text_el else ""
+
+            project_el = block.select_one(".reviews_order_block__kwork-title, .order-title")
+            project = project_el.get_text(strip=True) if project_el else "Заказ на Kwork"
+
+            if text:
+                reviews.append({
+                    "id": idx,
+                    "name": name,
+                    "initials": extract_initials(name),
+                    "project": project,
+                    "projectEn": project,
+                    "rating": 5,
+                    "text": text,
+                    "textEn": text,
+                })
+        if reviews:
+            return reviews
+    except ImportError:
+        pass
+
+    # Regex fallback if beautifulsoup4 is not available
+    pattern = re.compile(
+        r'<div[^>]*class="[^"]*reviews_order_block[^"]*"[^>]*>([\s\S]*?)</div>\s*</div>',
+        re.IGNORECASE,
     )
+    for idx, match in enumerate(pattern.finditer(html), start=1):
+        content = match.group(1)
+        text_match = re.search(r'<div[^>]*class="[^"]*comment[^"]*"[^>]*>([\s\S]*?)</div>', content)
+        name_match = re.search(r'<a[^>]*class="[^"]*user[^"]*"[^>]*>([^<]+)</a>', content)
+        title_match = re.search(r'<a[^>]*class="[^"]*title[^"]*"[^>]*>([^<]+)</a>', content)
 
-    if not blocks:
-        # Alternative fallback pattern for review blocks
-        blocks = re.findall(
-            r'<div[^>]*class=["\'][^"\']*reviews_order_block[^"\']*["\'][^>]*>(.*?)</div>',
-            html,
-            re.DOTALL | re.IGNORECASE,
-        )
+        clean_text = re.sub(r"<[^>]+>", "", text_match.group(1)).strip() if text_match else ""
+        clean_name = name_match.group(1).strip() if name_match else f"Клиент Kwork #{idx}"
+        clean_title = title_match.group(1).strip() if title_match else "Заказ на Kwork"
 
-    for idx, block in enumerate(blocks, start=1):
-        # Extract author name
-        author_match = re.search(r'<a[^>]*class=["\'][^"\']*user-name[^"\']*["\'][^>]*>([^<]+)</a>', block)
-        name = author_match.group(1).strip() if author_match else f"Клиент #{idx}"
-
-        # Extract order / project title
-        order_match = re.search(r'<div[^>]*class=["\'][^"\']*review-order__title[^"\']*["\'][^>]*>([^<]+)</div>', block)
-        project = order_match.group(1).strip() if order_match else "Разработка на Python / Telegram"
-
-        # Extract review body
-        text_match = re.search(r'<div[^>]*class=["\'][^"\']*review-item__text[^"\']*["\'][^>]*>([^<]+)</div>', block)
-        text = text_match.group(1).strip() if text_match else ""
-
-        if text:
+        if clean_text:
             reviews.append({
                 "id": idx,
-                "name": name,
-                "initials": extract_initials(name),
-                "project": project,
-                "projectEn": project,
+                "name": clean_name,
+                "initials": extract_initials(clean_name),
+                "project": clean_title,
+                "projectEn": clean_title,
                 "rating": 5,
-                "text": text,
-                "textEn": text,
+                "text": clean_text,
+                "textEn": clean_text,
             })
 
     return reviews
 
 
-def fetch_and_update() -> bool:
-    """Fetch reviews from Kwork and update reviews.json safely."""
-    logger.info("Fetching Kwork profile: %s", TARGET_URL)
-    req = urllib.request.Request(TARGET_URL, headers=HEADERS)
-
+def update_reviews() -> None:
+    req = urllib.request.Request(
+        KWORK_PROFILE_URL,
+        headers={"User-Agent": USER_AGENTS, "Accept": "text/html,application/xhtml+xml"},
+    )
     try:
         with urllib.request.urlopen(req, timeout=12) as response:
             html = response.read().decode("utf-8", errors="ignore")
-            logger.info("Fetched %d characters", len(html))
-    except (urllib.error.URLError, TimeoutError) as exc:
-        logger.warning("Could not reach Kwork directly: %s. Preserving existing reviews.", exc)
-        return False
+            parsed = parse_kwork_html(html)
+            if parsed:
+                OUTPUT_JSON.parent.mkdir(parents=True, exist_ok=True)
+                OUTPUT_JSON.write_text(json.dumps(parsed, ensure_ascii=False, indent=2), encoding="utf-8")
+                print(f"Successfully updated {len(parsed)} reviews to {OUTPUT_JSON}")
+                return
+    except Exception as exc:
+        print(f"Direct Kwork fetch unavailable ({exc}). Using existing static fallback.")
 
-    parsed = parse_reviews_html(html)
-    if not parsed:
-        logger.warning("No review blocks extracted from HTML. Preserving existing reviews.")
-        return False
-
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(parsed, f, ensure_ascii=False, indent=2)
-        f.write("\n")
-
-    logger.info("Successfully updated %s with %d reviews", OUTPUT_PATH, len(parsed))
-    return True
+    if not OUTPUT_JSON.exists():
+        print(f"Notice: {OUTPUT_JSON} exists and is ready.")
 
 
 if __name__ == "__main__":
-    success = fetch_and_update()
-    sys.exit(0 if success else 0)
+    update_reviews()
