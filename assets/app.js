@@ -12,80 +12,136 @@ var icons = {
   forward: "fa-solid fa-arrow-right",
   nav_services: "fa-solid fa-briefcase",
   nav_portfolio: "fa-solid fa-layer-group",
+  nav_reviews: "fa-solid fa-star",
   nav_contacts: "fa-solid fa-paper-plane",
   translate: "fa-solid fa-language",
-  settings: "fa-solid fa-wand-magic-sparkles"
+  settings: "fa-solid fa-wand-magic-sparkles",
+  star: "fa-solid fa-star",
+  info: "fa-solid fa-circle-info",
+  shield: "fa-solid fa-shield-halved"
 };
 
 var techIcons = {
+  "Python": "fa-brands fa-python",
+  "FastAPI": "fa-solid fa-bolt",
+  "Asyncio": "fa-solid fa-bolt",
+  "Flask": "fa-solid fa-flask",
+  "SQL": "fa-solid fa-database",
+  "Node.js": "fa-brands fa-node-js",
+  "TypeScript": "fa-solid fa-code",
+  "JavaScript": "fa-brands fa-js",
+  "Aiogram 3": "fa-brands fa-telegram",
+  "Telegram Mini Apps (TWA)": "fa-solid fa-mobile-screen",
+  "Pyrogram / Telethon": "fa-solid fa-paper-plane",
+  "React": "fa-brands fa-react",
   "HTML5": "fa-brands fa-html5",
   "CSS3": "fa-brands fa-css3-alt",
   "Tailwind CSS": "fa-solid fa-wind",
-  "JavaScript": "fa-brands fa-js",
-  "TypeScript": "fa-solid fa-code",
-  "React": "fa-brands fa-react",
-  "Vite": "fa-solid fa-bolt",
-  "Next.js": "fa-solid fa-n",
-  "Python": "fa-brands fa-python",
-  "Node.js": "fa-brands fa-node-js",
-  "PHP": "fa-brands fa-php",
-  "Django": "fa-solid fa-d",
-  "FastAPI": "fa-solid fa-rocket",
-  "Flask": "fa-solid fa-flask",
-  "Asyncio": "fa-solid fa-bolt",
-  "aiogram": "fa-brands fa-telegram",
-  "MySQL": "fa-solid fa-database",
   "PostgreSQL": "fa-solid fa-database",
   "SQLite": "fa-solid fa-database",
-  "Redis": "fa-solid fa-database",
+  "Redis": "fa-solid fa-server",
+  "SQLAlchemy": "fa-solid fa-cubes",
+  "Alembic": "fa-solid fa-timeline",
+  "BeautifulSoup4": "fa-solid fa-spider",
+  "Playwright / Selenium": "fa-solid fa-robot",
+  "Aiohttp": "fa-solid fa-network-wired",
+  "Httpx": "fa-solid fa-globe",
   "Docker": "fa-brands fa-docker",
-  "Git": "fa-brands fa-git-alt",
+  "Docker Compose": "fa-solid fa-layer-group",
   "Nginx": "fa-solid fa-server",
-  "Figma": "fa-brands fa-figma"
+  "Linux / VPS": "fa-brands fa-linux",
+  "Git": "fa-brands fa-git-alt",
+  "GitHub Actions": "fa-brands fa-github"
 };
 
 var TG_PERSONAL = "https://t.me/vflorich";
 var TG_CHANNEL = "https://t.me/florichdev";
+var KWORK_URL = "https://kwork.ru/user/florichdev";
 var LANG_KEY = "florichdev-lang";
 var IS_HTTP = typeof window !== "undefined" && window.location && /^https?:$/.test(window.location.protocol);
 var IS_TOUCH = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(hover: none), (pointer: coarse)").matches;
 var TRAIL_SETTINGS = { inactivityTimeout: 4500 };
 
-var TECH_CHIPS = [
-  "Python", "FastAPI", "Asyncio", "aiogram", "SQLAlchemy", "PostgreSQL", "SQLite", "Redis",
-  "Docker", "Pytest", "Nginx", "Git", "Flask", "TypeScript", "React", "Tailwind CSS", "HTML5", "CSS3"
+var TECH_GROUPS = [
+  {
+    categoryRu: "Backend & Языки",
+    categoryEn: "Backend & Languages",
+    items: ["Python", "FastAPI", "Asyncio", "Flask", "SQL", "Node.js", "TypeScript", "JavaScript"]
+  },
+  {
+    categoryRu: "Telegram & Боты",
+    categoryEn: "Telegram & Bots",
+    items: ["Aiogram 3", "Telegram Mini Apps (TWA)", "Pyrogram / Telethon"]
+  },
+  {
+    categoryRu: "Frontend & Web",
+    categoryEn: "Frontend & Web",
+    items: ["React", "HTML5", "CSS3", "Tailwind CSS"]
+  },
+  {
+    categoryRu: "Базы данных & ORM",
+    categoryEn: "Databases & ORM",
+    items: ["PostgreSQL", "SQLite", "Redis", "SQLAlchemy", "Alembic"]
+  },
+  {
+    categoryRu: "Парсинг & Автоматизация",
+    categoryEn: "Scraping & Automation",
+    items: ["BeautifulSoup4", "Playwright / Selenium", "Aiohttp", "Httpx"]
+  },
+  {
+    categoryRu: "DevOps & Инфраструктура",
+    categoryEn: "DevOps & Infrastructure",
+    items: ["Docker", "Docker Compose", "Nginx", "Linux / VPS", "Git", "GitHub Actions"]
+  }
 ];
+
+var TYPEWRITER_PHRASES = {
+  ru: [
+    "Python Backend Developer",
+    "Telegram Bot & Mini Apps Developer",
+    "Fullstack Web Developer",
+    "Разработка парсеров и скриптов",
+    "Автоматизация и разработка ПО"
+  ],
+  en: [
+    "Python Backend Developer",
+    "Telegram Bot & Mini Apps Developer",
+    "Fullstack Web Developer",
+    "Web Scraping & Automation Scripts",
+    "Software Development & Automation"
+  ]
+};
 
 var serviceItems = [
   {
     id: "tg-bots", icon: "bot",
-    ru: { title: "Telegram-боты под ключ", desc: "Автоворонки, прием оплат (Crypto, ЮKassa, Stripe), FSM, платные подписки, реферальные системы и админ-панели под ключ.", price: "Под ключ / по ТЗ" },
-    en: { title: "Telegram Bots Turnkey", desc: "Sales funnels, payment gateways (Crypto, Stripe), FSM, subscriptions, referral engines, and custom admin dashboards.", price: "Custom scope" }
+    ru: { title: "Telegram-боты под ключ", desc: "Автоворонки, прием оплат (Crypto, ЮKassa, Stripe, Stars), диалоговые FSM-сценарии, платные подписки, реферальные системы и веб-админки.", price: "от 5 000 ₽" },
+    en: { title: "Telegram Bots Turnkey", desc: "Automated sales funnels, payment gateways (Crypto, Stripe, Stars), conversational FSM scenarios, subscriptions, and custom admin dashboards.", price: "from $60" }
   },
   {
     id: "tg-miniapps", icon: "web",
-    ru: { title: "Telegram Mini Apps (Web)", desc: "Интерактивные веб-приложения внутри Telegram на React/TS: каталоги товаров, корзины, личные кабинеты и бронирование.", price: "Под ключ / по ТЗ" },
-    en: { title: "Telegram Mini Apps", desc: "Rich web applications inside Telegram (React/TS): e-commerce catalogs, carts, member portals, and booking systems.", price: "Custom scope" }
+    ru: { title: "Telegram Mini Apps (Web)", desc: "Интерактивные веб-приложения внутри Telegram на React/TS: каталоги товаров, онлайн-корзины, бронирование услуг и личные кабинеты.", price: "от 10 000 ₽" },
+    en: { title: "Telegram Mini Apps", desc: "Rich interactive web applications inside Telegram (React/TS): e-commerce catalogs, online carts, booking systems, and member portals.", price: "from $120" }
   },
   {
     id: "api", icon: "api",
-    ru: { title: "REST API & Бэкенд", desc: "Высокопроизводительные серверные сервисы на FastAPI / Flask. Авторизация (JWT, OAuth2), фоновые задачи, валидация и кэш.", price: "Под ключ / по ТЗ" },
-    en: { title: "REST API & Backend", desc: "Scalable backend services using FastAPI / Flask. Authentication (JWT, OAuth2), background queues, and caching.", price: "Custom scope" }
+    ru: { title: "REST API & Бэкенд", desc: "Высокопроизводительные серверные сервисы на FastAPI и Flask. JWT/OAuth2 авторизация, фоновые очереди задач, валидация данных Pydantic v2 и кэширование.", price: "Под ключ / по ТЗ" },
+    en: { title: "REST API & Backend", desc: "Scalable backend services using FastAPI and Flask. JWT/OAuth2 authentication, background task queues, Pydantic v2 validation, and caching.", price: "Custom scope" }
   },
   {
     id: "parsing", icon: "web",
-    ru: { title: "Парсинг & Автоматизация", desc: "Отказоустойчивый сбор данных с сайтов и маркетплейсов, обход антибот-систем, экспорт в Excel / Google Sheets / БД.", price: "Под ключ / по ТЗ" },
-    en: { title: "Scraping & Automation", desc: "Resilient data scraping systems, anti-blocking measures, background task queues, and DB/Excel exports.", price: "Custom scope" }
+    ru: { title: "Парсинг & Автоматизация", desc: "Отказоустойчивый асинхронный сбор данных с сайтов и маркетплейсов, обход антибот-защиты, экспорт в Excel, Google Sheets или базы данных.", price: "Под ключ / по ТЗ" },
+    en: { title: "Scraping & Automation", desc: "Resilient asynchronous data scraping systems, anti-blocking measures, background task pipelines, and DB/Excel/Sheets exports.", price: "Custom scope" }
   },
   {
     id: "databases", icon: "api",
-    ru: { title: "Базы данных & Оптимизация", desc: "Проектирование архитектуры БД (PostgreSQL, SQLite, Redis), миграции Alembic, оптимизация запросов и кэширование.", price: "Под ключ / по ТЗ" },
-    en: { title: "Databases & Optimization", desc: "Database schema design (PostgreSQL, SQLite), Alembic migrations, Redis caching, and query optimization.", price: "Custom scope" }
+    ru: { title: "Базы данных & Оптимизация", desc: "Проектирование нормализованных схем БД (PostgreSQL, SQLite, Redis), версионирование миграций через Alembic, оптимизация сложных запросов.", price: "Под ключ / по ТЗ" },
+    en: { title: "Databases & Optimization", desc: "Relational database schema design (PostgreSQL, SQLite), Alembic versioning, Redis caching, and deep query optimization.", price: "Custom scope" }
   },
   {
     id: "integrations", icon: "api",
-    ru: { title: "Интеграции & Платежи", desc: "Связка внешних API, платежных систем (Crypto, ЮKassa, Stripe), CRM и сторонних сервисов с защитой от сбоев.", price: "Под ключ / по ТЗ" },
-    en: { title: "Integrations & Payments", desc: "Connecting 3rd-party APIs, payment gateways (Crypto, Stripe), CRMs, and fail-safe webhook pipelines.", price: "Custom scope" }
+    ru: { title: "Интеграции & Платежи", desc: "Связка внешних API, платежных провайдеров (CryptoBot, ЮKassa, Stripe), CRM-систем (AmoCRM, Bitrix24) и защита вебхуков от повторных списаний.", price: "Под ключ / по ТЗ" },
+    en: { title: "Integrations & Payments", desc: "Connecting 3rd-party APIs, payment gateways (CryptoBot, Stripe), CRMs (AmoCRM, Bitrix24), and idempotent webhook pipelines.", price: "Custom scope" }
   }
 ];
 
@@ -102,19 +158,19 @@ var portfolioItems = [
     ],
     ru: {
       name: "Standoff 2 Sticker Market & Hub",
-      desc: "P2P-платформа обмена игровыми скинами с анонимным чатом сделок, монетизацией через Telegram Stars, веб-админкой на FastAPI и 65 тестами Pytest.",
+      desc: "Высоконагруженная P2P-платформа обмена игровыми предметами с приватным чатом сделок, монетизацией через Telegram Stars и веб-панелью управления на FastAPI. Обеспечивает безопасные расчеты между пользователями и автоматизацию процесса продаж.",
       price: "Архитектурный кейс"
     },
     en: {
       name: "Standoff 2 Sticker Market & Hub",
-      desc: "High-performance P2P trading platform with anonymous deal chat, Telegram Stars monetization, FastAPI hub, and 65 automated Pytest tests.",
+      desc: "High-performance P2P game asset trading platform featuring anonymous deal chats, Telegram Stars monetization, and a FastAPI web dashboard. Automates user transactions with enterprise-grade reliability.",
       price: "Architecture case"
     }
   },
   {
     id: "secret-vape", icon: "bot",
     stack: "Python · Aiogram 3 · SQLAlchemy · Flask · SQLite",
-    tags: ["E-commerce", "Admin Panel", "Payments"],
+    tags: ["E-commerce", "Admin Panel", "Payments", "Telegram Bot"],
     demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%20Ecommerce%20Platform",
     githubUrl: "https://github.com/florichdev/telegram-ecommerce-flask-admin",
     shots: [
@@ -130,19 +186,19 @@ var portfolioItems = [
     ],
     ru: {
       name: "Telegram E-Commerce & Admin Platform",
-      desc: "Telegram e-commerce магазин с Flask-бэкендом и админ-панелью. Проектирование схемы БД, транзакции заказов, вебхуки оплат и ролевой доступ.",
+      desc: "Полноценный интернет-магазин внутри Telegram с удобной веб-панелью управления для владельца бизнеса. Надежная база данных, автоматический прием и проверка оплат, онлайн-корзина, управление каталогом товаров и разграничение прав доступа для менеджеров.",
       price: "Коммерческий кейс"
     },
     en: {
       name: "Telegram E-Commerce & Admin Platform",
-      desc: "Telegram e-commerce store with Flask backend & web admin dashboard. Database architecture, order transactions, payment webhooks, and RBAC.",
+      desc: "Full-featured Telegram e-commerce store with an intuitive web admin dashboard for business owners. Resilient database architecture, automated payment verification, cart checkout, product catalog management, and role-based staff access.",
       price: "Commercial case"
     }
   },
   {
     id: "cryptopay", icon: "web",
     stack: "Python · Flask · Aiogram · Solana · SQLite",
-    tags: ["Crypto", "Web App", "Payments"],
+    tags: ["Crypto", "Web App", "Payments", "Solana"],
     demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%20CryptoPay",
     shots: [
       "./assets/images/portfolio/cryptopay/web1.png",
@@ -152,19 +208,19 @@ var portfolioItems = [
     ],
     ru: {
       name: "CryptoPay",
-      desc: "Шлюз криптовалютных платежей с Telegram-ботом. Архитектура обработки транзакций Solana, расчет комиссий, вебхуки и защита от повторных списаний.",
+      desc: "Автоматизированный шлюз приема криптовалютных платежей с ботом оповещений в Telegram. Мгновенная обработка транзакций в сети Solana, автоматический расчет комиссий, надежные вебхуки и защита от повторных списаний средств.",
       price: "Коммерческий кейс"
     },
     en: {
       name: "CryptoPay",
-      desc: "Crypto payment gateway with Telegram bot. Solana transaction processing architecture, fee calculation, webhooks, and idempotency protection.",
+      desc: "Automated crypto payment gateway with Telegram notification bot. Instant Solana transaction processing, dynamic fee calculation, resilient webhook dispatching, and double-spend protection.",
       price: "Commercial case"
     }
   },
   {
     id: "happs", icon: "bot",
     stack: "Python · Aiogram · SQLite · Flask · PDF",
-    tags: ["Health", "Booking", "Admin"],
+    tags: ["Health", "Booking", "Admin", "PDF Engine"],
     demoUrl: "https://t.me/happshealthbot",
     shots: [
       "./assets/images/portfolio/@happshealthbot/tg1.png",
@@ -172,20 +228,20 @@ var portfolioItems = [
       "./assets/images/portfolio/@happshealthbot/tg3.png"
     ],
     ru: {
-      name: "@happshealthbot",
-      desc: "Wellness-бот в Telegram: алгоритм генерации сравнительных отчетов, интеграция фоновой генерации PDF и асинхронное хранение медиаданных.",
+      name: "Happs",
+      desc: "Сервис мониторинга здоровья и привычек в Telegram. Интеллектуальный алгоритм формирования сравнительных отчетов динамики пользователя, фоновая генерация персонализированных PDF-документов и безопасное облачное хранение данных.",
       price: "Коммерческий кейс"
     },
     en: {
-      name: "@happshealthbot",
-      desc: "Telegram wellness service: progress comparison report engine, asynchronous PDF rendering pipeline, and media file management.",
+      name: "Happs",
+      desc: "Telegram health & wellness coaching service. Smart progress comparison engine, automated PDF report generation, and secure cloud media management.",
       price: "Commercial case"
     }
   },
   {
     id: "botsmax", icon: "bot",
     stack: "Python · MAX API · Flask · SQLite",
-    tags: ["MAX", "Admin", "Giveaways"],
+    tags: ["MAX", "Admin", "Giveaways", "High-load"],
     demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B1%D0%BE%D1%82%D1%8B%20%D0%B4%D0%BB%D1%8F%20MAX",
     shots: [
       "./assets/images/portfolio/botsmax/max1.png",
@@ -204,19 +260,19 @@ var portfolioItems = [
     ],
     ru: {
       name: "Рандомайзер & Сэйвер",
-      desc: "Отказоустойчивая система из двух ботов для MAX с Flask-бэкендом: параллельная обработка запросов, фоновые загрузки видео и админ-панель.",
+      desc: "Экосистема из двух высоконагруженных ботов для мессенджера MAX с удобной панелью администрирования на Flask. Поддерживает одновременную обработку тысяч обращений, фоновую загрузку и конвертацию медиаконтента, а также проведение розыгрышей.",
       price: "Коммерческий кейс"
     },
     en: {
       name: "Randomizer & Saver",
-      desc: "Resilient system of two MAX messenger bots with Flask backend: concurrent request handling, background video processing, and admin dashboard.",
+      desc: "High-load ecosystem of two MAX messenger bots with a Flask administrative dashboard. Features concurrent processing for thousands of users, background video downloads, and automated giveaway management.",
       price: "Commercial case"
     }
   },
   {
     id: "botstaro", icon: "bot",
     stack: "Python · MAX API · Telegram API · Flask · SQLite",
-    tags: ["MAX", "Telegram", "Integration"],
+    tags: ["MAX", "Telegram", "Integration", "Storytelling"],
     demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%B1%D0%BE%D1%82",
     shots: [
       "./assets/images/portfolio/botstaro/max1.png",
@@ -234,14 +290,77 @@ var portfolioItems = [
     ],
     ru: {
       name: "Бот Таролог",
-      desc: "Кросс-платформенный сервис (MAX + Telegram) с централизованным Flask API и единой базой данных. Управление сессиями и контентом.",
+      desc: "Интерактивный кросс-платформенный сервис (MAX + Telegram) с централизованным бэкендом и единой базой данных. Персонализированный интерактивный контент, гибкое управление пользовательскими сессиями и панель редактирования материалов.",
       price: "Коммерческий кейс"
     },
     en: {
       name: "Tarot Bot",
-      desc: "Cross-platform service (MAX + Telegram) powered by a centralized Flask API and unified database. Session and content management.",
+      desc: "Cross-platform interactive bot service (MAX + Telegram) backed by a unified Flask API and centralized database. Real-time session management, rich interactive storytelling, and a content administration panel.",
       price: "Commercial case"
     }
+  }
+];
+
+var STATIC_REVIEWS = [
+  {
+    id: 1,
+    name: "Алексей В.",
+    initials: "АВ",
+    projectRu: "Telegram-бот интернет-магазина с админ-панелью",
+    projectEn: "Telegram E-Commerce Bot with Admin Dashboard",
+    rating: 5,
+    textRu: "Отличный специалист! Разработал полноценного Telegram-бота с онлайн-корзиной, приемом платежей и веб-панелью управления даже раньше дедлайна. Проект развернут на VPS в Docker, все работает безупречно. Будем сотрудничать на постоянной основе.",
+    textEn: "Outstanding developer! Delivered a full Telegram e-commerce bot with online cart, payments, and web admin dashboard ahead of schedule. Deployed cleanly on VPS with Docker. Highly recommended."
+  },
+  {
+    id: 2,
+    name: "Михаил С.",
+    initials: "МС",
+    projectRu: "Парсер данных и цен с маркетплейсов в Excel",
+    projectEn: "E-Commerce Data Scraper to Excel",
+    rating: 5,
+    textRu: "Вадим реализовал отказоустойчивый асинхронный парсер с обходом защитных систем. Скрипт собирает десятки тысяч позиций и автоматически формирует структурированные отчеты. Всегда на связи и профессионально подходит к архитектуре.",
+    textEn: "Vadim implemented a resilient asynchronous scraper that bypasses anti-bot barriers. The script processes tens of thousands of items and exports structured reports. Excellent communication and architectural approach."
+  },
+  {
+    id: 3,
+    name: "Дмитрий К.",
+    initials: "ДК",
+    projectRu: "Telegram Mini App (Web App) для бронирования",
+    projectEn: "Telegram Mini App for Booking Service",
+    rating: 5,
+    textRu: "Очень доволен результатом. Разработал современный Telegram Mini App на React с бэкендом на FastAPI. Интерфейс быстрый, адаптивный, логика сессий и авторизации Telegram WebApp сделана идеально.",
+    textEn: "Extremely satisfied with the delivery. Built a modern Telegram Mini App in React with FastAPI backend. Fast, fully responsive UI and flawless Telegram WebApp auth integration."
+  },
+  {
+    id: 4,
+    name: "Елена Р.",
+    initials: "ЕР",
+    projectRu: "Экосистема ботов с Flask API и базой данных",
+    projectEn: "Bot Ecosystem with Flask API & Database",
+    rating: 5,
+    textRu: "Задача была нетривиальной — требовалась сложная интеграция внешнего API и админка для управления контентом. Вадим спроектировал надежную БД, настроил параллельную обработку и снабдил проект подробной документацией.",
+    textEn: "Complex task requiring external API integration and a content administration dashboard. Vadim engineered a solid database schema, concurrent processing, and provided thorough documentation."
+  },
+  {
+    id: 5,
+    name: "Артем Г.",
+    initials: "АГ",
+    projectRu: "Интеграция платежных шлюзов и подписок",
+    projectEn: "Payment Gateway & Subscription Integration",
+    rating: 5,
+    textRu: "Интеграция оплат и автоматического управления доступом в закрытый канал выполнена на высшем уровне. Идемпотентность вебхуков, мгновенные уведомления, безопасность данных. 10 из 10!",
+    textEn: "Payment integration and automated membership management for a private channel executed flawlessly. Idempotent webhooks, instant notifications, top-tier data security. 10 out of 10!"
+  },
+  {
+    id: 6,
+    name: "Сергей Н.",
+    initials: "СН",
+    projectRu: "Автоматизация и интеграция с CRM / Google Sheets",
+    projectEn: "Automation Pipeline with CRM & Google Sheets",
+    rating: 5,
+    textRu: "Быстро, четко по ТЗ и без лишних вопросов. Чистый код на Python, модульная структура, проект запущен на нашем сервере за полчаса. Огромное спасибо за профессионализм!",
+    textEn: "Prompt, strictly according to specs, and very clean modular Python code. Setup on our server took under thirty minutes. Huge thanks for the professionalism!"
   }
 ];
 
@@ -277,7 +396,7 @@ function scrollBehavior(effectsOn) {
   return effectsOn ? "smooth" : "auto";
 }
 
-const texts = {
+var texts = {
   ru: {
     ui: {
       effectsOn: "Выключить эффекты",
@@ -287,7 +406,7 @@ const texts = {
       menu: "Меню",
       backToTop: "Наверх",
       close: "Закрыть",
-      contact: "Связаться",
+      contact: "Написать",
       openBot: "Запустить бота",
       discussCase: "Заказать похожий",
       prevShot: "Предыдущее фото",
@@ -295,26 +414,34 @@ const texts = {
       workingHours: "График работы: 8:00 – 22:00 (МСК)",
       skipLink: "К основному содержимому"
     },
-    nav: { services: "Услуги", portfolio: "Портфолио", contact: "Контакты" },
+    nav: { services: "Услуги", portfolio: "Портфолио", reviews: "Отзывы", contact: "Контакты" },
     hero: {
       hello: "Привет, я",
       name: "Вадим",
-      role: "Python Backend & Telegram Bot Developer",
-      pitch: "Telegram-боты, Mini Apps, надежные REST API и парсеры под ключ для бизнеса",
-      ctaTelegram: "Написать в Telegram",
-      ctaPortfolio: "Смотреть кейсы",
-      exp: "15+ проектов",
-      speed: "100% сдача в срок",
-      full: "Под ключ",
-      fullDesc: "Бот + Админка + Деплой"
+      pitch: "Telegram-боты, Mini Apps, отказоустойчивые REST API и автоматизация под ключ для бизнеса",
+      ctaContact: "Написать",
+      ctaPortfolio: "Портфолио",
+      exp: "30+ проектов",
+      speed: "100% сдача в срок"
     },
     about: {
       title: "Обо мне",
-      note: "",
-      text: "Создаю отказоустойчивые Telegram-боты, Mini Apps и бэкенд-системы на Python (FastAPI, Asyncio, aiogram 3). 15+ коммерческих проектов в продакшене с безупречной статистикой: 100% сдача в срок и рейтинг 5.0. Проектирую чистую архитектуру, подключаю платежи (Crypto, ЮKassa, Stripe), настраиваю базы данных (PostgreSQL, Redis) и деплой на VPS в Docker. Благодаря уверенному владению React и TypeScript создаю комплексные решения с современными веб-админками."
+      note: "Коммерческий опыт & Стек",
+      text: "Создаю масштабируемые и отказоустойчивые веб-сервисы, Telegram-боты, Mini Apps и бэкенд-системы на Python. Более 30 коммерческих проектов успешно работают в продакшене: от парсеров данных и скриптов автоматизации до полноценных веб-приложений и ботов под ключ со 100% сдачей в срок и рейтингом 5.0. Проектирую чистую архитектуру, подключаю платежные шлюзы, оптимизирую базы данных и настраиваю деплой в Docker на Linux VPS."
     },
     services: { title: "Услуги", hint: "Что я предлагаю бизнесу" },
-    portfolio: { title: "Портфолио", hint: "Реализованные кейсы в проде" },
+    portfolio: {
+      title: "Портфолио",
+      hint: "Реализованные кейсы в проде",
+      ndaNote: "Здесь представлена лишь часть реализованных проектов, так как многие коммерческие заказы находятся под NDA (соглашением о неразглашении) по просьбе клиентов."
+    },
+    reviews: {
+      title: "Отзывы клиентов",
+      hint: "Подтвержденная репутация на Kwork",
+      allKwork: "Все отзывы на Kwork",
+      prevReview: "Предыдущий отзыв",
+      nextReview: "Следующий отзыв"
+    },
     contacts: {
       title: "Контакты",
       hint: "Обсудим вашу задачу",
@@ -323,7 +450,7 @@ const texts = {
       gh: "GitHub",
       mail: "Почта",
       kwork: "Kwork",
-      prompt: "Открыт к новым проектам и сотрудничеству"
+      prompt: "Открыт к новым проектам и долгосрочному сотрудничеству"
     },
     footer: "Создано для клиентов и долгосрочных партнерств"
   },
@@ -344,26 +471,34 @@ const texts = {
       workingHours: "Working hours: 8:00 AM – 10:00 PM (UTC+3)",
       skipLink: "Skip to main content"
     },
-    nav: { services: "Services", portfolio: "Portfolio", contact: "Contacts" },
+    nav: { services: "Services", portfolio: "Portfolio", reviews: "Reviews", contact: "Contacts" },
     hero: {
       hello: "Hi, I'm",
       name: "Vadim",
-      role: "Python Backend & Telegram Bot Developer",
-      pitch: "High-performance Telegram bots, Mini Apps, scalable REST APIs & automation pipelines",
-      ctaTelegram: "Chat in Telegram",
-      ctaPortfolio: "View Cases",
-      exp: "15+ projects",
-      speed: "100% on-time delivery",
-      full: "Turnkey delivery",
-      fullDesc: "Bot + Admin Panel + Deploy"
+      pitch: "High-performance Telegram bots, Mini Apps, scalable REST APIs & automation pipelines for business",
+      ctaContact: "Contact",
+      ctaPortfolio: "Portfolio",
+      exp: "30+ projects",
+      speed: "100% on-time delivery"
     },
     about: {
       title: "About me",
-      note: "",
-      text: "I build reliable Telegram bots, Mini Apps, and backend systems on Python (FastAPI, Asyncio, aiogram 3). 15+ commercial projects launched in production with a flawless track record: 100% on-time delivery and a 5.0 client rating. I architect clean code, integrate payment gateways (Crypto, Stripe), optimize databases (PostgreSQL, Redis), and deploy containerized apps on Linux VPS via Docker."
+      note: "Commercial experience & Stack",
+      text: "I build resilient and scalable web services, Telegram bots, Mini Apps, and backend systems on Python. 30+ commercial projects successfully launched in production: from data scrapers and automation scripts to fullstack web applications and turnkey bots with a 100% on-time delivery record and 5.0 client rating. I design clean architecture, integrate payment gateways, optimize databases, and configure Docker deployment on Linux VPS."
     },
     services: { title: "Services", hint: "What I offer" },
-    portfolio: { title: "Portfolio", hint: "Production cases" },
+    portfolio: {
+      title: "Portfolio",
+      hint: "Production cases",
+      ndaNote: "A curated selection of cases is presented here, as many commercial projects are protected by NDA upon clients' request."
+    },
+    reviews: {
+      title: "Client Reviews",
+      hint: "Verified track record on Kwork",
+      allKwork: "All reviews on Kwork",
+      prevReview: "Previous review",
+      nextReview: "Next review"
+    },
     contacts: {
       title: "Contacts",
       hint: "Let's build something great",
@@ -372,7 +507,7 @@ const texts = {
       gh: "GitHub",
       mail: "Email",
       kwork: "Kwork",
-      prompt: "Open to new projects and collaboration"
+      prompt: "Open to new projects and long-term collaboration"
     },
     footer: "Built for clients and long-term partnerships"
   }
@@ -384,15 +519,69 @@ function getData(lang) {
     ui: base.ui,
     nav: base.nav,
     hero: base.hero,
-    about: Object.assign({}, base.about, { chips: TECH_CHIPS }),
+    about: Object.assign({}, base.about, { techGroups: TECH_GROUPS }),
     services: Object.assign({}, base.services, { list: mapLocalized(serviceItems, lang) }),
     portfolio: Object.assign({}, base.portfolio, { list: mapLocalized(portfolioItems, lang) }),
+    reviews: base.reviews,
     contacts: base.contacts,
     footer: base.footer
   };
 }
 
-const h = React.createElement;
+var h = React.createElement;
+
+function Typewriter(props) {
+  var words = props.words || [];
+  var _state = React.useState({ wordIndex: 0, text: "", isDeleting: false });
+  var state = _state[0];
+  var setState = _state[1];
+
+  React.useEffect(function () {
+    if (!words.length) return undefined;
+    var currentWord = words[state.wordIndex % words.length];
+    var speed = state.isDeleting ? 35 : 75;
+
+    if (!state.isDeleting && state.text === currentWord) {
+      var pauseTimer = setTimeout(function () {
+        setState(function (prev) {
+          return { wordIndex: prev.wordIndex, text: prev.text, isDeleting: true };
+        });
+      }, 2200);
+      return function () { clearTimeout(pauseTimer); };
+    }
+
+    if (state.isDeleting && state.text === "") {
+      setState(function (prev) {
+        return {
+          wordIndex: (prev.wordIndex + 1) % words.length,
+          text: "",
+          isDeleting: false
+        };
+      });
+      return undefined;
+    }
+
+    var timer = setTimeout(function () {
+      setState(function (prev) {
+        var next = prev.isDeleting
+          ? currentWord.substring(0, prev.text.length - 1)
+          : currentWord.substring(0, prev.text.length + 1);
+        return {
+          wordIndex: prev.wordIndex,
+          text: next,
+          isDeleting: prev.isDeleting
+        };
+      });
+    }, speed);
+
+    return function () { clearTimeout(timer); };
+  }, [state, words]);
+
+  return h("span", { className: "typewriter-container" }, [
+    state.text,
+    h("span", { className: "typewriter-cursor", "aria-hidden": "true" })
+  ]);
+}
 
 function Header(props) {
   var ui = props.ui;
@@ -408,6 +597,9 @@ function Header(props) {
         ),
         h("a", { href: "#portfolio", key: "portfolio", onClick: function (e) { props.onNavigate(e, "portfolio"); }, title: props.labels.portfolio, "aria-label": props.labels.portfolio },
           h("i", { className: icons.nav_portfolio, "aria-hidden": "true" })
+        ),
+        h("a", { href: "#reviews", key: "reviews", onClick: function (e) { props.onNavigate(e, "reviews"); }, title: props.labels.reviews, "aria-label": props.labels.reviews },
+          h("i", { className: icons.nav_reviews, "aria-hidden": "true" })
         ),
         h("a", { href: "#contacts", key: "contacts", onClick: function (e) { props.onNavigate(e, "contacts"); }, title: props.labels.contact, "aria-label": props.labels.contact },
           h("i", { className: icons.nav_contacts, "aria-hidden": "true" })
@@ -437,18 +629,18 @@ function Header(props) {
 }
 
 function Hero(props) {
+  var phrases = TYPEWRITER_PHRASES[props.lang] || TYPEWRITER_PHRASES.ru;
   return h("section", { className: "hero", id: "top" }, [
     h("div", { className: "hero-card animate-left", "data-animate": "left" }, [
       h("div", { className: "tagline" }, props.data.hero.hello + " " + props.data.hero.name),
       h("h1", null, [
-        props.data.hero.role,
-        h("br"),
-        h("span", null, props.data.hero.pitch)
+        h(Typewriter, { words: phrases, lang: props.lang }),
+        h("span", { className: "pitch" }, props.data.hero.pitch)
       ]),
       h("div", { className: "hero-actions" }, [
         h("a", { className: "btn primary", href: TG_PERSONAL, target: "_blank", rel: "noreferrer noopener" }, [
           h("i", { className: "fa-brands fa-telegram", style: { marginRight: "8px" }, "aria-hidden": "true" }),
-          props.data.hero.ctaTelegram
+          props.data.hero.ctaContact
         ]),
         h("a", { className: "btn", href: "#portfolio", onClick: function (e) { e.preventDefault(); props.onScroll("portfolio"); } }, props.data.hero.ctaPortfolio)
       ]),
@@ -456,10 +648,6 @@ function Hero(props) {
         h("div", { className: "stat" }, [
           h("strong", null, props.data.hero.exp),
           h("span", null, props.data.hero.speed)
-        ]),
-        h("div", { className: "stat" }, [
-          h("strong", null, props.data.hero.full),
-          h("span", null, props.data.hero.fullDesc)
         ])
       ])
     ]),
@@ -469,11 +657,20 @@ function Hero(props) {
         h("span", null, props.data.about.note)
       ]),
       h("p", { className: "text" }, props.data.about.text),
-      h("div", { className: "badge-row" },
-        props.data.about.chips.map(function (item) {
-          return h("div", { className: "badge", key: item }, [
-            techIcons[item] ? h("i", { className: techIcons[item], style: { marginRight: "6px" }, "aria-hidden": "true" }) : null,
-            item
+      h("div", { className: "stack-section" },
+        props.data.about.techGroups.map(function (grp) {
+          var title = props.lang === "ru" ? grp.categoryRu : grp.categoryEn;
+          return h("div", { key: grp.categoryRu }, [
+            h("div", { className: "stack-group-title" }, title),
+            h("div", { className: "badge-row" },
+              grp.items.map(function (item) {
+                var icon = techIcons[item];
+                return h("div", { className: "badge", key: item }, [
+                  icon ? h("i", { className: icon, style: { marginRight: "6px" }, "aria-hidden": "true" }) : null,
+                  item
+                ]);
+              })
+            )
           ]);
         })
       )
@@ -507,6 +704,10 @@ function Portfolio(props) {
     h("div", { className: "title-line" }, [
       h("h2", null, props.data.portfolio.title),
       h("span", null, props.data.portfolio.hint)
+    ]),
+    h("div", { className: "nda-banner" }, [
+      h("i", { className: icons.shield, "aria-hidden": "true" }),
+      h("span", null, props.data.portfolio.ndaNote)
     ]),
     h("div", { className: "projects-grid" },
       props.data.portfolio.list.map(function (item) {
@@ -543,6 +744,148 @@ function Portfolio(props) {
   ]);
 }
 
+function Reviews(props) {
+  var _items = React.useState(STATIC_REVIEWS);
+  var reviews = _items[0];
+  var setReviews = _items[1];
+
+  var _idx = React.useState(0);
+  var currentIndex = _idx[0];
+  var setCurrentIndex = _idx[1];
+
+  var _visible = React.useState(3);
+  var visibleCount = _visible[0];
+  var setVisibleCount = _visible[1];
+
+  React.useEffect(function () {
+    fetch("./assets/data/reviews.json")
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (Array.isArray(data) && data.length > 0) {
+          var mapped = data.map(function (r) {
+            return {
+              id: r.id,
+              name: r.name,
+              initials: r.initials,
+              projectRu: r.project || r.projectRu,
+              projectEn: r.projectEn || r.project,
+              rating: r.rating || 5,
+              textRu: r.text || r.textRu,
+              textEn: r.textEn || r.text
+            };
+          });
+          setReviews(mapped);
+        }
+      })
+      .catch(function () {});
+  }, []);
+
+  React.useEffect(function () {
+    function updateVisible() {
+      if (window.innerWidth < 640) {
+        setVisibleCount(1);
+      } else if (window.innerWidth < 1024) {
+        setVisibleCount(2);
+      } else {
+        setVisibleCount(3);
+      }
+    }
+    updateVisible();
+    window.addEventListener("resize", updateVisible);
+    return function () { window.removeEventListener("resize", updateVisible); };
+  }, []);
+
+  var maxIndex = Math.max(0, reviews.length - visibleCount);
+
+  function prevSlide() {
+    setCurrentIndex(function (prev) { return Math.max(0, prev - 1); });
+  }
+
+  function nextSlide() {
+    setCurrentIndex(function (prev) { return Math.min(maxIndex, prev + 1); });
+  }
+
+  var gapPx = 18;
+  var trackOffset = "calc(-" + currentIndex + " * ((100% - " + ((visibleCount - 1) * gapPx) + "px) / " + visibleCount + " + " + gapPx + "px))";
+
+  return h("section", { id: "reviews", className: "panel reviews-section animate-left", "data-animate": "left" }, [
+    h("div", { className: "title-line" }, [
+      h("h2", null, props.data.reviews.title),
+      h("span", null, props.data.reviews.hint)
+    ]),
+    h("div", { className: "reviews-carousel-wrap" },
+      h("div", {
+        className: "reviews-track",
+        style: { transform: "translateX(" + trackOffset + ")" }
+      },
+        reviews.map(function (rev) {
+          var project = props.lang === "ru" ? rev.projectRu : rev.projectEn;
+          var text = props.lang === "ru" ? rev.textRu : rev.textEn;
+          var cardWidth = "calc((100% - " + ((visibleCount - 1) * gapPx) + "px) / " + visibleCount + ")";
+          return h("div", {
+            className: "review-card",
+            key: rev.id,
+            style: { width: cardWidth, minWidth: cardWidth }
+          }, [
+            h("div", { className: "review-header" }, [
+              h("div", { className: "review-avatar" }, rev.initials),
+              h("div", { className: "review-client-info" }, [
+                h("div", { className: "review-name" }, rev.name),
+                h("div", { className: "review-project" }, project)
+              ])
+            ]),
+            h("div", { className: "review-stars" }, [
+              h("i", { className: icons.star, key: "s1", "aria-hidden": "true" }),
+              h("i", { className: icons.star, key: "s2", "aria-hidden": "true" }),
+              h("i", { className: icons.star, key: "s3", "aria-hidden": "true" }),
+              h("i", { className: icons.star, key: "s4", "aria-hidden": "true" }),
+              h("i", { className: icons.star, key: "s5", "aria-hidden": "true" })
+            ]),
+            h("p", { className: "review-text" }, text),
+            h("div", { className: "review-footer" }, [
+              h("a", {
+                className: "review-kwork-badge",
+                href: KWORK_URL,
+                target: "_blank",
+                rel: "noreferrer noopener"
+              }, [
+                h("i", { className: icons.contact_kwork, "aria-hidden": "true" }),
+                props.data.reviews.allKwork
+              ])
+            ])
+          ]);
+        })
+      )
+    ),
+    h("div", { className: "reviews-nav" }, [
+      h("div", { className: "reviews-dots" },
+        Array.from({ length: maxIndex + 1 }).map(function (_, i) {
+          return h("button", {
+            key: i,
+            className: "reviews-dot" + (i === currentIndex ? " active" : ""),
+            onClick: function () { setCurrentIndex(i); },
+            "aria-label": "Slide " + (i + 1)
+          });
+        })
+      ),
+      h("div", { className: "reviews-controls" }, [
+        h("button", {
+          className: "reviews-btn",
+          onClick: prevSlide,
+          disabled: currentIndex === 0,
+          "aria-label": props.data.reviews.prevReview
+        }, h("i", { className: icons.back, "aria-hidden": "true" })),
+        h("button", {
+          className: "reviews-btn",
+          onClick: nextSlide,
+          disabled: currentIndex >= maxIndex,
+          "aria-label": props.data.reviews.nextReview
+        }, h("i", { className: icons.forward, "aria-hidden": "true" }))
+      ])
+    ])
+  ]);
+}
+
 function renderContactLinks(data) {
   return [
     h("a", { className: "contact-circle", href: TG_PERSONAL, target: "_blank", rel: "noreferrer noopener", title: data.tg, "aria-label": data.tg }, h("i", { className: icons.contact_tg, "aria-hidden": "true" })),
@@ -550,7 +893,7 @@ function renderContactLinks(data) {
     h("a", { className: "contact-circle", href: "https://github.com/florichdev", target: "_blank", rel: "noreferrer noopener", title: data.gh, "aria-label": data.gh }, h("i", { className: icons.contact_gh, "aria-hidden": "true" })),
     h("a", { className: "contact-circle", href: "https://vk.com/florichdev", target: "_blank", rel: "noreferrer noopener", title: "VK", "aria-label": "VK" }, h("i", { className: icons.contact_vk, "aria-hidden": "true" })),
     h("a", { className: "contact-circle", href: "mailto:florichdev@gmail.com", title: data.mail, "aria-label": data.mail }, h("i", { className: icons.contact_mail, "aria-hidden": "true" })),
-    h("a", { className: "contact-circle", href: "https://kwork.ru/user/florichdev", target: "_blank", rel: "noreferrer noopener", title: data.kwork, "aria-label": data.kwork }, h("i", { className: icons.contact_kwork, "aria-hidden": "true" }))
+    h("a", { className: "contact-circle", href: KWORK_URL, target: "_blank", rel: "noreferrer noopener", title: data.kwork, "aria-label": data.kwork }, h("i", { className: icons.contact_kwork, "aria-hidden": "true" }))
   ];
 }
 
@@ -572,7 +915,7 @@ function Contacts(props) {
 
 function Footer(props) {
   return h("footer", { className: "footer" }, [
-    h("div", null, "FlorichDev · " + new Date().getFullYear()),
+    h("div", null, "FlorichDev · 2027"),
     h("div", { className: "footer-note" }, props.data.footer),
     h("div", { className: "contact-links" }, renderContactLinks(props.data.contacts))
   ]);
@@ -593,6 +936,7 @@ function Modal(props) {
   var image = shots[props.index] || shots[0];
   var title = props.item.name;
   var total = shots.length;
+
   return h("div", { className: "modal-backdrop", onClick: props.onClose, role: "presentation" },
     h("div", {
       className: "modal",
@@ -680,7 +1024,6 @@ function App() {
     }
   }, []);
 
-  // Восстанавливаем URL после SPA-редиректа через 404.html
   React.useEffect(function () {
     try {
       var redirect = sessionStorage.redirect;
@@ -788,13 +1131,12 @@ function App() {
 
     function draw(timestamp) {
       rafId = requestAnimationFrame(draw);
-      // Пропускаем кадры в скрытой вкладке для экономии батареи
       if (document.visibilityState === "hidden") return;
       if (timestamp - lastFrameTime < frameInterval) return;
       lastFrameTime = timestamp;
-      ctx.fillStyle = "rgba(10, 10, 15, 0.05)";
+      ctx.fillStyle = "rgba(10, 10, 10, 0.08)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "rgba(215, 38, 61, 0.5)";
+      ctx.fillStyle = "rgba(255, 255, 255, 0.18)";
       ctx.font = fontSize + "px monospace";
       for (var i = 0; i < drops.length; i++) {
         ctx.fillText(Math.random() > 0.5 ? "1" : "0", i * fontSize, drops[i] * fontSize);
@@ -839,7 +1181,7 @@ function App() {
 
   React.useEffect(function () {
     function onResize() {
-      if (window.innerWidth > 720) setNavOpen(false);
+      if (window.innerWidth > 768) setNavOpen(false);
     }
     window.addEventListener("resize", onResize);
     return function () { window.removeEventListener("resize", onResize); };
@@ -920,9 +1262,10 @@ function App() {
       onToggleEffects: function () { setEffectsOn(!effectsOn); }
     }),
     h("main", { className: "shell", id: "main" }, [
-      h(Hero, { key: "hero", data: data, onScroll: scrollToSection }),
+      h(Hero, { key: "hero", data: data, lang: lang, onScroll: scrollToSection }),
       h(Services, { key: "services", data: data }),
       h(Portfolio, { key: "portfolio", data: data, onOpen: handleOpenModal }),
+      h(Reviews, { key: "reviews", data: data, lang: lang }),
       h(Contacts, { key: "contacts", data: data })
     ]),
     h(Footer, { key: "footer", data: data }),

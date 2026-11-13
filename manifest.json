@@ -1,11 +1,11 @@
 {
-  "name": "FlorichDev - Python Backend Developer",
+  "name": "FlorichDev - Python Backend & Telegram Bot Developer",
   "short_name": "FlorichDev",
-  "description": "Разработка серверной части, REST API, Telegram/MAX ботов и баз данных",
+  "description": "Разработка Telegram-ботов под ключ, Mini Apps, REST API и автоматизация на Python",
   "start_url": "https://florichdev.github.io/",
   "display": "standalone",
-  "background_color": "#0f0808",
-  "theme_color": "#d7263d",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
   "icons": [
     {
       "src": "./favicon.svg",
