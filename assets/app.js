@@ -348,6 +348,76 @@ var STATIC_REVIEWS = [
     rating: 5,
     textRu: "Очень крутой специалист) сделал все за день) день, Карл! !)",
     textEn: "Really awesome specialist) built everything in just one day) one day, Carl! !)"
+  },
+  {
+    id: 6,
+    name: "samch5",
+    initials: "S5",
+    projectRu: "Разработка Telegram бота",
+    projectEn: "Telegram Bot Development",
+    rating: 5,
+    textRu: "Спасибо большое Вадиму за доработки, большая благодарность, смело можно обращаться к исполнителю.",
+    textEn: "Thank you very much to Vadim for the enhancements, huge gratitude, can confidently recommend this developer."
+  },
+  {
+    id: 7,
+    name: "samch5",
+    initials: "S5",
+    projectRu: "Разработка Telegram бота",
+    projectEn: "Telegram Bot Development",
+    rating: 5,
+    textRu: "Выбирал исполнителя из большого количества вариантов. Вадим еще до оформления заказа сделал бота по ТЗ, показал, как все работает, и только после этого я принял решение. Работа выполнена полностью, все четко, без лишних вопросов и затягиваний. Спасибо большое, рекомендую.",
+    textEn: "I chose a developer from a large number of candidates. Vadim built a prototype bot according to the specs even before the order was placed, demonstrated how everything worked, and only then did I make a decision. The work was fully delivered, clear, without unnecessary questions or delays. Thank you very much, highly recommended."
+  },
+  {
+    id: 8,
+    name: "d7038999",
+    initials: "D7",
+    projectRu: "Компьютерная помощь, оптимизация и настройка",
+    projectEn: "Computer Help, Optimization & Setup",
+    rating: 5,
+    textRu: "Все очень быстро сделали, грамотно объяснили.",
+    textEn: "Everything was done very quickly and explained competently."
+  },
+  {
+    id: 9,
+    name: "kononenkonikita",
+    initials: "KN",
+    projectRu: "Разработка Telegram бота",
+    projectEn: "Telegram Bot Development",
+    rating: 5,
+    textRu: "Нужно было доработать бота. Все было быстро и качественно.",
+    textEn: "Needed to refine an existing bot. Everything was fast and high quality."
+  },
+  {
+    id: 10,
+    name: "kononenkonikita",
+    initials: "KN",
+    projectRu: "Разработка Telegram бота",
+    projectEn: "Telegram Bot Development",
+    rating: 5,
+    textRu: "Нужно было разработать телеграм бота с нуля для размещения информации на тг канале. Все было сделано быстро и качественно. Исполнитель учел все мои просьбы и замечания и сделал даже больше, чем планировалось. Всем советую. Все отлично.",
+    textEn: "Needed to develop a Telegram bot from scratch to publish information to a Telegram channel. Everything was done quickly and with high quality. The developer considered all my requests and did even more than planned. Highly recommend to everyone. All great."
+  },
+  {
+    id: 11,
+    name: "9162584496",
+    initials: "91",
+    projectRu: "Напишу скрипт на Python, JS, PHP",
+    projectEn: "Python, JS, PHP Script Development",
+    rating: 5,
+    textRu: "Задача со скриптом была выполнена на отлично и по срокам сделана быстро! Рекомендую данного исполнителя к работе. Будем дальше сотрудничать.",
+    textEn: "The script task was executed excellently and delivered quickly on time! Highly recommend this developer. Will continue cooperating."
+  },
+  {
+    id: 12,
+    name: "rambo707",
+    initials: "R7",
+    projectRu: "Создание Telegram бота на Python",
+    projectEn: "Telegram Bot Development in Python",
+    rating: 5,
+    textRu: "Спасибо Вадиму за создание тг бота! Работу выполнил на все 100%. Все четко и профессионально.",
+    textEn: "Thanks to Vadim for creating the TG bot! Delivered the job 100%. Everything clear and professional."
   }
 ];
 
@@ -416,15 +486,15 @@ var texts = {
       note: "Коммерческий опыт & Стек",
       text: "Создаю масштабируемые и отказоустойчивые веб-сервисы, Telegram-боты, Mini Apps и бэкенд-системы на Python. Более 30 коммерческих проектов успешно работают в продакшене: от парсеров данных и скриптов автоматизации до полноценных веб-приложений и ботов под ключ со 100% сдачей в срок и рейтингом 5.0. Проектирую чистую архитектуру, подключаю платежные шлюзы, оптимизирую базы данных и настраиваю деплой в Docker на Linux VPS."
     },
-    services: { title: "Услуги", hint: "Что я предлагаю бизнесу" },
+    services: { title: "Услуги", hint: "Что я предлагаю" },
     portfolio: {
       title: "Портфолио",
-      hint: "Реализованные кейсы в проде",
+      hint: "Реализованные кейсы",
       ndaNote: "Здесь представлена лишь часть реализованных проектов, так как многие коммерческие заказы находятся под NDA (соглашением о неразглашении) по просьбе клиентов."
     },
     reviews: {
       title: "Отзывы клиентов",
-      hint: "Подтвержденная репутация на Kwork",
+      hint: "Подтвержденная репутация",
       allKwork: "Все отзывы на Kwork",
       prevReview: "Предыдущий отзыв",
       nextReview: "Следующий отзыв"
@@ -481,7 +551,7 @@ var texts = {
     },
     reviews: {
       title: "Client Reviews",
-      hint: "Verified track record on Kwork",
+      hint: "Verified track record",
       allKwork: "All reviews on Kwork",
       prevReview: "Previous review",
       nextReview: "Next review"
@@ -618,36 +688,44 @@ function Header(props) {
 function Hero(props) {
   var phrases = TYPEWRITER_PHRASES[props.lang] || TYPEWRITER_PHRASES.ru;
   return h("section", { className: "hero", id: "top" }, [
-    h("div", { className: "hero-card animate-left", "data-animate": "left" }, [
-      h("div", { className: "tagline" }, props.data.hero.hello + " " + props.data.hero.name),
-      h("h1", null, [
-        h(Typewriter, { words: phrases, lang: props.lang }),
-        h("span", { className: "pitch" }, props.data.hero.pitch)
-      ]),
-      h("div", { className: "hero-actions" }, [
-        h("a", { className: "btn primary", href: TG_PERSONAL, target: "_blank", rel: "noreferrer noopener" }, [
-          h("i", { className: "fa-brands fa-telegram", style: { marginRight: "8px" }, "aria-hidden": "true" }),
-          props.data.hero.ctaContact
+    h("div", { className: "hero-top-row" }, [
+      h("div", { className: "panel hero-card animate-left", "data-animate": "left" }, [
+        h("div", { className: "tagline" }, props.data.hero.hello + " " + props.data.hero.name),
+        h("h1", null, [
+          h(Typewriter, { words: phrases, lang: props.lang }),
+          h("span", { className: "pitch" }, props.data.hero.pitch)
         ]),
-        h("a", { className: "btn", href: "#portfolio", onClick: function (e) { e.preventDefault(); props.onScroll("portfolio"); } }, props.data.hero.ctaPortfolio)
-      ]),
-      h("div", { className: "stats" }, [
-        h("div", { className: "stat" }, [
-          h("strong", null, props.data.hero.exp),
-          h("span", null, props.data.hero.speed)
+        h("div", { className: "hero-actions" }, [
+          h("a", { className: "btn primary", href: TG_PERSONAL, target: "_blank", rel: "noreferrer noopener" }, [
+            h("i", { className: "fa-brands fa-telegram", style: { marginRight: "8px" }, "aria-hidden": "true" }),
+            props.data.hero.ctaContact
+          ]),
+          h("a", { className: "btn", href: "#portfolio", onClick: function (e) { e.preventDefault(); props.onScroll("portfolio"); } }, props.data.hero.ctaPortfolio)
+        ]),
+        h("div", { className: "stats" }, [
+          h("div", { className: "stat" }, [
+            h("strong", null, props.data.hero.exp),
+            h("span", null, props.data.hero.speed)
+          ])
         ])
+      ]),
+      h("div", { className: "panel about-card animate-right", "data-animate": "right" }, [
+        h("div", { className: "title-line" }, [
+          h("h2", null, props.data.about.title),
+          h("span", null, props.data.about.note)
+        ]),
+        h("p", { className: "text" }, props.data.about.text)
       ])
     ]),
-    h("div", { className: "panel floating animate-right", "data-animate": "right" }, [
+    h("div", { className: "panel stack-card animate-left", "data-animate": "left" }, [
       h("div", { className: "title-line" }, [
-        h("h2", null, props.data.about.title),
-        h("span", null, props.data.about.note)
+        h("h2", null, props.lang === "ru" ? "Технологический стек" : "Technology Stack"),
+        h("span", null, props.lang === "ru" ? "Инструменты & стек разработки" : "Core tools & technologies")
       ]),
-      h("p", { className: "text" }, props.data.about.text),
-      h("div", { className: "stack-section" },
+      h("div", { className: "stack-grid" },
         props.data.about.techGroups.map(function (grp) {
           var title = props.lang === "ru" ? grp.categoryRu : grp.categoryEn;
-          return h("div", { key: grp.categoryRu }, [
+          return h("div", { className: "stack-group", key: grp.categoryRu }, [
             h("div", { className: "stack-group-title" }, title),
             h("div", { className: "badge-row" },
               grp.items.map(function (item) {
@@ -1197,6 +1275,46 @@ function App() {
   React.useEffect(function () {
     document.body.classList.toggle("animations-off", !effectsOn);
   }, [effectsOn]);
+
+  React.useEffect(function () {
+    if (!effectsOn || IS_TOUCH) return;
+    var cards = document.querySelectorAll(".card, .panel, .hero-card, .about-card, .stack-card, .service-card, .project-card, .review-card");
+
+    function handlePointerMove(e) {
+      var rect = this.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      var cx = rect.width / 2;
+      var cy = rect.height / 2;
+      var rotX = -((y - cy) / cy) * 6;
+      var rotY = ((x - cx) / cx) * 6;
+      var glareX = (x / rect.width) * 100;
+      var glareY = (y / rect.height) * 100;
+      this.style.transform = "perspective(900px) rotateX(" + rotX.toFixed(2) + "deg) rotateY(" + rotY.toFixed(2) + "deg) translateZ(4px)";
+      this.style.setProperty("--glare-x", glareX.toFixed(1) + "%");
+      this.style.setProperty("--glare-y", glareY.toFixed(1) + "%");
+      this.style.setProperty("--glare-opacity", "1");
+    }
+
+    function handlePointerLeave() {
+      this.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0px)";
+      this.style.setProperty("--glare-opacity", "0");
+    }
+
+    cards.forEach(function (card) {
+      card.addEventListener("pointermove", handlePointerMove);
+      card.addEventListener("pointerleave", handlePointerLeave);
+    });
+
+    return function () {
+      cards.forEach(function (card) {
+        card.removeEventListener("pointermove", handlePointerMove);
+        card.removeEventListener("pointerleave", handlePointerLeave);
+        card.style.transform = "";
+        card.style.removeProperty("--glare-opacity");
+      });
+    };
+  }, [effectsOn, lang, modalItem]);
 
   var data = React.useMemo(function () { return getData(lang); }, [lang]);
   var behavior = scrollBehavior(effectsOn);

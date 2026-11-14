@@ -6,7 +6,7 @@
     "project": "Разработка Telegram бота",
     "projectEn": "Telegram Bot Development",
     "rating": 5,
-    "date": "14 дней назад",
+    "date": "15 дней назад",
     "text": "Отличный результат, я всем доволен. Советую",
     "textEn": "Excellent result, I'm completely satisfied. Highly recommended.",
     "kworkUrl": "https://kwork.ru/user/florichdev"
@@ -42,7 +42,7 @@
     "project": "Разработка бота для MAX",
     "projectEn": "MAX Messenger Bot Development",
     "rating": 5,
-    "date": "7 месяцев назад",
+    "date": "8 месяцев назад",
     "text": "Очень качественная и внимательно выполненная работа по ТЗ! Исполнитель большой молодец!",
     "textEn": "Very high quality and attentive execution strictly according to specs! The developer did a great job!",
     "kworkUrl": "https://kwork.ru/user/florichdev"
@@ -57,6 +57,90 @@
     "date": "9 месяцев назад",
     "text": "Очень крутой специалист) сделал все за день) день, Карл! !)",
     "textEn": "Really awesome specialist) built everything in just one day) one day, Carl! !)",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
+  },
+  {
+    "id": 6,
+    "name": "samch5",
+    "initials": "S5",
+    "project": "Разработка Telegram бота",
+    "projectEn": "Telegram Bot Development",
+    "rating": 5,
+    "date": "10 месяцев назад",
+    "text": "Спасибо большое Вадиму за доработки, большая благодарность, смело можно обращаться к исполнителю.",
+    "textEn": "Thank you very much to Vadim for the enhancements, huge gratitude, can confidently recommend this developer.",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
+  },
+  {
+    "id": 7,
+    "name": "samch5",
+    "initials": "S5",
+    "project": "Разработка Telegram бота",
+    "projectEn": "Telegram Bot Development",
+    "rating": 5,
+    "date": "10 месяцев назад",
+    "text": "Выбирал исполнителя из большого количества вариантов. Вадим еще до оформления заказа сделал бота по ТЗ, показал, как все работает, и только после этого я принял решение. Работа выполнена полностью, все четко, без лишних вопросов и затягиваний. Спасибо большое, рекомендую.",
+    "textEn": "I chose a developer from a large number of candidates. Vadim built a prototype bot according to the specs even before the order was placed, demonstrated how everything worked, and only then did I make a decision. The work was fully delivered, clear, without unnecessary questions or delays. Thank you very much, highly recommended.",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
+  },
+  {
+    "id": 8,
+    "name": "d7038999",
+    "initials": "D7",
+    "project": "Компьютерная помощь, оптимизация и настройка",
+    "projectEn": "Computer Help, Optimization & Setup",
+    "rating": 5,
+    "date": "11 месяцев назад",
+    "text": "Все очень быстро сделали, грамотно объяснили.",
+    "textEn": "Everything was done very quickly and explained competently.",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
+  },
+  {
+    "id": 9,
+    "name": "kononenkonikita",
+    "initials": "KN",
+    "project": "Разработка Telegram бота",
+    "projectEn": "Telegram Bot Development",
+    "rating": 5,
+    "date": "11 месяцев назад",
+    "text": "Нужно было доработать бота. Все было быстро и качественно.",
+    "textEn": "Needed to refine an existing bot. Everything was fast and high quality.",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
+  },
+  {
+    "id": 10,
+    "name": "kononenkonikita",
+    "initials": "KN",
+    "project": "Разработка Telegram бота",
+    "projectEn": "Telegram Bot Development",
+    "rating": 5,
+    "date": "11 месяцев назад",
+    "text": "Нужно было разработать телеграм бота с нуля для размещения информации на тг канале. Все было сделано быстро и качественно. Исполнитель учел все мои просьбы и замечания и сделал даже больше, чем планировалось. Всем советую. Все отлично.",
+    "textEn": "Needed to develop a Telegram bot from scratch to publish information to a Telegram channel. Everything was done quickly and with high quality. The developer considered all my requests and did even more than planned. Highly recommend to everyone. All great.",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
+  },
+  {
+    "id": 11,
+    "name": "9162584496",
+    "initials": "91",
+    "project": "Напишу скрипт на Python, JS, PHP",
+    "projectEn": "Python, JS, PHP Script Development",
+    "rating": 5,
+    "date": "1 год назад",
+    "text": "Задача со скриптом была выполнена на отлично и по срокам сделана быстро! Рекомендую данного исполнителя к работе. Будем дальше сотрудничать.",
+    "textEn": "The script task was executed excellently and delivered quickly on time! Highly recommend this developer. Will continue cooperating.",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
+  },
+  {
+    "id": 12,
+    "name": "rambo707",
+    "initials": "R7",
+    "project": "Создание Telegram бота на Python",
+    "projectEn": "Telegram Bot Development in Python",
+    "rating": 5,
+    "date": "1 год назад",
+    "text": "Спасибо Вадиму за создание тг бота! Работу выполнил на все 100%. Все четко и профессионально.",
+    "textEn": "Thanks to Vadim for creating the TG bot! Delivered the job 100%. Everything clear and professional.",
     "kworkUrl": "https://kwork.ru/user/florichdev"
   }
 ]

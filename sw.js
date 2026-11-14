@@ -1,4 +1,4 @@
-var CACHE = "florichdev-v3";
+var CACHE = "florichdev-v4";
 var ASSETS = [
   "./",
   "./index.html",
