@@ -1,69 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Алексей В.",
-    "initials": "АВ",
-    "project": "Telegram-бот интернет-магазина с админ-панелью",
-    "projectEn": "Telegram E-Commerce Bot with Admin Dashboard",
+    "name": "El2010032",
+    "initials": "EL",
+    "project": "Разработка Telegram бота",
+    "projectEn": "Telegram Bot Development",
     "rating": 5,
-    "date": "Октябрь 2026",
-    "text": "Отличный специалист! Разработал полноценного Telegram-бота с онлайн-корзиной, приемом платежей и веб-панелью управления даже раньше дедлайна. Проект развернут на VPS в Docker, все работает безупречно. Будем сотрудничать на постоянной основе.",
-    "textEn": "Outstanding developer! Delivered a full Telegram e-commerce bot with online cart, payments, and web admin dashboard ahead of schedule. Deployed cleanly on VPS with Docker. Highly recommended."
+    "date": "14 дней назад",
+    "text": "Отличный результат, я всем доволен. Советую",
+    "textEn": "Excellent result, I'm completely satisfied. Highly recommended.",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
   },
   {
     "id": 2,
-    "name": "Михаил С.",
-    "initials": "МС",
-    "project": "Парсер данных и цен с маркетплейсов в Excel",
-    "projectEn": "E-Commerce Data Scraper to Excel",
+    "name": "webcod2011",
+    "initials": "WC",
+    "project": "Создам лендинг под ключ",
+    "projectEn": "Turnkey Landing Page Development",
     "rating": 5,
-    "date": "Сентябрь 2026",
-    "text": "Вадим реализовал отказоустойчивый асинхронный парсер с обходом защитных систем. Скрипт собирает десятки тысяч позиций и автоматически формирует структурированные отчеты. Всегда на связи и профессионально подходит к архитектуре.",
-    "textEn": "Vadim implemented a resilient asynchronous scraper that bypasses anti-bot barriers. The script processes tens of thousands of items and exports structured reports. Excellent communication and architectural approach."
+    "date": "2 месяца назад",
+    "text": "Огромное спасибо за оперативность и качество выполнения. Работа была выполнена в полном объеме, раньше оговоренных сроков без потери качества. Однозначно рекомендую к сотрудничеству.",
+    "textEn": "Huge thanks for the speed and quality of execution. The work was completed in full, ahead of the agreed deadline without any loss of quality. Definitely recommend for collaboration.",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
   },
   {
     "id": 3,
-    "name": "Дмитрий К.",
-    "initials": "ДК",
-    "project": "Telegram Mini App (Web App) для бронирования",
-    "projectEn": "Telegram Mini App for Booking Service",
+    "name": "tyn44",
+    "initials": "TY",
+    "project": "Разработка Telegram бота",
+    "projectEn": "Telegram Bot Development",
     "rating": 5,
-    "date": "Август 2026",
-    "text": "Очень доволен результатом. Разработал современный Telegram Mini App на React с бэкендом на FastAPI. Интерфейс быстрый, адаптивный, логика сессий и авторизации Telegram WebApp сделана идеально.",
-    "textEn": "Extremely satisfied with the delivery. Built a modern Telegram Mini App in React with FastAPI backend. Fast, fully responsive UI and flawless Telegram WebApp auth integration."
+    "date": "7 месяцев назад",
+    "text": "Обратились к Вадиму за помощью для разработки бота для клуба по интересам, хочу отметить главные положительные моменты: быстрота и профессиональность в выполнении заказа. По тех заданию учел все наши пожелания и требования по работе бота, выполнил в кратчайшие сроки, по итогу без учета моей проверки бота заняло около дня. Правки были маленькие и то это я не прописала в тех задании, быстро все поправил и даже направил гайд чтобы я знала как что поменять. Однозначно 10/10, всем рекомендую!",
+    "textEn": "Reached out to Vadim for help building a community club bot. Key highlights: speed and professionalism. Followed all requirements, completed in the shortest timeframe (under a day excluding testing). Minor tweaks were handled instantly, plus he provided a clear guide. 10/10, highly recommend!",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
   },
   {
     "id": 4,
-    "name": "Елена Р.",
-    "initials": "ЕР",
-    "project": "Экосистема ботов с Flask API и базой данных",
-    "projectEn": "Bot Ecosystem with Flask API & Database",
+    "name": "Workoutfriend",
+    "initials": "WF",
+    "project": "Разработка бота для MAX",
+    "projectEn": "MAX Messenger Bot Development",
     "rating": 5,
-    "date": "Июль 2026",
-    "text": "Задача была нетривиальной — требовалась сложная интеграция внешнего API и админка для управления контентом. Вадим спроектировал надежную БД, настроил параллельную обработку и снабдил проект подробной документацией.",
-    "textEn": "Complex task requiring external API integration and a content administration dashboard. Vadim engineered a solid database schema, concurrent processing, and provided thorough documentation."
+    "date": "7 месяцев назад",
+    "text": "Очень качественная и внимательно выполненная работа по ТЗ! Исполнитель большой молодец!",
+    "textEn": "Very high quality and attentive execution strictly according to specs! The developer did a great job!",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
   },
   {
     "id": 5,
-    "name": "Артем Г.",
-    "initials": "АГ",
-    "project": "Интеграция платежных шлюзов и подписок",
-    "projectEn": "Payment Gateway & Subscription Integration",
+    "name": "povarovave",
+    "initials": "PO",
+    "project": "Разработка бота для MAX",
+    "projectEn": "MAX Messenger Bot Development",
     "rating": 5,
-    "date": "Июнь 2026",
-    "text": "Интеграция оплат и автоматического управления доступом в закрытый канал выполнена на высшем уровне. Идемпотентность вебхуков, мгновенные уведомления, безопасность данных. 10 из 10!",
-    "textEn": "Payment integration and automated membership management for a private channel executed flawlessly. Idempotent webhooks, instant notifications, top-tier data security. 10 out of 10!"
-  },
-  {
-    "id": 6,
-    "name": "Сергей Н.",
-    "initials": "СН",
-    "project": "Автоматизация и интеграция с CRM / Google Sheets",
-    "projectEn": "Automation Pipeline with CRM & Google Sheets",
-    "rating": 5,
-    "date": "Май 2026",
-    "text": "Быстро, четко по ТЗ и без лишних вопросов. Чистый код на Python, модульная структура, проект запущен на нашем сервере за полчаса. Огромное спасибо за профессионализм!",
-    "textEn": "Prompt, strictly according to specs, and very clean modular Python code. Setup on our server took under thirty minutes. Huge thanks for the professionalism!"
+    "date": "9 месяцев назад",
+    "text": "Очень крутой специалист) сделал все за день) день, Карл! !)",
+    "textEn": "Really awesome specialist) built everything in just one day) one day, Carl! !)",
+    "kworkUrl": "https://kwork.ru/user/florichdev"
   }
 ]
-

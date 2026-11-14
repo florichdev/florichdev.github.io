@@ -125,23 +125,23 @@ var serviceItems = [
   },
   {
     id: "api", icon: "api",
-    ru: { title: "REST API & Бэкенд", desc: "Высокопроизводительные серверные сервисы на FastAPI и Flask. JWT/OAuth2 авторизация, фоновые очереди задач, валидация данных Pydantic v2 и кэширование.", price: "Под ключ / по ТЗ" },
-    en: { title: "REST API & Backend", desc: "Scalable backend services using FastAPI and Flask. JWT/OAuth2 authentication, background task queues, Pydantic v2 validation, and caching.", price: "Custom scope" }
+    ru: { title: "REST API & Бэкенд", desc: "Высокопроизводительные серверные сервисы на FastAPI и Flask. JWT/OAuth2 авторизация, фоновые очереди задач, валидация данных Pydantic v2 и кэширование.", price: "от 15 000 ₽" },
+    en: { title: "REST API & Backend", desc: "Scalable backend services using FastAPI and Flask. JWT/OAuth2 authentication, background task queues, Pydantic v2 validation, and caching.", price: "from $200" }
   },
   {
     id: "parsing", icon: "web",
-    ru: { title: "Парсинг & Автоматизация", desc: "Отказоустойчивый асинхронный сбор данных с сайтов и маркетплейсов, обход антибот-защиты, экспорт в Excel, Google Sheets или базы данных.", price: "Под ключ / по ТЗ" },
-    en: { title: "Scraping & Automation", desc: "Resilient asynchronous data scraping systems, anti-blocking measures, background task pipelines, and DB/Excel/Sheets exports.", price: "Custom scope" }
+    ru: { title: "Парсинг & Автоматизация", desc: "Отказоустойчивый асинхронный сбор данных с сайтов и маркетплейсов, обход антибот-защиты, экспорт в Excel, Google Sheets или базы данных.", price: "от 8 000 ₽" },
+    en: { title: "Scraping & Automation", desc: "Resilient asynchronous data scraping systems, anti-blocking measures, background task pipelines, and DB/Excel/Sheets exports.", price: "from $120" }
   },
   {
     id: "databases", icon: "api",
-    ru: { title: "Базы данных & Оптимизация", desc: "Проектирование нормализованных схем БД (PostgreSQL, SQLite, Redis), версионирование миграций через Alembic, оптимизация сложных запросов.", price: "Под ключ / по ТЗ" },
-    en: { title: "Databases & Optimization", desc: "Relational database schema design (PostgreSQL, SQLite), Alembic versioning, Redis caching, and deep query optimization.", price: "Custom scope" }
+    ru: { title: "Базы данных & Оптимизация", desc: "Проектирование нормализованных схем БД (PostgreSQL, SQLite, Redis), версионирование миграций через Alembic, оптимизация сложных запросов.", price: "от 10 000 ₽" },
+    en: { title: "Databases & Optimization", desc: "Relational database schema design (PostgreSQL, SQLite), Alembic versioning, Redis caching, and deep query optimization.", price: "from $150" }
   },
   {
     id: "integrations", icon: "api",
-    ru: { title: "Интеграции & Платежи", desc: "Связка внешних API, платежных провайдеров (CryptoBot, ЮKassa, Stripe), CRM-систем (AmoCRM, Bitrix24) и защита вебхуков от повторных списаний.", price: "Под ключ / по ТЗ" },
-    en: { title: "Integrations & Payments", desc: "Connecting 3rd-party APIs, payment gateways (CryptoBot, Stripe), CRMs (AmoCRM, Bitrix24), and idempotent webhook pipelines.", price: "Custom scope" }
+    ru: { title: "Интеграции & Платежи", desc: "Связка внешних API, платежных провайдеров (CryptoBot, ЮKassa, Stripe), CRM-систем (AmoCRM, Bitrix24) и защита вебхуков от повторных списаний.", price: "от 8 000 ₽" },
+    en: { title: "Integrations & Payments", desc: "Connecting 3rd-party APIs, payment gateways (CryptoBot, Stripe), CRMs (AmoCRM, Bitrix24), and idempotent webhook pipelines.", price: "from $120" }
   }
 ];
 
@@ -150,19 +150,16 @@ var portfolioItems = [
     id: "standoff2-market", icon: "bot",
     stack: "Python · FastAPI · Aiogram 3 · PostgreSQL · SQLAlchemy 2.0 · Docker · Pytest",
     tags: ["P2P Market", "FastAPI Hub", "Telegram Stars", "Clean Architecture"],
-    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20Standoff%202%20Market%20Hub",
+    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20Standsticker",
     githubUrl: "https://github.com/florichdev/standoff2-sticker-market",
-    shots: [
-      "./assets/images/portfolio/secretvapeshop/04-web-auth.png",
-      "./assets/images/portfolio/secretvapeshop/05-web-main.png"
-    ],
+    shots: [],
     ru: {
-      name: "Standoff 2 Sticker Market & Hub",
+      name: "Standsticker",
       desc: "Высоконагруженная P2P-платформа обмена игровыми предметами с приватным чатом сделок, монетизацией через Telegram Stars и веб-панелью управления на FastAPI. Обеспечивает безопасные расчеты между пользователями и автоматизацию процесса продаж.",
       price: "Архитектурный кейс"
     },
     en: {
-      name: "Standoff 2 Sticker Market & Hub",
+      name: "Standsticker",
       desc: "High-performance P2P game asset trading platform featuring anonymous deal chats, Telegram Stars monetization, and a FastAPI web dashboard. Automates user transactions with enterprise-grade reliability.",
       price: "Architecture case"
     }
@@ -171,7 +168,7 @@ var portfolioItems = [
     id: "secret-vape", icon: "bot",
     stack: "Python · Aiogram 3 · SQLAlchemy · Flask · SQLite",
     tags: ["E-commerce", "Admin Panel", "Payments", "Telegram Bot"],
-    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%20Ecommerce%20Platform",
+    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%20Secret%20Vape%20Shop",
     githubUrl: "https://github.com/florichdev/telegram-ecommerce-flask-admin",
     shots: [
       "./assets/images/portfolio/secretvapeshop/01-bot-main-menu.png",
@@ -185,12 +182,12 @@ var portfolioItems = [
       "./assets/images/portfolio/secretvapeshop/09-web-mobile.png"
     ],
     ru: {
-      name: "Telegram E-Commerce & Admin Platform",
+      name: "Secret Vape Shop",
       desc: "Полноценный интернет-магазин внутри Telegram с удобной веб-панелью управления для владельца бизнеса. Надежная база данных, автоматический прием и проверка оплат, онлайн-корзина, управление каталогом товаров и разграничение прав доступа для менеджеров.",
       price: "Коммерческий кейс"
     },
     en: {
-      name: "Telegram E-Commerce & Admin Platform",
+      name: "Secret Vape Shop",
       desc: "Full-featured Telegram e-commerce store with an intuitive web admin dashboard for business owners. Resilient database architecture, automated payment verification, cart checkout, product catalog management, and role-based staff access.",
       price: "Commercial case"
     }
@@ -304,63 +301,53 @@ var portfolioItems = [
 var STATIC_REVIEWS = [
   {
     id: 1,
-    name: "Алексей В.",
-    initials: "АВ",
-    projectRu: "Telegram-бот интернет-магазина с админ-панелью",
-    projectEn: "Telegram E-Commerce Bot with Admin Dashboard",
+    name: "El2010032",
+    initials: "EL",
+    projectRu: "Разработка Telegram бота",
+    projectEn: "Telegram Bot Development",
     rating: 5,
-    textRu: "Отличный специалист! Разработал полноценного Telegram-бота с онлайн-корзиной, приемом платежей и веб-панелью управления даже раньше дедлайна. Проект развернут на VPS в Docker, все работает безупречно. Будем сотрудничать на постоянной основе.",
-    textEn: "Outstanding developer! Delivered a full Telegram e-commerce bot with online cart, payments, and web admin dashboard ahead of schedule. Deployed cleanly on VPS with Docker. Highly recommended."
+    textRu: "Отличный результат, я всем доволен. Советую",
+    textEn: "Excellent result, I'm completely satisfied. Highly recommended."
   },
   {
     id: 2,
-    name: "Михаил С.",
-    initials: "МС",
-    projectRu: "Парсер данных и цен с маркетплейсов в Excel",
-    projectEn: "E-Commerce Data Scraper to Excel",
+    name: "webcod2011",
+    initials: "WC",
+    projectRu: "Создам лендинг под ключ",
+    projectEn: "Turnkey Landing Page Development",
     rating: 5,
-    textRu: "Вадим реализовал отказоустойчивый асинхронный парсер с обходом защитных систем. Скрипт собирает десятки тысяч позиций и автоматически формирует структурированные отчеты. Всегда на связи и профессионально подходит к архитектуре.",
-    textEn: "Vadim implemented a resilient asynchronous scraper that bypasses anti-bot barriers. The script processes tens of thousands of items and exports structured reports. Excellent communication and architectural approach."
+    textRu: "Огромное спасибо за оперативность и качество выполнения. Работа была выполнена в полном объеме, раньше оговоренных сроков без потери качества. Однозначно рекомендую к сотрудничеству.",
+    textEn: "Huge thanks for the speed and quality of execution. The work was completed in full, ahead of the agreed deadline without any loss of quality. Definitely recommend for collaboration."
   },
   {
     id: 3,
-    name: "Дмитрий К.",
-    initials: "ДК",
-    projectRu: "Telegram Mini App (Web App) для бронирования",
-    projectEn: "Telegram Mini App for Booking Service",
+    name: "tyn44",
+    initials: "TY",
+    projectRu: "Разработка Telegram бота",
+    projectEn: "Telegram Bot Development",
     rating: 5,
-    textRu: "Очень доволен результатом. Разработал современный Telegram Mini App на React с бэкендом на FastAPI. Интерфейс быстрый, адаптивный, логика сессий и авторизации Telegram WebApp сделана идеально.",
-    textEn: "Extremely satisfied with the delivery. Built a modern Telegram Mini App in React with FastAPI backend. Fast, fully responsive UI and flawless Telegram WebApp auth integration."
+    textRu: "Обратились к Вадиму за помощью для разработки бота для клуба по интересам, хочу отметить главные положительные моменты: быстрота и профессиональность в выполнении заказа. По тех заданию учел все наши пожелания и требования по работе бота, выполнил в кратчайшие сроки, по итогу без учета моей проверки бота заняло около дня. Правки были маленькие и то это я не прописала в тех задании, быстро все поправил и даже направил гайд чтобы я знала как что поменять. Однозначно 10/10, всем рекомендую!",
+    textEn: "Reached out to Vadim for help building a community club bot. Key highlights: speed and professionalism. Followed all requirements, completed in the shortest timeframe (under a day excluding testing). Minor tweaks were handled instantly, plus he provided a clear guide. 10/10, highly recommend!"
   },
   {
     id: 4,
-    name: "Елена Р.",
-    initials: "ЕР",
-    projectRu: "Экосистема ботов с Flask API и базой данных",
-    projectEn: "Bot Ecosystem with Flask API & Database",
+    name: "Workoutfriend",
+    initials: "WF",
+    projectRu: "Разработка бота для MAX",
+    projectEn: "MAX Messenger Bot Development",
     rating: 5,
-    textRu: "Задача была нетривиальной — требовалась сложная интеграция внешнего API и админка для управления контентом. Вадим спроектировал надежную БД, настроил параллельную обработку и снабдил проект подробной документацией.",
-    textEn: "Complex task requiring external API integration and a content administration dashboard. Vadim engineered a solid database schema, concurrent processing, and provided thorough documentation."
+    textRu: "Очень качественная и внимательно выполненная работа по ТЗ! Исполнитель большой молодец!",
+    textEn: "Very high quality and attentive execution strictly according to specs! The developer did a great job!"
   },
   {
     id: 5,
-    name: "Артем Г.",
-    initials: "АГ",
-    projectRu: "Интеграция платежных шлюзов и подписок",
-    projectEn: "Payment Gateway & Subscription Integration",
+    name: "povarovave",
+    initials: "PO",
+    projectRu: "Разработка бота для MAX",
+    projectEn: "MAX Messenger Bot Development",
     rating: 5,
-    textRu: "Интеграция оплат и автоматического управления доступом в закрытый канал выполнена на высшем уровне. Идемпотентность вебхуков, мгновенные уведомления, безопасность данных. 10 из 10!",
-    textEn: "Payment integration and automated membership management for a private channel executed flawlessly. Idempotent webhooks, instant notifications, top-tier data security. 10 out of 10!"
-  },
-  {
-    id: 6,
-    name: "Сергей Н.",
-    initials: "СН",
-    projectRu: "Автоматизация и интеграция с CRM / Google Sheets",
-    projectEn: "Automation Pipeline with CRM & Google Sheets",
-    rating: 5,
-    textRu: "Быстро, четко по ТЗ и без лишних вопросов. Чистый код на Python, модульная структура, проект запущен на нашем сервере за полчаса. Огромное спасибо за профессионализм!",
-    textEn: "Prompt, strictly according to specs, and very clean modular Python code. Setup on our server took under thirty minutes. Huge thanks for the professionalism!"
+    textRu: "Очень крутой специалист) сделал все за день) день, Карл! !)",
+    textEn: "Really awesome specialist) built everything in just one day) one day, Carl! !)"
   }
 ];
 
@@ -933,9 +920,9 @@ function Modal(props) {
   if (!props.item) return null;
   var ui = props.ui;
   var shots = props.item.shots || [];
-  var image = shots[props.index] || shots[0];
-  var title = props.item.name;
   var total = shots.length;
+  var image = total > 0 ? (shots[props.index] || shots[0]) : null;
+  var title = props.item.name;
 
   return h("div", { className: "modal-backdrop", onClick: props.onClose, role: "presentation" },
     h("div", {
@@ -953,7 +940,7 @@ function Modal(props) {
         h("button", { className: "modal-close", onClick: props.onClose, "aria-label": ui.close }, "✕")
       ]),
       h("div", { className: "modal-body" }, [
-        h("div", { className: "gallery" }, [
+        total > 0 && image ? h("div", { className: "gallery" }, [
           h("img", { src: image, alt: title, loading: "lazy", decoding: "async" }),
           total > 1 ? h("div", { className: "gallery-controls" }, [
             h("button", { className: "gallery-btn", onClick: function (e) { e.stopPropagation(); props.onPrev(); }, "aria-label": ui.prevShot },
@@ -963,7 +950,7 @@ function Modal(props) {
               h("i", { className: icons.forward, "aria-hidden": "true" })
             )
           ]) : null
-        ]),
+        ]) : null,
         h("div", { className: "modal-meta" }, [
           props.item.desc ? h("p", { className: "text" }, props.item.desc) : null,
           props.item.stack ? h("div", { className: "project-stack" }, props.item.stack) : null,
@@ -1066,9 +1053,14 @@ function App() {
   }, []);
 
   React.useEffect(function () {
-    if (!effectsOn || IS_TOUCH) return undefined;
     var dot = document.querySelector(".cursor-dot");
     if (!dot) return undefined;
+    if (!effectsOn || IS_TOUCH) {
+      dot.style.opacity = "0";
+      dot.style.display = "none";
+      return undefined;
+    }
+    dot.style.display = "";
     var lastTime = Date.now();
     var handler = function (e) {
       lastTime = Date.now();
@@ -1236,14 +1228,14 @@ function App() {
   }
 
   function handlePrevShot() {
-    if (!modalItem || !modalItem.shots) return;
+    if (!modalItem || !modalItem.shots || modalItem.shots.length === 0) return;
     setShotIndex(function (prev) {
       return prev === 0 ? modalItem.shots.length - 1 : prev - 1;
     });
   }
 
   function handleNextShot() {
-    if (!modalItem || !modalItem.shots) return;
+    if (!modalItem || !modalItem.shots || modalItem.shots.length === 0) return;
     setShotIndex(function (prev) {
       return prev === modalItem.shots.length - 1 ? 0 : prev + 1;
     });
