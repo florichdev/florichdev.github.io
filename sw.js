@@ -1,15 +1,23 @@
-var CACHE = "florichdev-v4";
+var CACHE = "florichdev-v7";
 var ASSETS = [
   "./",
   "./index.html",
   "./assets/style.css",
+  "./assets/icons.js",
   "./assets/app.js",
+  "./assets/vendor/react.production.min.js",
+  "./assets/vendor/react-dom.production.min.js",
   "./assets/images/logo-icon.svg",
   "./favicon.svg",
   "./apple-touch-icon.svg",
   "./manifest.json",
   "./assets/data/reviews.json"
 ];
+
+function isFreshContent(request, url) {
+  if (request.mode === "navigate") return true;
+  return /\.(html|js|css|json)$/i.test(url.pathname) || url.pathname === "/";
+}
 
 self.addEventListener("install", function (event) {
   event.waitUntil(
@@ -44,6 +52,29 @@ self.addEventListener("fetch", function (event) {
   }
   if (url.protocol !== "http:" && url.protocol !== "https:") return;
 
+  if (isFreshContent(event.request, url)) {
+    event.respondWith(
+      fetch(event.request).then(function (response) {
+        if (response && response.status === 200) {
+          var copy = response.clone();
+          caches.open(CACHE).then(function (cache) {
+            cache.put(event.request, copy).catch(function () {});
+          }).catch(function () {});
+        }
+        return response;
+      }).catch(function () {
+        return caches.match(event.request).then(function (cached) {
+          if (cached) return cached;
+          if (event.request.mode === "navigate") {
+            return caches.match("./index.html");
+          }
+          return new Response("", { status: 404, statusText: "Offline" });
+        });
+      })
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(function (cached) {
       if (cached) return cached;
@@ -60,9 +91,6 @@ self.addEventListener("fetch", function (event) {
         } catch (err) {}
         return response;
       }).catch(function () {
-        if (event.request.mode === "navigate") {
-          return caches.match("./index.html");
-        }
         return new Response("", { status: 404, statusText: "Offline or Not Found" });
       });
     }).catch(function () {
