@@ -32,31 +32,27 @@ var techIcons = {
   "Asyncio": "fa-solid fa-bolt",
   "Flask": "fa-solid fa-flask",
   "SQL": "fa-solid fa-database",
-  "Node.js": "fa-brands fa-node-js",
-  "TypeScript": "fa-solid fa-code",
   "JavaScript": "fa-brands fa-js",
   "Aiogram 3": "fa-brands fa-telegram",
   "Telegram Mini Apps (TWA)": "fa-solid fa-mobile-screen",
+  "MAX API": "fa-solid fa-robot",
   "Pyrogram / Telethon": "fa-solid fa-paper-plane",
   "React": "fa-brands fa-react",
   "HTML5": "fa-brands fa-html5",
   "CSS3": "fa-brands fa-css3-alt",
-  "Tailwind CSS": "fa-solid fa-wind",
+  "Flet": "fa-solid fa-laptop-code",
   "PostgreSQL": "fa-solid fa-database",
   "SQLite": "fa-solid fa-database",
-  "Redis": "fa-solid fa-server",
   "SQLAlchemy": "fa-solid fa-cubes",
-  "Alembic": "fa-solid fa-timeline",
   "BeautifulSoup4": "fa-solid fa-spider",
-  "Playwright / Selenium": "fa-solid fa-robot",
+  "Playwright": "fa-solid fa-robot",
   "Aiohttp": "fa-solid fa-network-wired",
   "Httpx": "fa-solid fa-globe",
+  "Pytest": "fa-solid fa-check",
   "Docker": "fa-brands fa-docker",
-  "Docker Compose": "fa-solid fa-layer-group",
-  "Nginx": "fa-solid fa-server",
+  "Systemd": "fa-solid fa-server",
   "Linux / VPS": "fa-brands fa-linux",
-  "Git": "fa-brands fa-git-alt",
-  "GitHub Actions": "fa-brands fa-github"
+  "Git": "fa-brands fa-git-alt"
 };
 
 var TG_PERSONAL = "https://t.me/vflorich";
@@ -87,32 +83,32 @@ var TECH_GROUPS = [
   {
     categoryRu: "Backend & Языки",
     categoryEn: "Backend & Languages",
-    items: ["Python", "FastAPI", "Asyncio", "Flask", "SQL", "Node.js", "TypeScript", "JavaScript"]
+    items: ["Python", "FastAPI", "Asyncio", "Flask", "SQL", "JavaScript"]
   },
   {
-    categoryRu: "Telegram & Боты",
-    categoryEn: "Telegram & Bots",
-    items: ["Aiogram 3", "Telegram Mini Apps (TWA)", "Pyrogram / Telethon"]
+    categoryRu: "Боты & Мессенджеры",
+    categoryEn: "Bots & Messengers",
+    items: ["Aiogram 3", "Telegram Mini Apps (TWA)", "MAX API", "Pyrogram / Telethon"]
   },
   {
-    categoryRu: "Frontend & Web",
-    categoryEn: "Frontend & Web",
-    items: ["React", "HTML5", "CSS3", "Tailwind CSS"]
+    categoryRu: "Web & Desktop",
+    categoryEn: "Web & Desktop",
+    items: ["HTML5", "CSS3", "React", "Flet"]
   },
   {
     categoryRu: "Базы данных & ORM",
     categoryEn: "Databases & ORM",
-    items: ["PostgreSQL", "SQLite", "Redis", "SQLAlchemy", "Alembic"]
+    items: ["PostgreSQL", "SQLite", "SQLAlchemy"]
   },
   {
-    categoryRu: "Парсинг & Автоматизация",
-    categoryEn: "Scraping & Automation",
-    items: ["BeautifulSoup4", "Playwright / Selenium", "Aiohttp", "Httpx"]
+    categoryRu: "Парсинг & Тестирование",
+    categoryEn: "Scraping & Testing",
+    items: ["BeautifulSoup4", "Playwright", "Httpx", "Aiohttp", "Pytest"]
   },
   {
     categoryRu: "DevOps & Инфраструктура",
     categoryEn: "DevOps & Infrastructure",
-    items: ["Docker", "Docker Compose", "Nginx", "Linux / VPS", "Git", "GitHub Actions"]
+    items: ["Linux / VPS", "Systemd", "Docker", "Git"]
   }
 ];
 
@@ -120,14 +116,14 @@ var TYPEWRITER_PHRASES = {
   ru: [
     "Python Backend Developer",
     "Telegram Bot & Mini Apps Developer",
-    "Fullstack Web Developer",
+    "Web & API Developer",
     "Разработка парсеров и скриптов",
     "Автоматизация и разработка ПО"
   ],
   en: [
     "Python Backend Developer",
     "Telegram Bot & Mini Apps Developer",
-    "Fullstack Web Developer",
+    "Web & API Developer",
     "Web Scraping & Automation Scripts",
     "Software Development & Automation"
   ]
@@ -136,40 +132,40 @@ var TYPEWRITER_PHRASES = {
 var serviceItems = [
   {
     id: "tg-bots", icon: "bot",
-    ru: { title: "Telegram-боты под ключ", desc: "Автоворонки, прием оплат (Crypto, ЮKassa, Stripe, Stars), диалоговые FSM-сценарии, платные подписки, реферальные системы и веб-админки.", price: "от 5 000 ₽" },
-    en: { title: "Telegram Bots Turnkey", desc: "Automated sales funnels, payment gateways (Crypto, Stripe, Stars), conversational FSM scenarios, subscriptions, and custom admin dashboards.", price: "from $60" }
+    ru: { title: "Telegram-боты под ключ", desc: "Автоворонки, прием оплат (CryptoBot, ЮKassa, Telegram Stars), диалоговые FSM-сценарии, платные подписки, реферальные системы и веб-админки.", price: "от 5 000 ₽" },
+    en: { title: "Telegram Bots Turnkey", desc: "Automated sales funnels, payment gateways (CryptoBot, Telegram Stars), conversational FSM scenarios, subscriptions, and custom admin dashboards.", price: "from $60" }
   },
   {
     id: "tg-miniapps", icon: "web",
-    ru: { title: "Telegram Mini Apps (Web)", desc: "Интерактивные веб-приложения внутри Telegram на React/TS: каталоги товаров, онлайн-корзины, бронирование услуг и личные кабинеты.", price: "от 10 000 ₽" },
-    en: { title: "Telegram Mini Apps", desc: "Rich interactive web applications inside Telegram (React/TS): e-commerce catalogs, online carts, booking systems, and member portals.", price: "from $120" }
+    ru: { title: "Telegram Mini Apps & Сайты", desc: "Интерактивные веб-интерфейсы и лендинги на HTML/CSS/JS и React: каталоги товаров, онлайн-корзины, веб-админки и личные кабинеты.", price: "от 10 000 ₽" },
+    en: { title: "Telegram Mini Apps & Web", desc: "Interactive web interfaces and landing pages (HTML/CSS/JS, React): e-commerce catalogs, online carts, admin dashboards, and portals.", price: "from $120" }
   },
   {
     id: "api", icon: "api",
-    ru: { title: "REST API & Бэкенд", desc: "Высокопроизводительные серверные сервисы на FastAPI и Flask. JWT/OAuth2 авторизация, фоновые очереди задач, валидация данных Pydantic v2 и кэширование.", price: "от 15 000 ₽" },
-    en: { title: "REST API & Backend", desc: "Scalable backend services using FastAPI and Flask. JWT/OAuth2 authentication, background task queues, Pydantic v2 validation, and caching.", price: "from $200" }
+    ru: { title: "REST API & Бэкенд", desc: "Серверные сервисы на FastAPI и Flask: проектирование REST API, авторизация, валидация Pydantic, фоновые задачи и интеграция с ботами.", price: "от 15 000 ₽" },
+    en: { title: "REST API & Backend", desc: "Backend services using FastAPI and Flask: REST API design, authentication, Pydantic validation, background tasks, and bot integrations.", price: "from $200" }
   },
   {
     id: "parsing", icon: "web",
-    ru: { title: "Парсинг & Автоматизация", desc: "Отказоустойчивый асинхронный сбор данных с сайтов и маркетплейсов, обход антибот-защиты, экспорт в Excel, Google Sheets или базы данных.", price: "от 8 000 ₽" },
-    en: { title: "Scraping & Automation", desc: "Resilient asynchronous data scraping systems, anti-blocking measures, background task pipelines, and DB/Excel/Sheets exports.", price: "from $120" }
+    ru: { title: "Парсинг & Автоматизация", desc: "Асинхронный сбор открытых данных с сайтов и каталогов, мониторинг изменений, уведомления и экспорт в Excel, Google Sheets или базы данных.", price: "от 8 000 ₽" },
+    en: { title: "Scraping & Automation", desc: "Asynchronous open-data collection from websites and catalogs, change monitoring, alerts, and exports to Excel, Google Sheets, or databases.", price: "from $120" }
   },
   {
     id: "databases", icon: "api",
-    ru: { title: "Базы данных & Оптимизация", desc: "Проектирование нормализованных схем БД (PostgreSQL, SQLite, Redis), версионирование миграций через Alembic, оптимизация сложных запросов.", price: "от 10 000 ₽" },
-    en: { title: "Databases & Optimization", desc: "Relational database schema design (PostgreSQL, SQLite), Alembic versioning, Redis caching, and deep query optimization.", price: "from $150" }
+    ru: { title: "Базы данных & ORM", desc: "Проектирование реляционных схем БД (PostgreSQL, SQLite), работа через SQLAlchemy, миграции и оптимизация SQL-запросов.", price: "от 10 000 ₽" },
+    en: { title: "Databases & ORM", desc: "Relational database schema design (PostgreSQL, SQLite), SQLAlchemy ORM, schema migrations, and SQL query optimization.", price: "from $150" }
   },
   {
     id: "integrations", icon: "api",
-    ru: { title: "Интеграции & Платежи", desc: "Связка внешних API, платежных провайдеров (CryptoBot, ЮKassa, Stripe), CRM-систем (AmoCRM, Bitrix24) и защита вебхуков от повторных списаний.", price: "от 8 000 ₽" },
-    en: { title: "Integrations & Payments", desc: "Connecting 3rd-party APIs, payment gateways (CryptoBot, Stripe), CRMs (AmoCRM, Bitrix24), and idempotent webhook pipelines.", price: "from $120" }
+    ru: { title: "Интеграции & Платежи", desc: "Связка внешних REST API, платёжных провайдеров (CryptoBot, ЮKassa, Telegram Stars), Google Sheets и защита вебхуков от дублей.", price: "от 8 000 ₽" },
+    en: { title: "Integrations & Payments", desc: "Connecting external REST APIs, payment gateways (CryptoBot, Telegram Stars), Google Sheets, and idempotent webhook pipelines.", price: "from $120" }
   }
 ];
 
 var portfolioItems = [
   {
     id: "standoff2-market", icon: "bot",
-    categories: ["telegram", "web", "payments"],
+    categories: ["bots", "web"],
     stack: "Python · FastAPI · Aiogram 3 · PostgreSQL · SQLAlchemy 2.0 · Docker · Pytest",
     tags: ["P2P Market", "FastAPI Hub", "Telegram Stars", "Clean Architecture"],
     demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20Standsticker",
@@ -194,7 +190,7 @@ var portfolioItems = [
   },
   {
     id: "secret-vape", icon: "bot",
-    categories: ["telegram", "web", "payments"],
+    categories: ["bots", "web"],
     stack: "Python · Aiogram 3 · SQLAlchemy · Flask · SQLite",
     tags: ["E-commerce", "Admin Panel", "Payments", "Telegram Bot"],
     demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%20Secret%20Vape%20Shop",
@@ -229,7 +225,7 @@ var portfolioItems = [
   },
   {
     id: "cryptopay", icon: "web",
-    categories: ["telegram", "web", "payments"],
+    categories: ["bots", "web"],
     stack: "Python · Flask · Aiogram · Solana · SQLite",
     tags: ["Crypto", "Web App", "Payments", "Solana"],
     demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%20CryptoPay",
@@ -242,7 +238,7 @@ var portfolioItems = [
     ru: {
       name: "CryptoPay",
       desc: "Автоматизированный шлюз приёма криптовалютных платежей в сети Solana с мгновенной валидацией транзакций и ботом уведомлений в Telegram.",
-      task: "Обеспечить автоматическую проверку крипто-оплат без ручного сверки хешей и защитить шлюз от дублей.",
+      task: "Обеспечить автоматическую проверку крипто-оплат без ручной сверки хешей и защитить шлюз от дублей.",
       solution: "Веб-страница оплаты с генерацией QR и отслеживанием блокчейна Solana + идемпотентные вебхуки + мгновенные уведомления в Telegram.",
       result: "Подтверждение платежей за секунды, нулевой риск двойного зачисления и полная автономность расчётов.",
       price: "Коммерческий кейс"
@@ -258,7 +254,7 @@ var portfolioItems = [
   },
   {
     id: "happs", icon: "bot",
-    categories: ["telegram"],
+    categories: ["bots"],
     stack: "Python · Aiogram · SQLite · Flask · PDF",
     tags: ["Health", "Booking", "Admin", "PDF Engine"],
     demoUrl: "https://t.me/happshealthbot",
@@ -286,7 +282,7 @@ var portfolioItems = [
   },
   {
     id: "botsmax", icon: "bot",
-    categories: ["max", "web"],
+    categories: ["bots", "web"],
     stack: "Python · MAX API · Flask · SQLite",
     tags: ["MAX", "Admin", "Giveaways", "High-load"],
     demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B1%D0%BE%D1%82%D1%8B%20%D0%B4%D0%BB%D1%8F%20MAX",
@@ -309,7 +305,7 @@ var portfolioItems = [
       name: "Рандомайзер & Сэйвер",
       desc: "Экосистема из двух высоконагруженных ботов для мессенджера MAX с единой веб-панелью администрирования на Flask.",
       task: "Создать стабильный набор утилит для аудитории MAX (проведение розыгрышей и скачивание медиа) с централизованным управлением.",
-      solution: "Асинхронная очередь фоновой загрузки/конвертации медиа + движок честных розыгрышей + единая Flask-админка со статистикой и рассылками.",
+      solution: "Асинхронная очередь фоновой загрузки/конвертации медиа + движок честных розыгрышей + единая Flask-админка со статистикой и уведомлениями.",
       result: "Стабильная работа под пиковыми всплесками тысяч пользователей и удобный контроль всех метрик в одном окне.",
       price: "Коммерческий кейс"
     },
@@ -317,14 +313,14 @@ var portfolioItems = [
       name: "Randomizer & Saver",
       desc: "High-load ecosystem of two MAX messenger bots with a unified Flask administrative dashboard.",
       task: "Build a reliable utility suite for MAX messenger (giveaways & media downloads) with centralized administration.",
-      solution: "Background media download/conversion queue + verifiable giveaway engine + unified Flask dashboard with analytics and broadcasts.",
+      solution: "Background media download/conversion queue + verifiable giveaway engine + unified Flask dashboard with analytics and notifications.",
       result: "Smooth performance under multi-thousand user traffic spikes with single-pane management.",
       price: "Commercial case"
     }
   },
   {
     id: "botstaro", icon: "bot",
-    categories: ["max", "telegram", "web"],
+    categories: ["bots", "web"],
     stack: "Python · MAX API · Telegram API · Flask · SQLite",
     tags: ["MAX", "Telegram", "Integration", "Storytelling"],
     demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%B1%D0%BE%D1%82",
@@ -357,6 +353,55 @@ var portfolioItems = [
       solution: "Shared Flask backend + MAX & Telegram adapters + web CMS for editing readings, scenarios, and live user sessions.",
       result: "Instant content sync across both platforms and clean extensibility to new channels.",
       price: "Commercial case"
+    }
+  },
+  {
+    id: "kwork-monitor", icon: "api",
+    categories: ["scripts", "bots"],
+    stack: "Python · Asyncio · httpx · BeautifulSoup4 · Aiogram · LLM API · SQLite",
+    tags: ["Automation", "Monitoring", "LLM API", "VPS 24/7"],
+    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%20%D0%BC%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%D0%B0",
+    shots: [],
+    ru: {
+      name: "Мониторинг заказов & AI-ассистент",
+      desc: "Асинхронный скрипт мониторинга открытых IT-проектов с умной фильтрацией по стеку и бюджету, мгновенными уведомлениями в Telegram и черновиками через LLM API.",
+      task: "Автоматизировать отслеживание релевантных заказов без ручного обновления страниц и отсекать неподходящие заявки по стоп-словам и метрикам.",
+      solution: "Фоновый сборщик на httpx + BeautifulSoup4, дедупликация в SQLite, гибкий фильтр по категориям и генерация структурированного черновика через OpenRouter/LLM API на VPS (systemd).",
+      result: "Мгновенные уведомления в течение 1–2 минут после публикации и полная автоматизация первичного отбора задач.",
+      price: "Собственный проект"
+    },
+    en: {
+      name: "Order Monitor & AI Assistant",
+      desc: "Async open-listings monitoring script with smart stack/budget filtering, instant Telegram alerts, and automated response drafting via LLM API.",
+      task: "Automate tracking of relevant freelance projects without manual polling while filtering out noisy listings.",
+      solution: "Background httpx + BeautifulSoup4 collector, SQLite deduplication, configurable keyword & threshold filters, and LLM API draft generation running 24/7 on Linux VPS (systemd).",
+      result: "Alerts within 1–2 minutes of publication and zero time wasted scanning irrelevant feeds.",
+      price: "In-house product"
+    }
+  },
+  {
+    id: "ocr-screen-translator", icon: "web",
+    categories: ["software"],
+    stack: "Python · Flet GUI · EasyOCR · Google Translate API · Pillow",
+    tags: ["Desktop App", "OCR", "Material UI", "Open Source"],
+    demoUrl: "https://t.me/vflorich?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D0%B4%D0%B5%D1%81%D0%BA%D1%82%D0%BE%D0%BF%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%9F%D0%9E",
+    githubUrl: "https://github.com/florichdev/OCR-Screen-Translator",
+    shots: [],
+    ru: {
+      name: "OCR Screen Translator",
+      desc: "Десктопное приложение для распознавания и мгновенного перевода текста с выделенной области экрана, скриншотов и буфера обмена.",
+      task: "Переработать старый прототип на tkinter в современное и удобное десктопное ПО с точным распознаванием текста и адаптивным интерфейсом.",
+      solution: "Полный рефакторинг UI на Flet (Material Design), интерактивный захват области экрана, предобработка изображений для EasyOCR и интеграция Google Translate API.",
+      result: "Кроссплатформенная утилита с открытым исходным кодом на GitHub для быстрого перевода текста прямо с экрана.",
+      price: "Open Source"
+    },
+    en: {
+      name: "OCR Screen Translator",
+      desc: "Desktop application for capturing any screen area or clipboard image, extracting text via OCR, and translating it in real time.",
+      task: "Rebuild a legacy tkinter prototype into a clean, responsive desktop app with accurate OCR and modern UX.",
+      solution: "Complete UI rewrite on Flet (Material Design), interactive screen-area capture, image preprocessing for EasyOCR, and Google Translate API integration.",
+      result: "Open-source desktop utility on GitHub enabling instant on-screen text translation.",
+      price: "Open Source"
     }
   }
 ];
@@ -547,17 +592,17 @@ function scrollBehavior(effectsOn) {
 var PORTFOLIO_FILTERS = {
   ru: [
     { id: "all", label: "Все" },
-    { id: "telegram", label: "Telegram-боты" },
-    { id: "web", label: "Web & API" },
-    { id: "payments", label: "Платежи / Крипто" },
-    { id: "max", label: "MAX" }
+    { id: "bots", label: "Боты" },
+    { id: "web", label: "Сайты & Web" },
+    { id: "scripts", label: "Скрипты" },
+    { id: "software", label: "ПО" }
   ],
   en: [
     { id: "all", label: "All" },
-    { id: "telegram", label: "Telegram Bots" },
-    { id: "web", label: "Web & API" },
-    { id: "payments", label: "Payments / Crypto" },
-    { id: "max", label: "MAX" }
+    { id: "bots", label: "Bots" },
+    { id: "web", label: "Web & Sites" },
+    { id: "scripts", label: "Scripts" },
+    { id: "software", label: "Software" }
   ]
 };
 
@@ -609,7 +654,7 @@ var texts = {
       ctaContact: "Написать",
       ctaPortfolio: "Портфолио",
       stats: [
-        { value: "30+", label: "проектов в проде" },
+        { value: "20+", label: "проектов в проде" },
         { value: "5.0 ★", label: "рейтинг Kwork" },
         { value: "100%", label: "сдача в срок" }
       ]
@@ -617,8 +662,8 @@ var texts = {
     about: {
       title: "Обо мне",
       note: "Коммерческий опыт",
-      text: "Создаю масштабируемые и отказоустойчивые веб-сервисы, Telegram-боты, Mini Apps и бэкенд-системы на Python. Более 30 коммерческих проектов успешно работают в продакшене: от парсеров данных и скриптов автоматизации до полноценных веб-приложений и ботов под ключ со 100% сдачей в срок и рейтингом 5.0. Проектирую чистую архитектуру, подключаю платежные шлюзы, оптимизирую базы данных и настраиваю деплой в Docker на Linux VPS.",
-      facts: ["UTC+3 (МСК)", "Ответ ~15 мин", "Под ключ & NDA", "Деплой на VPS"],
+      text: "Разрабатываю веб-сервисы, Telegram и MAX-боты, скрипты автоматизации и десктопное ПО на Python. Более 20 реализованных коммерческих и собственных проектов (рейтинг 5.0 на Kwork, 100% сдача в срок). Проектирую понятную архитектуру, подключаю платёжные шлюзы и внешние API, работаю с PostgreSQL/SQLite и настраиваю стабильный запуск 24/7 на Linux VPS (systemd / Docker).",
+      facts: ["UTC+3 (МСК)", "Ответ ~15 мин", "Под ключ & NDA", "Linux VPS 24/7"],
       resumeLabel: "Резюме на HH"
     },
     services: {
@@ -634,15 +679,15 @@ var texts = {
         { num: "01", title: "Бриф и оценка", desc: "Разбираем задачу, уточняем детали и фиксируем понятные сроки и бюджет за 15 минут." },
         { num: "02", title: "Прототип / ТЗ", desc: "Проектирую схему архитектуры, а для сложных ботов могу показать прототип до старта." },
         { num: "03", title: "Разработка и тесты", desc: "Пишу чистый асинхронный код, подключаю БД/оплаты и показываю промежуточные демо." },
-        { num: "04", title: "Деплой и поддержка", desc: "Разворачиваю проект в Docker на вашем VPS, передаю исходники, инструкцию и 14 дней гарантии." }
+        { num: "04", title: "Деплой и поддержка", desc: "Разворачиваю проект на вашем Linux VPS (systemd / Docker), передаю исходники, инструкцию и 14 дней гарантии." }
       ]
     },
     faq: {
       title: "Частые вопросы",
       hint: "Ответы до старта работы",
       items: [
-        { q: "Как проходит оплата и есть ли безопасная сделка?", a: "Работаю через безопасную сделку на Kwork (гарантия платформы) либо поэтапно 50/50 напрямую. Для сложных проектов возможен показ рабочего прототипа до старта." },
-        { q: "Помогаете ли с покупкой сервера и запуском?", a: "Да, помогаю подобрать VPS, настраиваю сервер с нуля, упаковываю проект в Docker Compose с автоперезапуском, Nginx и SSL, и передаю краткую инструкцию." },
+        { q: "Как проходит оплата и есть ли безопасная сделка?", a: "Работаю через безопасную сделку на Kwork (гарантия платформы) либо поэтапно 50/50 напрямую с чеком самозанятого. Для сложных проектов возможен показ рабочего прототипа до старта." },
+        { q: "Помогаете ли с покупкой сервера и запуском?", a: "Да, помогаю подобрать Linux VPS, настраиваю окружение с нуля (systemd / Docker) с автоперезапуском 24/7 и передаю краткую инструкцию по управлению." },
         { q: "Даёте ли гарантию после сдачи проекта?", a: "Да, 14 дней бесплатной технической поддержки и оперативного исправления любых багов после передачи. Далее возможна доработка и сопровождение." },
         { q: "Работаете ли под NDA?", a: "Да, без проблем подписываю NDA — не публикую код, скриншоты и любые упоминания о вашем проекте в открытом портфолио." },
         { q: "Что нужно от меня, чтобы начать?", a: "Достаточно описать идею своими словами в Telegram или собрать короткий бриф через кнопку на сайте — я сам задам нужные вопросы и помогу оформить ТЗ." }
@@ -662,18 +707,19 @@ var texts = {
       copiedNotice: "Бриф скопирован",
       types: [
         { id: "bot", label: "Telegram-бот", rub: 5000, usd: 60, days: [2, 5] },
-        { id: "tma", label: "Mini App (Web)", rub: 10000, usd: 120, days: [4, 10] },
+        { id: "tma", label: "Сайт / Mini App", rub: 10000, usd: 120, days: [4, 10] },
         { id: "api", label: "REST API / Бэкенд", rub: 15000, usd: 200, days: [5, 12] },
         { id: "parser", label: "Парсер / Скрипт", rub: 8000, usd: 120, days: [2, 5] },
+        { id: "desktop", label: "Десктопное ПО", rub: 8000, usd: 120, days: [3, 7] },
         { id: "max", label: "Бот для MAX", rub: 6000, usd: 80, days: [2, 5] },
         { id: "fix", label: "Доработка / Фикс", rub: 3000, usd: 40, days: [1, 3] }
       ],
       modules: [
-        { id: "pay", label: "Оплаты (ЮKassa / Crypto / Stars)", rub: 3000, usd: 40, days: 1 },
+        { id: "pay", label: "Оплаты (ЮKassa / CryptoBot / Stars)", rub: 3000, usd: 40, days: 1 },
         { id: "admin", label: "Веб-админка", rub: 5000, usd: 60, days: 2 },
         { id: "db", label: "База данных (PostgreSQL)", rub: 2000, usd: 30, days: 1 },
-        { id: "crm", label: "Интеграция с API / CRM", rub: 3000, usd: 40, days: 1 },
-        { id: "vps", label: "Деплой на VPS (Docker)", rub: 2000, usd: 25, days: 0 },
+        { id: "api_ext", label: "Интеграция API / Google Sheets", rub: 3000, usd: 40, days: 1 },
+        { id: "vps", label: "Деплой на Linux VPS", rub: 2000, usd: 25, days: 0 },
         { id: "nda", label: "Под NDA", rub: 0, usd: 0, days: 0 }
       ],
       speeds: [
@@ -746,7 +792,7 @@ var texts = {
       ctaContact: "Contact",
       ctaPortfolio: "Portfolio",
       stats: [
-        { value: "30+", label: "production projects" },
+        { value: "20+", label: "production projects" },
         { value: "5.0 ★", label: "Kwork rating" },
         { value: "100%", label: "on-time delivery" }
       ]
@@ -754,8 +800,8 @@ var texts = {
     about: {
       title: "About me",
       note: "Commercial experience",
-      text: "I build resilient and scalable web services, Telegram bots, Mini Apps, and backend systems on Python. 30+ commercial projects successfully launched in production: from data scrapers and automation scripts to fullstack web applications and turnkey bots with a 100% on-time delivery record and 5.0 client rating. I design clean architecture, integrate payment gateways, optimize databases, and configure Docker deployment on Linux VPS.",
-      facts: ["UTC+3", "Reply ~15 min", "Turnkey & NDA", "Docker VPS"],
+      text: "I build web services, Telegram & MAX bots, automation scripts, and desktop software in Python. 20+ commercial and in-house projects delivered (5.0 Kwork rating, 100% on-time delivery). I design clean architecture, integrate payment gateways and external APIs, work with PostgreSQL/SQLite, and deploy reliable 24/7 services on Linux VPS (systemd / Docker).",
+      facts: ["UTC+3", "Reply ~15 min", "Turnkey & NDA", "Linux VPS 24/7"],
       resumeLabel: "CV on HH"
     },
     services: {
@@ -771,15 +817,15 @@ var texts = {
         { num: "01", title: "Brief & Estimate", desc: "We clarify requirements and lock in a realistic timeline and budget within 15 minutes." },
         { num: "02", title: "Prototype / Spec", desc: "I design the system architecture and can demo a working prototype before full kickoff." },
         { num: "03", title: "Build & Testing", desc: "Clean async Python code, database/payment integrations, and regular milestone demos." },
-        { num: "04", title: "Deploy & Support", desc: "Docker deployment on your Linux VPS, full source handover, docs, and 14-day warranty." }
+        { num: "04", title: "Deploy & Support", desc: "Deployment on your Linux VPS (systemd / Docker), full source handover, docs, and 14-day warranty." }
       ]
     },
     faq: {
       title: "FAQ",
       hint: "Common questions before kickoff",
       items: [
-        { q: "How does payment work? Is escrow available?", a: "We can work via Kwork escrow protection or split 50/50 milestones directly. For complex bots, I can build an initial demo prototype before order confirmation." },
-        { q: "Do you help with VPS setup and deployment?", a: "Yes — I configure your Linux VPS from scratch, containerize with Docker Compose, set up Nginx/SSL and auto-restart, and provide a concise handover guide." },
+        { q: "How does payment work? Is escrow available?", a: "We can work via Kwork escrow protection or split 50/50 milestones directly with official self-employed receipts. For complex bots, I can build an initial demo prototype before order confirmation." },
+        { q: "Do you help with VPS setup and deployment?", a: "Yes — I help pick a Linux VPS, set up the environment from scratch (systemd / Docker) with 24/7 auto-restart, and provide a concise handover guide." },
         { q: "Do you provide a warranty after delivery?", a: "Yes, 14 days of free bug-fix support after project handover, with optional ongoing maintenance afterwards." },
         { q: "Do you work under NDA?", a: "Absolutely. I sign NDAs and never disclose your code, screenshots, or project details in public portfolios." },
         { q: "What do you need from me to get started?", a: "Just describe your idea in plain words on Telegram or click Quick Brief on this page — I will ask the right technical questions and help finalize the spec." }
@@ -792,25 +838,26 @@ var texts = {
       modulesLabel: "2. Optional modules",
       speedLabel: "3. Target timeline",
       noteLabel: "4. Short description (optional)",
-      notePlaceholder: "E.g.: Telegram storefront bot with catalog, cart, and Stripe/Crypto checkout...",
+      notePlaceholder: "E.g.: Telegram storefront bot with catalog, cart, and CryptoBot/Stars checkout...",
       estimateLabel: "Estimate:",
       sendTg: "Send to Telegram",
       copyBrief: "Copy Brief",
       copiedNotice: "Brief copied",
       types: [
         { id: "bot", label: "Telegram Bot", rub: 5000, usd: 60, days: [2, 5] },
-        { id: "tma", label: "Mini App (Web)", rub: 10000, usd: 120, days: [4, 10] },
+        { id: "tma", label: "Website / Mini App", rub: 10000, usd: 120, days: [4, 10] },
         { id: "api", label: "REST API / Backend", rub: 15000, usd: 200, days: [5, 12] },
         { id: "parser", label: "Scraper / Automation", rub: 8000, usd: 120, days: [2, 5] },
+        { id: "desktop", label: "Desktop Software", rub: 8000, usd: 120, days: [3, 7] },
         { id: "max", label: "MAX Messenger Bot", rub: 6000, usd: 80, days: [2, 5] },
         { id: "fix", label: "Fix / Enhancement", rub: 3000, usd: 40, days: [1, 3] }
       ],
       modules: [
-        { id: "pay", label: "Payments (Stripe / Crypto / Stars)", rub: 3000, usd: 40, days: 1 },
+        { id: "pay", label: "Payments (CryptoBot / Telegram Stars)", rub: 3000, usd: 40, days: 1 },
         { id: "admin", label: "Web Admin Dashboard", rub: 5000, usd: 60, days: 2 },
         { id: "db", label: "Database (PostgreSQL)", rub: 2000, usd: 30, days: 1 },
-        { id: "crm", label: "3rd-party API / CRM", rub: 3000, usd: 40, days: 1 },
-        { id: "vps", label: "VPS Docker Deploy", rub: 2000, usd: 25, days: 0 },
+        { id: "api_ext", label: "3rd-party API / Google Sheets", rub: 3000, usd: 40, days: 1 },
+        { id: "vps", label: "Linux VPS Deploy", rub: 2000, usd: 25, days: 0 },
         { id: "nda", label: "Under NDA", rub: 0, usd: 0, days: 0 }
       ],
       speeds: [
@@ -951,32 +998,67 @@ function Typewriter(props) {
   ]);
 }
 
-function StandstickerArchDiagram(props) {
+function ProjectArchDiagram(props) {
   var isRu = props.lang === "ru";
+  var itemId = props.itemId || "standoff2-market";
+  var suffix = (props.suffix || "card") + "-" + itemId;
+  var gridId = "archGrid-" + suffix;
+  var glowId = "archGlow-" + suffix;
+
+  var presets = {
+    "standoff2-market": {
+      aria: isRu ? "Архитектура Standsticker" : "Standsticker Architecture",
+      footer: "CLEAN ARCHITECTURE · P2P DEAL ENGINE",
+      tl: ["Aiogram 3 Bot", isRu ? "P2P Чат · Сделки" : "P2P Chat · Deals"],
+      bl: ["Telegram Stars", isRu ? "Биллинг · Эскроу" : "Billing · Escrow"],
+      center: ["FastAPI Hub", "Domain · UseCases", "Admin API · Auth"],
+      tr: ["PostgreSQL", "SQLAlchemy 2.0"],
+      br: ["Docker · Pytest", "Async Tests · VPS"]
+    },
+    "kwork-monitor": {
+      aria: isRu ? "Архитектура мониторинга заказов" : "Order Monitor Architecture",
+      footer: "ASYNC COLLECTOR · SMART FILTER · LLM DRAFTS",
+      tl: ["HTTPX Parser", isRu ? "Сбор лент · BS4" : "Feed Scan · BS4"],
+      bl: ["Smart Filter", isRu ? "Бюджет · Конкуренция" : "Budget · Offers"],
+      center: ["Async Core", "SQLite Dedup", "Linux VPS 24/7"],
+      tr: ["Telegram Push", isRu ? "Мгновенный алерт" : "Instant Alerts"],
+      br: ["LLM API", isRu ? "Черновик отклика" : "AI Draft Reply"]
+    },
+    "ocr-screen-translator": {
+      aria: isRu ? "Архитектура OCR Screen Translator" : "OCR Screen Translator Architecture",
+      footer: "DESKTOP GUI · REAL-TIME OCR TRANSLATOR",
+      tl: ["Screen Capture", isRu ? "Область · Экран" : "Area · Fullscreen"],
+      bl: ["Clipboard", isRu ? "Буфер обмена" : "Paste Image"],
+      center: ["Flet GUI", "Material Design", "Pillow Preproc"],
+      tr: ["EasyOCR", isRu ? "Распознавание текста" : "Text Extraction"],
+      br: ["Translate API", isRu ? "Мгновенный перевод" : "Instant Output"]
+    }
+  };
+
+  var cfg = presets[itemId] || presets["standoff2-market"];
+
   return h("svg", {
     className: "arch-diagram",
     viewBox: "0 0 640 360",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     role: "img",
-    "aria-label": isRu ? "Архитектура Standsticker" : "Standsticker Architecture"
+    "aria-label": cfg.aria
   }, [
     h("defs", { key: "defs" }, [
-      h("pattern", { id: "archGrid", width: "24", height: "24", patternUnits: "userSpaceOnUse", key: "grid" },
+      h("pattern", { id: gridId, width: "24", height: "24", patternUnits: "userSpaceOnUse", key: "grid" },
         h("path", { d: "M 24 0 L 0 0 0 24", fill: "none", stroke: "rgba(255,255,255,0.04)", strokeWidth: "1" })
       ),
-      h("linearGradient", { id: "archGlow", x1: "0", y1: "0", x2: "640", y2: "360", gradientUnits: "userSpaceOnUse", key: "glow" }, [
+      h("linearGradient", { id: glowId, x1: "0", y1: "0", x2: "640", y2: "360", gradientUnits: "userSpaceOnUse", key: "glow" }, [
         h("stop", { offset: "0%", stopColor: "#141418", key: "s1" }),
         h("stop", { offset: "100%", stopColor: "#0a0a0c", key: "s2" })
       ])
     ]),
-    h("rect", { width: "640", height: "360", fill: "url(#archGlow)", key: "bg" }),
-    h("rect", { width: "640", height: "360", fill: "url(#archGrid)", key: "gridbg" }),
+    h("rect", { width: "640", height: "360", fill: "url(#" + glowId + ")", key: "bg" }),
+    h("rect", { width: "640", height: "360", fill: "url(#" + gridId + ")", key: "gridbg" }),
     h("g", { key: "header" }, [
       h("circle", { cx: "32", cy: "332", r: "4", fill: "#10b981", key: "dot" }),
-      h("text", { x: "44", y: "336", fill: "#a1a1aa", fontSize: "11", fontFamily: "monospace", letterSpacing: "1", key: "lbl" },
-        "CLEAN ARCHITECTURE · P2P DEAL ENGINE"
-      )
+      h("text", { x: "44", y: "336", fill: "#a1a1aa", fontSize: "11", fontFamily: "monospace", letterSpacing: "1", key: "lbl" }, cfg.footer)
     ]),
     h("g", { stroke: "rgba(255,255,255,0.22)", strokeWidth: "1.5", key: "edges" }, [
       h("line", { x1: "184", y1: "120", x2: "240", y2: "165", key: "e1" }),
@@ -984,31 +1066,31 @@ function StandstickerArchDiagram(props) {
       h("line", { x1: "400", y1: "165", x2: "456", y2: "120", key: "e3" }),
       h("line", { x1: "400", y1: "195", x2: "456", y2: "240", key: "e4" })
     ]),
-    h("g", { key: "node-bot" }, [
+    h("g", { key: "node-tl" }, [
       h("rect", { x: "30", y: "82", width: "154", height: "76", rx: "10", fill: "#16161a", stroke: "#333338", strokeWidth: "1.2", key: "r" }),
-      h("text", { x: "107", y: "115", textAnchor: "middle", fill: "#ffffff", fontSize: "13", fontWeight: "600", fontFamily: "Montserrat, sans-serif", key: "t1" }, "Aiogram 3 Bot"),
-      h("text", { x: "107", y: "136", textAnchor: "middle", fill: "#71717a", fontSize: "11", fontFamily: "monospace", key: "t2" }, isRu ? "P2P Чат · Сделки" : "P2P Chat · Deals")
+      h("text", { x: "107", y: "115", textAnchor: "middle", fill: "#ffffff", fontSize: "13", fontWeight: "600", fontFamily: "Montserrat, sans-serif", key: "t1" }, cfg.tl[0]),
+      h("text", { x: "107", y: "136", textAnchor: "middle", fill: "#71717a", fontSize: "11", fontFamily: "monospace", key: "t2" }, cfg.tl[1])
     ]),
-    h("g", { key: "node-stars" }, [
+    h("g", { key: "node-bl" }, [
       h("rect", { x: "30", y: "202", width: "154", height: "76", rx: "10", fill: "#16161a", stroke: "#333338", strokeWidth: "1.2", key: "r" }),
-      h("text", { x: "107", y: "235", textAnchor: "middle", fill: "#ffffff", fontSize: "13", fontWeight: "600", fontFamily: "Montserrat, sans-serif", key: "t1" }, "Telegram Stars"),
-      h("text", { x: "107", y: "256", textAnchor: "middle", fill: "#10b981", fontSize: "11", fontFamily: "monospace", key: "t2" }, isRu ? "Биллинг · Эскроу" : "Billing · Escrow")
+      h("text", { x: "107", y: "235", textAnchor: "middle", fill: "#ffffff", fontSize: "13", fontWeight: "600", fontFamily: "Montserrat, sans-serif", key: "t1" }, cfg.bl[0]),
+      h("text", { x: "107", y: "256", textAnchor: "middle", fill: "#10b981", fontSize: "11", fontFamily: "monospace", key: "t2" }, cfg.bl[1])
     ]),
-    h("g", { key: "node-hub" }, [
+    h("g", { key: "node-center" }, [
       h("rect", { x: "240", y: "124", width: "160", height: "112", rx: "12", fill: "#1c1c22", stroke: "rgba(255,255,255,0.45)", strokeWidth: "1.5", key: "r" }),
-      h("text", { x: "320", y: "162", textAnchor: "middle", fill: "#ffffff", fontSize: "15", fontWeight: "700", fontFamily: "Unbounded, sans-serif", key: "t1" }, "FastAPI Hub"),
-      h("text", { x: "320", y: "186", textAnchor: "middle", fill: "#a1a1aa", fontSize: "11", fontFamily: "monospace", key: "t2" }, "Domain · UseCases"),
-      h("text", { x: "320", y: "206", textAnchor: "middle", fill: "#71717a", fontSize: "11", fontFamily: "monospace", key: "t3" }, "Admin API · Auth")
+      h("text", { x: "320", y: "162", textAnchor: "middle", fill: "#ffffff", fontSize: "15", fontWeight: "700", fontFamily: "Unbounded, sans-serif", key: "t1" }, cfg.center[0]),
+      h("text", { x: "320", y: "186", textAnchor: "middle", fill: "#a1a1aa", fontSize: "11", fontFamily: "monospace", key: "t2" }, cfg.center[1]),
+      h("text", { x: "320", y: "206", textAnchor: "middle", fill: "#71717a", fontSize: "11", fontFamily: "monospace", key: "t3" }, cfg.center[2])
     ]),
-    h("g", { key: "node-db" }, [
+    h("g", { key: "node-tr" }, [
       h("rect", { x: "456", y: "82", width: "154", height: "76", rx: "10", fill: "#16161a", stroke: "#333338", strokeWidth: "1.2", key: "r" }),
-      h("text", { x: "533", y: "115", textAnchor: "middle", fill: "#ffffff", fontSize: "13", fontWeight: "600", fontFamily: "Montserrat, sans-serif", key: "t1" }, "PostgreSQL"),
-      h("text", { x: "533", y: "136", textAnchor: "middle", fill: "#71717a", fontSize: "11", fontFamily: "monospace", key: "t2" }, "SQLAlchemy 2.0")
+      h("text", { x: "533", y: "115", textAnchor: "middle", fill: "#ffffff", fontSize: "13", fontWeight: "600", fontFamily: "Montserrat, sans-serif", key: "t1" }, cfg.tr[0]),
+      h("text", { x: "533", y: "136", textAnchor: "middle", fill: "#71717a", fontSize: "11", fontFamily: "monospace", key: "t2" }, cfg.tr[1])
     ]),
-    h("g", { key: "node-ops" }, [
+    h("g", { key: "node-br" }, [
       h("rect", { x: "456", y: "202", width: "154", height: "76", rx: "10", fill: "#16161a", stroke: "#333338", strokeWidth: "1.2", key: "r" }),
-      h("text", { x: "533", y: "235", textAnchor: "middle", fill: "#ffffff", fontSize: "13", fontWeight: "600", fontFamily: "Montserrat, sans-serif", key: "t1" }, "Docker · Pytest"),
-      h("text", { x: "533", y: "256", textAnchor: "middle", fill: "#71717a", fontSize: "11", fontFamily: "monospace", key: "t2" }, "CI/CD · Async Tests")
+      h("text", { x: "533", y: "235", textAnchor: "middle", fill: "#ffffff", fontSize: "13", fontWeight: "600", fontFamily: "Montserrat, sans-serif", key: "t1" }, cfg.br[0]),
+      h("text", { x: "533", y: "256", textAnchor: "middle", fill: "#71717a", fontSize: "11", fontFamily: "monospace", key: "t2" }, cfg.br[1])
     ])
   ]);
 }
@@ -1281,7 +1363,7 @@ function Portfolio(props) {
           h("div", { className: "portfolio-cover" }, [
             hasShots
               ? h("img", { src: item.shots[0], alt: item.name, loading: "lazy", decoding: "async" })
-              : h(StandstickerArchDiagram, { lang: props.lang }),
+              : h(ProjectArchDiagram, { itemId: item.id, lang: props.lang, suffix: "card" }),
             h("div", { className: "cover-badges" }, [
               hasShots
                 ? h("span", { className: "cover-badge", key: "cnt" }, [
@@ -1674,7 +1756,7 @@ function Modal(props) {
                 })
               ) : null
             ])
-          : h("div", { className: "gallery gallery-arch" }, h(StandstickerArchDiagram, { lang: props.lang })),
+          : h("div", { className: "gallery gallery-arch" }, h(ProjectArchDiagram, { itemId: item.id, lang: props.lang, suffix: "modal" })),
         h("div", { className: "modal-meta" }, [
           (item.task || item.solution || item.result)
             ? h("div", { className: "case-breakdown" }, [
